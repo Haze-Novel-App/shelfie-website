@@ -1,0 +1,25 @@
+/* src/assets/styles/_variables.scss */
+
+:root {
+    /* Default (Light/Beige) Theme */
+    --bg-primary: #F3F2EC;    
+    --bg-secondary: #EDEBE4; 
+    --text-primary: #111111; 
+    --text-secondary: #555555;
+    --accent-color: #111111;
+    --border-color: #dcdcdc;
+    --white: #ffffff;
+    --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Dark Mode / Black & White Theme */
+body.dark-theme {
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --accent-color: #ffffff;
+    --border-color: #333333;
+    --white: #2C2C2C;
+    --card-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}

@@ -1,0 +1,99 @@
+/* src/components/Reader.scss */
+
+.reader-section {
+    padding: 120px 0;
+    background-color: #ffffff; // Contrast against the cream 'About' section
+    display: flex;
+    justify-content: center;
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+    }
+
+    .reader-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .reader-image img {
+        width: 100%;
+        height: auto;
+        box-shadow: 30px 30px 0px #f3f2ec; // Subtle background block effect from your theme
+    }
+
+    .section-subtitle {
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        color: #c5a992; // Accent color
+        margin-bottom: 10px;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+    }
+
+    .reader-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 40px;
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+
+            .feature-icon {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.2rem;
+                color: #c5a992;
+                margin-right: 20px;
+                font-style: italic;
+            }
+
+            p {
+                font-size: 1.1rem;
+                color: #333;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .reader-description {
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .emphasis-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #1a1a1a;
+        }
+    }
+}
+
+// Mobile view
+@media (max-width: 992px) {
+    .reader-section .reader-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        
+        .reader-features li {
+            justify-content: center;
+        }
+    }
+}

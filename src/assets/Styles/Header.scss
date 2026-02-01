@@ -1,0 +1,55 @@
+/* src/components/Header.scss */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // This is the most important line for alignment
+    height: 60px; 
+    padding: 0 8%;
+    background-color: #F3F2EC; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.3rem; 
+        letter-spacing: 3px;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        cursor: pointer;
+        
+        /* Force the logo to have no extra vertical "ghost" padding */
+        display: flex;
+        align-items: center;
+        line-height: 1; 
+        margin: 0; 
+    }
+
+    .navbar {
+        display: flex;
+        gap: 25px; 
+        align-items: center; // Ensures links are centered to the logo
+        height: 100%;
+
+        a {
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #666;
+            transition: color 0.3s ease;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: #1a1a1a;
+            }
+        }
+    }
+}
