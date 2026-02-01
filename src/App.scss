@@ -48,14 +48,14 @@ html {
 }
 
 
-@use './assets/Styles/variables'; // Use 'as *' so variables are global
-@use './assets/Styles/base';
-@use './assets/Styles/FeaturedBooks';
-@use './assets/Styles/Footer';
-@use './assets/Styles/Hero';
-@use './assets/Styles/Newsletter';
-@use './assets/Styles/Header';
-@use './assets/Styles/About';
-@use './assets/Styles/Reader';
-@use './assets/Styles/Author';
-@use './assets/Styles/DownloadApp';
+@import './assets/Styles/_variables.scss';
+@import './assets/Styles/_base.scss';
+@import './assets/Styles/FeaturedBooks.scss';
+@import './assets/Styles/Footer.scss';
+@import './assets/Styles/Hero.scss';
+@import './assets/Styles/Newsletter.scss';
+@import './assets/Styles/Header.scss';
+@import './assets/Styles/About.scss';
+@import './assets/Styles/Reader.scss';
+@import './assets/Styles/Author.scss';
+@import './assets/Styles/DownloadApp.scss';
