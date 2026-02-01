@@ -48,7 +48,7 @@ html {
 }
 
 
-@use './assets/Styles/variables' as *; // Use 'as *' so variables are global
+@use './assets/Styles/variables'; // Use 'as *' so variables are global
 @use './assets/Styles/base';
 @use './assets/Styles/FeaturedBooks';
 @use './assets/Styles/Footer';
