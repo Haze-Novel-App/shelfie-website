@@ -48,15 +48,14 @@ html {
 }
 
 
-/* Inside src/App.scss */
-@import './assets/styles/variables';
-@import './assets/styles/base';
-@import './assets/styles/FeaturedBooks.scss';
-@import './assets/styles/Footer.scss';
-@import './assets/styles/Hero.scss';
-@import './assets/styles/Newsletter.scss';
-@import './assets/styles/Header.scss';
-@import './assets/styles/About.scss';
-@import './assets/styles/Reader.scss';
-@import './assets/styles/Author.scss';
-@import './assets/styles/DownloadApp.scss';
+@use './assets/Styles/variables' as *; // Use 'as *' so variables are global
+@use './assets/Styles/base';
+@use './assets/Styles/FeaturedBooks';
+@use './assets/Styles/Footer';
+@use './assets/Styles/Hero';
+@use './assets/Styles/Newsletter';
+@use './assets/Styles/Header';
+@use './assets/Styles/About';
+@use './assets/Styles/Reader';
+@use './assets/Styles/Author';
+@use './assets/Styles/DownloadApp';
