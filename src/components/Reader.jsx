@@ -1,4 +1,6 @@
 import React from 'react';
+import fantasy from '../assets/imgs/bookCover/fantasy.png';
+
 
 const ReaderSection = () => {
   return (
@@ -8,7 +10,7 @@ const ReaderSection = () => {
           <div className="reader-image">
              {/* This represents the image of the mobile app or a reader from your design */}
             <img 
-              src="https://placehold.co/500x700/f3f2ec/333333?text=Reader+Experience" 
+              src={fantasy} 
               alt="Shelfie Reader App" 
             />
           </div>

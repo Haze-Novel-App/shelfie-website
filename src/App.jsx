@@ -4,27 +4,29 @@ import Hero from './components/Hero';
 import Brands from './components/Brands';
 import FeaturedBooks from './components/FeaturedBooks';
 import Newsletter from './components/Newsletter';
-import Articles from './components/Articles';
+import Articles from './components/LatestArticles';
 import Footer from './components/Footer';
 import './App.scss';
 import About from './components/About';
 import ReaderSection from './components/Reader';
 import AuthorSection from './components/Author';
 import DownloadApp from './components/DownloadApp';
+import Genres from './components/Genres';
 
 function App() {
   return (
     <div className="app-container">
       <Header />
       <Hero />
+      <Genres />
       {/* <Brands /> */}
       <About />
       <ReaderSection />
       <AuthorSection />
-      <DownloadApp />
-      {/* <FeaturedBooks />
       <Newsletter />
-      <Articles /> */}
+      <DownloadApp />
+      {/* <FeaturedBooks /> */}
+      <Articles />
       <Footer />
     </div>
   );

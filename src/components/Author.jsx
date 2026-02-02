@@ -1,4 +1,5 @@
 import React from 'react';
+import adventure from '../assets/imgs/bookCover/advantur.png';
 
 const AuthorSection = () => {
   return (
@@ -35,7 +36,7 @@ const AuthorSection = () => {
 
           <div className="author-image">
             <img 
-              src="https://placehold.co/500x650/f9f8f4/333333?text=Author+Dashboard" 
+              src={adventure} 
               alt="Shelfie Author Community" 
             />
           </div>

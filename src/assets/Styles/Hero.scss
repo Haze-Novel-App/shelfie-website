@@ -2,164 +2,35 @@
 
 
 
-
-// .hero {
-
-//     display: flex;
-
-//     align-items: center;
-
-//     justify-content: space-between;
-
-//     padding: 60px 10%;
-
-//     position: relative;
-
-//     min-height: 80vh;
-
-//     background-color: #f9f8f4; 
-
-
-
-//     .hero-content {
-
-//         max-width: 50%;
-
-//         z-index: 1;
-
-
-
-//         .hero-title {
-
-//             font-size: 3.5rem; 
-
-//             font-family: 'Playfair Display', serif; 
-
-//             line-height: 1.2;
-
-//             margin-bottom: 24px;
-
-//             color: #1a1a1a;
-
-//         }
-
-
-
-//         .hero-desc {
-
-//             color: #555;
-
-//             margin-bottom: 40px;
-
-//             line-height: 1.8;
-
-//             font-size: 1.1rem;
-
-//             max-width: 90%;
-
-//         }
-
-
-
-//         .btn {
-
-//             background: transparent;
-
-//             border: 1px solid #1a1a1a;
-
-//             padding: 18px 40px;
-
-//             font-weight: 600;
-
-//             transition: all 0.3s ease;
-
-           
-
-//             &:hover {
-
-//                 background: #1a1a1a;
-
-//                 color: #fff;
-
-//             }
-
-//         }
-
-//     }
-
-
-
-
-//     .popup-overlay {
-
-//         position: fixed;
-
-//         top: 0;
-
-//         left: 0;
-
-//         width: 100%;
-
-//         height: 100%;
-
-//         background: rgba(0,0,0,0.6);
-
-//         display: flex;
-
-//         justify-content: center;
-
-//         align-items: center;
-
-//         z-index: 1000;
-
-
-
-//         .popup-content {
-
-//             background: white;
-
-//             padding: 40px;
-
-//             border-radius: 12px;
-
-//             position: relative;
-
-//             max-width: 500px;
-
-//             text-align: center;
-
-//         }
-
-//     }
-
-// }
-
-
-
-
-
-
-
-/* src/components/Hero.scss */
-
 .hero {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 60px 10%;
-    position: relative;
-    min-height: 80vh;
+    justify-content: center; 
+    padding: 60px 10%; 
+    min-height: 70vh; 
     background-color: #f9f8f4;
     width: 100%;
-    box-sizing: border-box;
-    overflow: hidden; // Prevents any inner elements from causing horizontal scroll
+    box-sizing: border-box; 
+    overflow-x: hidden; 
+
+    .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        gap: 40px;
+    }
 
     .hero-content {
-        max-width: 50%;
+        flex: 1; 
+        max-width: 550px; 
+        text-align: left;
         z-index: 1;
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-family: 'Playfair Display', serif;
             line-height: 1.2;
             margin-bottom: 24px;
@@ -168,16 +39,15 @@
 
         .hero-desc {
             color: #555;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.8;
-            font-size: 1.1rem;
-            max-width: 90%;
+            font-size: 1rem;
         }
 
         .btn {
             background: transparent;
             border: 1px solid #1a1a1a;
-            padding: 18px 40px;
+            padding: 15px 35px;
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -189,104 +59,52 @@
         }
     }
 
-    .hero-image img {
-        box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
-        max-width: 400px;
-        width: 100%;
-        height: auto;
+    .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end; 
+
+        img {
+            box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+            max-width: 320px; 
+            width: 100%;
+            height: auto;
+            border-radius: 12px; 
+            display: block; 
+        }
     }
 }
 
-/* --- POPUP OVERLAY (Isolated Layer) --- */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+    overflow-x: hidden; 
+}
 
-    .popup-card {
-        background: #fff;
-        width: 90%;
-        max-width: 600px;
-        padding: 50px 40px;
-        border-radius: 20px;
-        position: relative;
-        text-align: center;
-        box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+#root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-        .close-x {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #f5f5f5;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0;
+        
+        .hero-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+        }
+        
+        .hero-content {
+            max-width: 100%;
+            text-align: center;
+        }
+        
+        .hero-image {
             justify-content: center;
         }
-
-        .popup-h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .popup-p {
-            color: #666;
-            margin-bottom: 35px;
-        }
     }
-}
-
-.role-selection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-
-    .choice-box {
-        border: 1px solid #eee;
-        padding: 30px 20px;
-        border-radius: 15px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-            border-color: #1a1a1a;
-            background-color: #f9f8f4;
-            transform: translateY(-5px);
-        }
-
-        h3 { font-family: 'Playfair Display', serif; margin-bottom: 10px; }
-        p { font-size: 0.85rem; color: #777; margin-bottom: 20px; }
-        .select-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
-    }
-}
-
-.download-badges {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-    img { height: 45px; }
-}
-
-.btn-back {
-    background: none;
-    border: none;
-    color: #888;
-    cursor: pointer;
-    font-size: 0.9rem;
-    &:hover { color: #1a1a1a; }
 }

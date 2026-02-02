@@ -1,0 +1,74 @@
+/* src/assets/Styles/Genres.scss */
+
+.genres-section {
+    // Reduced padding from 80px to 40px to make it less "big"
+    padding: 40px 8%; 
+    background-color: #f3f2ec; 
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    .genres-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px; // Slightly narrower container
+        margin: 0 auto;
+        gap: 15px;
+    }
+
+    .genre-item {
+        text-align: center;
+        flex: 1;
+
+        .icon-wrapper {
+            margin-bottom: 12px; // Reduced margin
+            display: flex;
+            justify-content: center;
+
+            .genre-icon-img {
+                // Reduced size from 60px to 45px
+                width: 45px;  
+                height: 45px;
+                object-fit: contain;
+                // Muted look to match the "Booksaw" theme
+                filter: grayscale(100%) opacity(0.7); 
+                transition: all 0.3s ease;
+            }
+        }
+
+        &:hover {
+            .genre-icon-img {
+                filter: grayscale(0%) opacity(1);
+                transform: scale(1.1); // Small pop on hover
+            }
+        }
+
+        h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem; // Smaller headers
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+
+        .genre-desc {
+            font-size: 0.65rem; // Smaller descriptions
+            color: #999;
+            margin: 0;
+        }
+    }
+}
+
+/* Responsive Grid for Mobile */
+@media (max-width: 768px) {
+    .genres-section {
+        padding: 30px 20px;
+        .genres-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+    }
+}
