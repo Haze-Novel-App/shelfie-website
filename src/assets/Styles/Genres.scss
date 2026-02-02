@@ -1,38 +1,119 @@
-/* src/assets/Styles/Genres.scss */
+
+// .genres-section {
+//     padding: 40px 8%; 
+//     background-color: #f3f2ec; 
+//     width: 100%;
+//     box-sizing: border-box;
+//     border-bottom: 1px solid rgba(0,0,0,0.05);
+
+//     .genres-container {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         max-width: 1100px; 
+//         margin: 0 auto;
+//         gap: 15px;
+//     }
+
+//     .genre-item {
+//         text-align: center;
+//         flex: 1;
+
+//         .icon-wrapper {
+//             margin-bottom: 12px; 
+//             display: flex;
+//             justify-content: center;
+
+//             .genre-icon-img {
+//                 width: 45px;  
+//                 height: 45px;
+//                 object-fit: contain;
+//                 filter: grayscale(100%) opacity(0.7); 
+//                 transition: all 0.3s ease;
+//             }
+//         }
+
+//         &:hover {
+//             .genre-icon-img {
+//                 filter: grayscale(0%) opacity(1);
+//                 transform: scale(1.1); 
+//             }
+//         }
+
+//         h4 {
+//             font-family: 'Inter', sans-serif;
+//             font-size: 0.75rem; 
+//             text-transform: uppercase;
+//             letter-spacing: 1.5px;
+//             margin-bottom: 4px;
+//             color: #1a1a1a;
+//         }
+
+//         .genre-desc {
+//             font-size: 0.65rem; 
+//             color: #999;
+//             margin: 0;
+//         }
+//     }
+// }
+
+// @media (max-width: 768px) {
+//     .genres-section {
+//         padding: 30px 20px;
+//         .genres-container {
+//             display: grid;
+//             grid-template-columns: 1fr 1fr;
+//             gap: 30px;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+/* src/assets/styles/Genres.scss */
 
 .genres-section {
-    // Reduced padding from 80px to 40px to make it less "big"
-    padding: 40px 8%; 
-    background-color: #f3f2ec; 
+    padding: 40px 0; // Vertical padding only
+    background-color: var(--bg-genres); // Light purple tint
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
 
     .genres-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1100px; // Slightly narrower container
-        margin: 0 auto;
+        width: 90%; 
+        max-width: 1100px; 
+        margin: 0 auto; // Centers the content and prevents right-side overflow
         gap: 15px;
     }
 
     .genre-item {
         text-align: center;
         flex: 1;
+        cursor: pointer;
 
         .icon-wrapper {
-            margin-bottom: 12px; // Reduced margin
+            margin-bottom: 12px; 
             display: flex;
             justify-content: center;
 
             .genre-icon-img {
-                // Reduced size from 60px to 45px
                 width: 45px;  
                 height: 45px;
                 object-fit: contain;
-                // Muted look to match the "Booksaw" theme
-                filter: grayscale(100%) opacity(0.7); 
+                // Tinting the PNGs to match the purple theme
+                filter: grayscale(100%) sepia(100%) hue-rotate(240deg) saturate(200%) opacity(0.6); 
                 transition: all 0.3s ease;
             }
         }
@@ -40,35 +121,39 @@
         &:hover {
             .genre-icon-img {
                 filter: grayscale(0%) opacity(1);
-                transform: scale(1.1); // Small pop on hover
+                transform: scale(1.1); 
+            }
+            h4 {
+                color: var(--accent-color);
             }
         }
 
         h4 {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem; // Smaller headers
+            font-size: 0.75rem; 
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 4px;
-            color: #1a1a1a;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
         }
 
         .genre-desc {
-            font-size: 0.65rem; // Smaller descriptions
-            color: #999;
+            font-size: 0.65rem; 
+            color: var(--text-secondary);
             margin: 0;
         }
     }
 }
 
-/* Responsive Grid for Mobile */
 @media (max-width: 768px) {
     .genres-section {
-        padding: 30px 20px;
+        padding: 30px 0;
         .genres-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+            width: 95%;
         }
     }
 }

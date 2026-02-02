@@ -2,16 +2,135 @@
 
 
 
+// .hero {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center; 
+//     padding: 60px 10%; 
+//     min-height: 70vh; 
+//     background-color: #f9f8f4;
+//     width: 100%;
+//     box-sizing: border-box; 
+//     overflow-x: hidden; 
+
+//     .hero-container {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         width: 90%; 
+//         max-width: 1200px; 
+//         margin: 0 auto; 
+//         gap: 40px;
+//     }
+
+//     .hero-content {
+//         flex: 1; 
+//         max-width: 550px; 
+//         text-align: left;
+//         z-index: 1;
+
+//         .hero-title {
+//             font-size: 3rem;
+//             font-family: 'Playfair Display', serif;
+//             line-height: 1.2;
+//             margin-bottom: 24px;
+//             color: #1a1a1a;
+//         }
+
+//         .hero-desc {
+//             color: #555;
+//             margin-bottom: 30px;
+//             line-height: 1.8;
+//             font-size: 1rem;
+//         }
+
+//         .btn {
+//             background: transparent;
+//             border: 1px solid #1a1a1a;
+//             padding: 15px 35px;
+//             font-weight: 600;
+//             transition: all 0.3s ease;
+//             cursor: pointer;
+            
+//             &:hover {
+//                 background: #1a1a1a;
+//                 color: #fff;
+//             }
+//         }
+//     }
+
+//     .hero-image {
+//         flex: 1;
+//         display: flex;
+//         justify-content: flex-end; 
+
+//         img {
+//             box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+//             max-width: 320px; 
+//             width: 100%;
+//             height: auto;
+//             border-radius: 12px; 
+//             display: block; 
+//         }
+//     }
+// }
+
+// html, body {
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//     overflow-x: hidden; 
+// }
+
+// #root {
+//     width: 100%;
+//     margin: 0;
+//     padding: 0;
+// }
+
+// @media (max-width: 768px) {
+//     .hero {
+//         padding: 40px 0;
+        
+//         .hero-container {
+//             flex-direction: column;
+//             text-align: center;
+//             gap: 40px;
+//         }
+        
+//         .hero-content {
+//             max-width: 100%;
+//             text-align: center;
+//         }
+        
+//         .hero-image {
+//             justify-content: center;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+/* src/assets/styles/Hero.scss */
+
 .hero {
     display: flex;
     align-items: center;
     justify-content: center; 
-    padding: 60px 10%; 
+    padding: 60px 10%; // Removed horizontal padding to prevent right-side overflow
     min-height: 70vh; 
-    background-color: #f9f8f4;
+    background-color: var(--bg-secondary); // Uses your light purple tint
     width: 100%;
     box-sizing: border-box; 
-    overflow-x: hidden; 
+    position: relative;
+    overflow: hidden; // Absolute safety against ghost scrolling
 
     .hero-container {
         display: flex;
@@ -19,7 +138,7 @@
         justify-content: space-between;
         width: 90%; 
         max-width: 1200px; 
-        margin: 0 auto; 
+        margin: 0 auto; // Centers content within the 100% width section
         gap: 40px;
     }
 
@@ -34,27 +153,32 @@
             font-family: 'Playfair Display', serif;
             line-height: 1.2;
             margin-bottom: 24px;
-            color: #1a1a1a;
+            color: var(--text-primary); // Deep purple-black
         }
 
         .hero-desc {
-            color: #555;
+            color: var(--text-secondary); // Muted purple
             margin-bottom: 30px;
             line-height: 1.8;
             font-size: 1rem;
         }
 
         .btn {
-            background: transparent;
-            border: 1px solid #1a1a1a;
+            background: var(--accent-color); // Primary Purple
+            color: var(--white);
+            border: 1px solid var(--accent-color);
             padding: 15px 35px;
             font-weight: 600;
+            border-radius: 8px; // Modern rounded buttons
             transition: all 0.3s ease;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(124, 77, 255, 0.2);
             
             &:hover {
-                background: #1a1a1a;
-                color: #fff;
+                background: var(--accent-hover);
+                color: var(--white);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(124, 77, 255, 0.3);
             }
         }
     }
@@ -65,21 +189,24 @@
         justify-content: flex-end; 
 
         img {
-            box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
-            max-width: 320px; 
+            // Updated shadow to a soft purple tint
+            box-shadow: 20px 20px 50px rgba(124, 77, 255, 0.15);
+            max-width: 350px; 
             width: 100%;
             height: auto;
-            border-radius: 12px; 
+            border-radius: 20px; // More pronounced rounding
             display: block; 
         }
     }
 }
 
+/* Global Fixes */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; 
+    max-width: 100%;
+    overflow-x: hidden; // Primary fix for the right-side gap
 }
 
 #root {
@@ -95,6 +222,7 @@ html, body {
         .hero-container {
             flex-direction: column;
             text-align: center;
+            width: 95%; // Slightly wider on mobile
             gap: 40px;
         }
         

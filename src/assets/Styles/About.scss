@@ -1,14 +1,105 @@
-/* src/components/About.scss */
+
+// .about-section {
+//     padding: 100px 0;
+//     background-color: var(--bg-secondary); 
+//     display: flex;
+//     justify-content: center;
+
+//     .container {
+//         width: 90%;
+//         max-width: 1200px;
+//     }
+
+//     .about-grid {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         gap: 60px;
+//         align-items: start;
+//     }
+
+//     .section-subtitle {
+//         font-family: 'Inter', sans-serif;
+//         text-transform: uppercase;
+//         letter-spacing: 2px;
+//         font-size: 0.9rem;
+//         color: #888;
+//         margin-bottom: 15px;
+//         position: relative;
+//         display: inline-block;
+
+//         &::before {
+//             content: "";
+//             position: absolute;
+//             bottom: -5px;
+//             left: 0;
+//             width: 40px;
+//             height: 1px;
+//             background-color: #c5a992; 
+//         }
+//     }
+
+//     .section-title {
+//         font-family: 'Playfair Display', serif;
+//         font-size: 3rem;
+//         line-height: 1.2;
+//         color: #1a1a1a;
+//         margin-top: 20px;
+//     }
+
+//     .about-content {
+//         .highlight-text {
+//             font-size: 1.4rem;
+//             color: #333;
+//             margin-bottom: 25px;
+//             line-height: 1.6;
+//             font-weight: 500;
+//         }
+
+//         .description-text {
+//             font-size: 1.1rem;
+//             color: #666;
+//             line-height: 1.8;
+//             margin-bottom: 20px;
+//         }
+//     }
+// }
+
+// @media (max-width: 992px) {
+//     .about-section {
+//         .about-grid {
+//             grid-template-columns: 1fr;
+//             gap: 40px;
+//         }
+//         .section-title {
+//             font-size: 2.5rem;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+/* src/assets/styles/About.scss */
 
 .about-section {
-    padding: 100px 0;
-    background-color: #f9f8f4; // Matching the light cream theme in your images
+    padding: 80px 0; // Slightly tighter padding for a more compact feel
+    background-color: var(--bg-primary); // Back to white for contrast against Genres
     display: flex;
     justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 
     .container {
         width: 90%;
-        max-width: 1200px;
+        max-width: 1100px; // Matching the narrower container of other sections
     }
 
     .about-grid {
@@ -22,8 +113,8 @@
         font-family: 'Inter', sans-serif;
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-size: 0.9rem;
-        color: #888;
+        font-size: 0.8rem;
+        color: var(--text-secondary); // Muted purple
         margin-bottom: 15px;
         position: relative;
         display: inline-block;
@@ -34,46 +125,51 @@
             bottom: -5px;
             left: 0;
             width: 40px;
-            height: 1px;
-            background-color: #c5a992; // Subtle accent color from the theme
+            height: 2px;
+            background-color: var(--accent-color); // Purple accent line
         }
     }
 
     .section-title {
-        font-family: 'Playfair Display', serif; // Premium serif font
-        font-size: 3rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem; // Scaled down for consistent hierarchy
         line-height: 1.2;
-        color: #1a1a1a;
+        color: var(--text-primary); // Deep purple-black
         margin-top: 20px;
     }
 
     .about-content {
         .highlight-text {
-            font-size: 1.4rem;
-            color: #333;
+            font-size: 1.2rem;
+            color: var(--text-primary);
             margin-bottom: 25px;
             line-height: 1.6;
             font-weight: 500;
         }
 
         .description-text {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1rem;
+            color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 20px;
         }
     }
 }
 
-// Responsive adjustments
 @media (max-width: 992px) {
     .about-section {
+        padding: 60px 0;
         .about-grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
+            text-align: center;
+        }
+        .section-subtitle::before {
+            left: 50%;
+            transform: translateX(-50%);
         }
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
     }
 }

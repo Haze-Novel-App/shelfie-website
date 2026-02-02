@@ -1,37 +1,105 @@
+
+// .main-header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     height: 60px; 
+//     padding: 0 8%;
+//     background-color: #F3F2EC; 
+//     position: sticky;
+//     top: 0;
+//     z-index: 1000;
+//     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+//     .logo {
+//         font-family: 'Playfair Display', serif;
+//         font-weight: 700;
+//         font-size: 1.3rem; 
+//         letter-spacing: 3px;
+//         color: #1a1a1a;
+//         text-transform: uppercase;
+//         cursor: pointer;
+        
+//         display: flex;
+//         align-items: center;
+//         line-height: 1; 
+//         margin: 0; 
+//     }
+
+//     .navbar {
+//         display: flex;
+//         gap: 25px; 
+//         align-items: center; 
+//         height: 100%;
+
+//         a {
+//             text-decoration: none;
+//             font-family: 'Inter', sans-serif;
+//             font-size: 0.75rem; 
+//             font-weight: 600;
+//             text-transform: uppercase;
+//             letter-spacing: 1.2px;
+//             color: #666;
+//             transition: color 0.3s ease;
+//             line-height: 1;
+//             display: flex;
+//             align-items: center;
+
+//             &:hover {
+//                 color: #1a1a1a;
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
 /* src/components/Header.scss */
 
 .main-header {
     display: flex;
     justify-content: space-between;
-    align-items: center; // This is the most important line for alignment
+    align-items: center;
     height: 60px; 
-    padding: 0 8%;
-    background-color: #F3F2EC; 
+    padding: 0 10%; // Aligns with your Hero container padding
+    background-color: var(--white); // Pure white background
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color); // Light purple border
+    width: 100%;
+    box-sizing: border-box; // Fixes the right-side gap issue
 
     .logo {
         font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-size: 1.3rem; 
         letter-spacing: 3px;
-        color: #1a1a1a;
+        color: var(--text-primary); // Deep purple-black
         text-transform: uppercase;
         cursor: pointer;
-        
-        /* Force the logo to have no extra vertical "ghost" padding */
         display: flex;
         align-items: center;
         line-height: 1; 
         margin: 0; 
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--accent-color); // Purple hover effect
+        }
     }
 
     .navbar {
         display: flex;
         gap: 25px; 
-        align-items: center; // Ensures links are centered to the logo
+        align-items: center; 
         height: 100%;
 
         a {
@@ -41,14 +109,30 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            color: #666;
-            transition: color 0.3s ease;
+            color: var(--text-secondary); // Muted purple
+            transition: all 0.3s ease;
             line-height: 1;
             display: flex;
             align-items: center;
 
             &:hover {
-                color: #1a1a1a;
+                color: var(--accent-color); // Primary purple on hover
+                transform: translateY(-1px);
+            }
+        }
+    }
+}
+
+/* Ensure mobile header stays within bounds */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 0 5%;
+        
+        .navbar {
+            gap: 15px;
+            a {
+                font-size: 0.7rem;
+                letter-spacing: 0.5px;
             }
         }
     }

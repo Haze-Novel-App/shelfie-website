@@ -1,25 +1,59 @@
+
+// :root {
+//     --bg-primary: #F3F2EC;    
+//     --bg-secondary: #EDEBE4; 
+//     --text-primary: #111111; 
+//     --text-secondary: #555555;
+//     --accent-color: #111111;
+//     --border-color: #dcdcdc;
+//     --white: #ffffff;
+//     --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+// }
+
+// body.dark-theme {
+//     --bg-primary: #121212;
+//     --bg-secondary: #1E1E1E;
+//     --text-primary: #ffffff;
+//     --text-secondary: #b0b0b0;
+//     --accent-color: #ffffff;
+//     --border-color: #333333;
+//     --white: #2C2C2C;
+//     --card-shadow: 0 10px 20px rgba(0,0,0,0.5);
+// }
+
+
+
+
+
+
+
+
+
 /* src/assets/styles/_variables.scss */
 
 :root {
-    /* Default (Light/Beige) Theme */
-    --bg-primary: #F3F2EC;    
-    --bg-secondary: #EDEBE4; 
-    --text-primary: #111111; 
-    --text-secondary: #555555;
-    --accent-color: #111111;
-    --border-color: #dcdcdc;
+    /* Purple & White Theme */
+    --bg-primary: #ffffff;          // Main background
+    --bg-secondary: #f8f5ff;        // Very light purple tint for sections
+    --bg-genres: #ece8ff;
+    --text-primary: #1a0b2e;        // Deep purple-black for text
+    --text-secondary: #6b5b95;      // Muted purple for descriptions
+    --accent-color: #7c4dff;        // Primary Purple
+    --accent-hover: #651fff;        // Deeper Purple for hovers
+    --border-color: #e0d7f7;        // Light purple borders
     --white: #ffffff;
-    --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    --card-shadow: 0 10px 30px rgba(124, 77, 255, 0.1);
 }
 
-/* Dark Mode / Black & White Theme */
+/* Dark Mode / Deep Purple Theme */
 body.dark-theme {
-    --bg-primary: #121212;
-    --bg-secondary: #1E1E1E;
+    --bg-primary: #0f0a1a;
+    --bg-secondary: #191229;
     --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent-color: #ffffff;
-    --border-color: #333333;
-    --white: #2C2C2C;
-    --card-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    --text-secondary: #b3a1d9;
+    --accent-color: #b388ff;
+    --accent-hover: #d1c4e9;
+    --border-color: #31264a;
+    --white: #1f1633;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }

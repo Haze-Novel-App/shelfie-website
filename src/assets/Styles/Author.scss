@@ -1,19 +1,20 @@
 
+
 // .author-section {
-//     padding: 120px 0;
+//     padding: 60px 0; 
 //     background-color: #f3f2ec; 
 //     display: flex;
 //     justify-content: center;
 
 //     .container {
 //         width: 90%;
-//         max-width: 1200px;
+//         max-width: 1100px; 
 //     }
 
 //     .author-grid {
 //         display: grid;
 //         grid-template-columns: 1fr 1fr;
-//         gap: 80px;
+//         gap: 40px; 
 //         align-items: center;
 //     }
 
@@ -22,32 +23,32 @@
 //             font-family: 'Inter', sans-serif;
 //             text-transform: uppercase;
 //             letter-spacing: 2px;
-//             font-size: 0.9rem;
+//             font-size: 0.8rem;
 //             color: #888;
-//             margin-bottom: 10px;
+//             margin-bottom: 8px;
 //         }
 
 //         .section-title {
 //             font-family: 'Playfair Display', serif;
-//             font-size: 2.8rem;
+//             font-size: 2.2rem; 
 //             line-height: 1.2;
-//             margin-bottom: 30px;
+//             margin-bottom: 25px;
 //             color: #1a1a1a;
 //         }
 
 //         .author-description {
-//             margin-bottom: 40px;
+//             margin-bottom: 30px;
             
 //             .highlight-text {
-//                 font-size: 1.3rem;
+//                 font-size: 1.1rem; 
 //                 font-weight: 500;
 //                 color: #333;
-//                 margin-bottom: 15px;
+//                 margin-bottom: 12px;
 //             }
 
 //             p {
-//                 font-size: 1.1rem;
-//                 line-height: 1.8;
+//                 font-size: 0.95rem;
+//                 line-height: 1.7;
 //                 color: #666;
 //             }
 //         }
@@ -61,36 +62,48 @@
 //         .benefit-item {
 //             h4 {
 //                 font-family: 'Playfair Display', serif;
-//                 font-size: 1.1rem;
-//                 margin-bottom: 10px;
+//                 font-size: 1rem;
+//                 margin-bottom: 8px;
 //                 color: #1a1a1a;
 //             }
 //             p {
-//                 font-size: 0.95rem;
+//                 font-size: 0.85rem;
 //                 color: #777;
 //                 line-height: 1.5;
 //             }
 //         }
 //     }
 
-//     .author-image img {
-//         width: 100%;
-//         height: auto;
-//         box-shadow: -30px 30px 0px #ffffff; 
+//     .author-image {
+//         display: flex;
+//         justify-content: center;
+        
+//         img {
+//             max-width: 320px; 
+//             width: 100%;
+//             height: auto;
+//             border-radius: 12px; 
+//             box-shadow: -15px 15px 0px #ffffff; 
+//         }
 //     }
 // }
 
 // @media (max-width: 992px) {
-//     .author-section .author-grid {
-//         grid-template-columns: 1fr;
-//         .author-image { order: 1; }
-//         .author-text { order: 2; text-align: center; }
+//     .author-section {
+//         padding: 40px 0;
         
-//         .author-benefits {
-//             justify-items: center;
+//         .author-grid {
+//             grid-template-columns: 1fr;
+//             .author-image { order: 1; margin-bottom: 30px; }
+//             .author-text { order: 2; text-align: center; }
+            
+//             .author-benefits {
+//                 justify-items: center;
+//             }
 //         }
 //     }
 // }
+
 
 
 
@@ -106,21 +119,23 @@
 /* src/components/Author.scss */
 
 .author-section {
-    // Reduced padding from 120px to 60px to match other sections
-    padding: 60px 0; 
-    background-color: #f3f2ec; 
+    padding: 80px 0; // Matching the padding of the About section
+    background-color: var(--bg-primary); // Back to Pure White
     display: flex;
     justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 
     .container {
         width: 90%;
-        max-width: 1100px; // Matching the narrower container
+        max-width: 1100px; 
     }
 
     .author-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px; // Tighter gap
+        gap: 60px; // Slightly wider gap for breathing room
         align-items: center;
     }
 
@@ -130,32 +145,32 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.8rem;
-            color: #888;
+            color: var(--accent-color); // Purple accent
             margin-bottom: 8px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; // Scaled down from 2.8rem
+            font-size: 2.2rem; 
             line-height: 1.2;
             margin-bottom: 25px;
-            color: #1a1a1a;
+            color: var(--text-primary); // Deep purple-black
         }
 
         .author-description {
             margin-bottom: 30px;
             
             .highlight-text {
-                font-size: 1.1rem; // Scaled down
+                font-size: 1.1rem; 
                 font-weight: 500;
-                color: #333;
+                color: var(--text-primary);
                 margin-bottom: 12px;
             }
 
             p {
                 font-size: 0.95rem;
                 line-height: 1.7;
-                color: #666;
+                color: var(--text-secondary); // Muted purple
             }
         }
     }
@@ -170,11 +185,11 @@
                 font-family: 'Playfair Display', serif;
                 font-size: 1rem;
                 margin-bottom: 8px;
-                color: #1a1a1a;
+                color: var(--text-primary);
             }
             p {
                 font-size: 0.85rem;
-                color: #777;
+                color: var(--text-secondary);
                 line-height: 1.5;
             }
         }
@@ -185,13 +200,17 @@
         justify-content: center;
         
         img {
-            // Scaled down max-width to 320px
             max-width: 320px; 
             width: 100%;
             height: auto;
-            border-radius: 12px; // Rounded corners for consistency
-            // Scaled down white box shadow
-            box-shadow: -15px 15px 0px #ffffff; 
+            border-radius: 12px; 
+            // Shadow is now the light purple secondary background color
+            box-shadow: -15px 15px 0px var(--bg-secondary); 
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+            }
         }
     }
 }

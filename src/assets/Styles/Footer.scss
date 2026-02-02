@@ -1,70 +1,150 @@
-/* src/components/Footer.scss */
+
+// .main-footer {
+//     background-color: #383733; 
+//     padding: 100px 8% 60px;
+//     display: grid;
+//     grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+//     gap: 40px;
+//     align-items: flex-start; 
+
+//     .footer-col {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: flex-start; 
+//         text-align: left;
+
+//         .logo {
+//             font-family: 'Playfair Display', serif;
+//             font-size: 2.2rem;
+//             font-weight: 700;
+//             color: #F3F2EC; 
+//             margin-bottom: 20px;
+//             letter-spacing: 3px;
+//             line-height: 1;
+//         }
+
+//         p {
+//             line-height: 1.6;
+//             color: #A3A199; 
+//             font-size: 0.95rem;
+//             max-width: 280px;
+//             margin: 0; 
+//         }
+
+//         h4 {
+//             margin-bottom: 30px;
+//             font-size: 0.9rem;
+//             color: #F3F2EC;
+//             text-transform: uppercase;
+//             letter-spacing: 2px;
+//         }
+
+//         a {
+//             color: #A3A199;
+//             text-decoration: none;
+//             margin-bottom: 12px;
+//             font-size: 0.9rem;
+//             transition: color 0.3s;
+
+//             &:hover {
+//                 color: #ffffff;
+//             }
+//         }
+//     }
+// }
+
+// @media (max-width: 850px) {
+//     .main-footer {
+//         grid-template-columns: 1fr 1fr;
+//         .footer-col:first-child {
+//             grid-column: span 2;
+//             margin-bottom: 30px;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
 
 .main-footer {
-    // A warm, dark coffee/taupe tone instead of black
-    background-color: #383733; 
-    // background-color: #2C2B28; 
-    padding: 100px 8% 60px;
-    display: grid;
-    // Branding takes 1.5 parts, others take 1 part each
-    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
-    gap: 40px;
-    align-items: flex-start; // Perfectly aligns all column tops
-
-    .footer-col {
-        // This ensures the logo and description stay perfectly left-aligned
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; 
-        text-align: left;
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #F3F2EC; // Use your main light cream for the text
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-            line-height: 1;
-        }
-
-        p {
-            line-height: 1.6;
-            color: #A3A199; // Muted warm gray
-            font-size: 0.95rem;
-            max-width: 280px;
-            margin: 0; // Removes default browser margins that break alignment
-        }
-
-        h4 {
-            margin-bottom: 30px;
-            font-size: 0.9rem;
-            color: #F3F2EC;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        a {
-            color: #A3A199;
-            text-decoration: none;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-
-            &:hover {
-                color: #ffffff;
-            }
-        }
-    }
+  background-color: var(--bg-genres);
+  padding: 70px 0;
+  width: 100%;
+  font-family: "Inter", sans-serif;
 }
 
-// Ensure it stacks correctly on small screens
-@media (max-width: 850px) {
-    .main-footer {
-        grid-template-columns: 1fr 1fr;
-        .footer-col:first-child {
-            grid-column: span 2;
-            margin-bottom: 30px;
-        }
-    }
+/* MAIN GRID */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+//   padding: 0 5%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; // BRAND IS WIDER
+  gap: 60px;
+  align-items: start; // 🔥 KEY FIX
+}
+
+/* BRAND COLUMN */
+.footer-brand .footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin: 0 0 16px 0;
+  color: #2f2a3d;
+}
+
+.footer-brand .description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 380px;
+  margin: 0;
+  color: #4b445f;
+}
+
+/* COMMON COLUMNS */
+.footer-col h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  margin: 0 0 18px 0;
+  font-weight: 700;
+  color: #2f2a3d;
+}
+
+.footer-col a {
+  display: block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: #5c5672;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #6b5cff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
 }

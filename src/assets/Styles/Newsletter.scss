@@ -1,21 +1,146 @@
-/* src/assets/Styles/Newsletter.scss */
+
+// .newsletter-section {
+//     padding: 100px 8%;
+//     background-color: #fff; 
+//     position: relative;
+//     overflow: hidden;
+//     display: flex;
+//     justify-content: center;
+
+//     .newsletter-container {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         width: 100%;
+//         max-width: 1200px;
+//         z-index: 2;
+//         gap: 60px;
+//     }
+
+//     .newsletter-text {
+//         flex: 1;
+//         .section-title {
+//             font-family: 'Playfair Display', serif;
+//             font-size: 3rem;
+//             line-height: 1.1;
+//             color: #1a1a1a;
+//             margin-bottom: 15px;
+//         }
+//     }
+
+//     .newsletter-form-wrapper {
+//         flex: 1;
+//         max-width: 500px;
+
+//         .form-desc {
+//             color: #666;
+//             margin-bottom: 30px;
+//             font-size: 1rem;
+//             line-height: 1.6;
+//         }
+
+//         .newsletter-form {
+//             display: flex;
+//             border-bottom: 1px solid #1a1a1a;
+//             padding-bottom: 10px;
+//             align-items: center;
+
+//             .newsletter-input {
+//                 flex: 1;
+//                 background: transparent;
+//                 border: none;
+//                 font-size: 0.9rem;
+//                 color: #1a1a1a;
+//                 outline: none;
+                
+//                 &::placeholder {
+//                     color: #999;
+//                     text-transform: capitalize;
+//                 }
+//             }
+
+//             .newsletter-btn {
+//                 background: transparent;
+//                 border: none;
+//                 font-weight: 700;
+//                 font-size: 0.85rem;
+//                 letter-spacing: 1px;
+//                 cursor: pointer;
+//                 display: flex;
+//                 align-items: center;
+//                 gap: 10px;
+//                 transition: color 0.3s;
+
+//                 &:hover {
+//                     color: #c5a992;
+//                 }
+//             }
+//         }
+//     }
+
+//     .bg-circles {
+//         position: absolute;
+//         top: 20%;
+//         left: -50px;
+//         width: 200px;
+//         height: 200px;
+//         background: radial-gradient(circle, transparent 20%, rgba(197, 169, 146, 0.1) 21%, transparent 22%);
+//         background-size: 40px 40px;
+//         opacity: 0.5;
+//     }
+
+//     .bg-waves {
+//         position: absolute;
+//         bottom: 10%;
+//         right: 0;
+//         width: 150px;
+//         height: 100px;
+//         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' fill='none' stroke='%23c5a992' stroke-opacity='0.2'/%3E%3C/svg%3E");
+//         opacity: 0.6;
+//     }
+// }
+
+// @media (max-width: 992px) {
+//     .newsletter-section .newsletter-container {
+//         flex-direction: column;
+//         text-align: center;
+//         gap: 40px;
+        
+//         .newsletter-text .section-title { font-size: 2.5rem; }
+//         .newsletter-form-wrapper { max-width: 100%; }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+/* src/assets/styles/Newsletter.scss */
 
 .newsletter-section {
-    padding: 100px 8%;
-    background-color: #fff; 
+    padding: 100px 0;
+    // Keeping your background shade
+    background-color: var(--bg-secondary); 
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
 
     .newsletter-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
-        max-width: 1200px;
+        width: 90%;
+        max-width: 1100px;
         z-index: 2;
-        gap: 60px;
+        gap: 80px;
     }
 
     .newsletter-text {
@@ -24,8 +149,14 @@
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             line-height: 1.1;
-            color: #1a1a1a;
-            margin-bottom: 15px;
+            /* CHANGED: Switched from white to black/deep purple */
+            color: #111111; 
+            margin-bottom: 20px;
+        }
+
+        .decorative-wave path {
+            stroke: var(--accent-color);
+            stroke-width: 3px;
         }
     }
 
@@ -34,81 +165,76 @@
         max-width: 500px;
 
         .form-desc {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1rem;
-            line-height: 1.6;
+            /* CHANGED: Switched from white to a readable dark gray/purple */
+            color: #444444; 
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         .newsletter-form {
             display: flex;
-            border-bottom: 1px solid #1a1a1a;
-            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color); 
+            padding-bottom: 12px;
             align-items: center;
+            transition: all 0.3s ease;
 
             .newsletter-input {
                 flex: 1;
                 background: transparent;
                 border: none;
-                font-size: 0.9rem;
-                color: #1a1a1a;
+                font-size: 1rem;
+                /* CHANGED: Input text is now black */
+                color: #111111; 
                 outline: none;
                 
                 &::placeholder {
-                    color: #999;
-                    text-transform: capitalize;
+                    /* CHANGED: Placeholder is now visible gray */
+                    color: #888888; 
+                    font-style: italic;
                 }
             }
 
             .newsletter-btn {
                 background: transparent;
                 border: none;
+                /* CHANGED: Button text is now black */
+                color: #111111; 
                 font-weight: 700;
-                font-size: 0.85rem;
-                letter-spacing: 1px;
+                font-size: 0.9rem;
+                letter-spacing: 2px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                transition: color 0.3s;
+                gap: 12px;
+                transition: all 0.3s ease;
 
                 &:hover {
-                    color: #c5a992;
+                    color: var(--accent-color);
+                    transform: translateX(8px);
                 }
             }
         }
     }
 
-    /* Decorative Elements */
+    /* Decorative Background Elements */
     .bg-circles {
         position: absolute;
-        top: 20%;
+        top: -50px;
         left: -50px;
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, transparent 20%, rgba(197, 169, 146, 0.1) 21%, transparent 22%);
-        background-size: 40px 40px;
-        opacity: 0.5;
+        width: 300px;
+        height: 300px;
+        // Darker dots for visibility on light bg
+        background: radial-gradient(circle, var(--bg-primary) 20%, transparent 21%);
+        background-size: 50px 50px;
     }
 
     .bg-waves {
         position: absolute;
-        bottom: 10%;
-        right: 0;
-        width: 150px;
-        height: 100px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' fill='none' stroke='%23c5a992' stroke-opacity='0.2'/%3E%3C/svg%3E");
-        opacity: 0.6;
-    }
-}
-
-@media (max-width: 992px) {
-    .newsletter-section .newsletter-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-        
-        .newsletter-text .section-title { font-size: 2.5rem; }
-        .newsletter-form-wrapper { max-width: 100%; }
+        bottom: -20px;
+        right: -20px;
+        width: 250px;
+        height: 150px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' fill='none' stroke='%23000000' stroke-opacity='0.05'/%3E%3C/svg%3E");
     }
 }
