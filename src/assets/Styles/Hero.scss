@@ -8,10 +8,11 @@
 //     justify-content: center; 
 //     padding: 60px 10%; 
 //     min-height: 70vh; 
-//     background-color: #f9f8f4;
+//     background-color: var(--bg-secondary); 
 //     width: 100%;
 //     box-sizing: border-box; 
-//     overflow-x: hidden; 
+//     position: relative;
+//     overflow: hidden; 
 
 //     .hero-container {
 //         display: flex;
@@ -34,27 +35,32 @@
 //             font-family: 'Playfair Display', serif;
 //             line-height: 1.2;
 //             margin-bottom: 24px;
-//             color: #1a1a1a;
+//             color: var(--text-primary); 
 //         }
 
 //         .hero-desc {
-//             color: #555;
+//             color: var(--text-secondary);
 //             margin-bottom: 30px;
 //             line-height: 1.8;
 //             font-size: 1rem;
 //         }
 
 //         .btn {
-//             background: transparent;
-//             border: 1px solid #1a1a1a;
+//             background: var(--accent-color);
+//             color: var(--white);
+//             border: 1px solid var(--accent-color);
 //             padding: 15px 35px;
 //             font-weight: 600;
+//             border-radius: 8px; 
 //             transition: all 0.3s ease;
 //             cursor: pointer;
+//             box-shadow: 0 4px 15px rgba(124, 77, 255, 0.2);
             
 //             &:hover {
-//                 background: #1a1a1a;
-//                 color: #fff;
+//                 background: var(--accent-hover);
+//                 color: var(--white);
+//                 transform: translateY(-2px);
+//                 box-shadow: 0 6px 20px rgba(124, 77, 255, 0.3);
 //             }
 //         }
 //     }
@@ -65,11 +71,11 @@
 //         justify-content: flex-end; 
 
 //         img {
-//             box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
-//             max-width: 320px; 
+//             box-shadow: 20px 20px 50px rgba(124, 77, 255, 0.15);
+//             max-width: 350px; 
 //             width: 100%;
 //             height: auto;
-//             border-radius: 12px; 
+//             border-radius: 20px;
 //             display: block; 
 //         }
 //     }
@@ -79,6 +85,7 @@
 //     margin: 0;
 //     padding: 0;
 //     width: 100%;
+//     max-width: 100%;
 //     overflow-x: hidden; 
 // }
 
@@ -95,6 +102,7 @@
 //         .hero-container {
 //             flex-direction: column;
 //             text-align: center;
+//             width: 95%; 
 //             gap: 40px;
 //         }
         
@@ -118,19 +126,33 @@
 
 
 
-/* src/assets/styles/Hero.scss */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .hero {
     display: flex;
     align-items: center;
     justify-content: center; 
-    padding: 60px 10%; // Removed horizontal padding to prevent right-side overflow
+    padding: 60px 10%; 
     min-height: 70vh; 
-    background-color: var(--bg-secondary); // Uses your light purple tint
+    background-color: var(--bg-secondary); 
     width: 100%;
     box-sizing: border-box; 
     position: relative;
-    overflow: hidden; // Absolute safety against ghost scrolling
+    overflow: hidden; 
 
     .hero-container {
         display: flex;
@@ -138,9 +160,146 @@
         justify-content: space-between;
         width: 90%; 
         max-width: 1200px; 
-        margin: 0 auto; // Centers content within the 100% width section
+        margin: 0 auto; 
         gap: 40px;
     }
+
+    /* src/assets/styles/Hero.scss (Add these at the bottom) */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 11, 46, 0.6); // Deep purple transparent overlay
+    backdrop-filter: blur(8px); // Modern blur effect
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; // Above everything else
+    padding: 20px;
+}
+
+.popup-card {
+    background: var(--white);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: popupFadeUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    .close-x {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--bg-secondary);
+        border: none;
+        font-size: 24px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: #ff4d4d;
+            color: white;
+        }
+    }
+
+    .popup-h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .popup-p {
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+
+    .role-selection {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .choice-box {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+
+            h3 {
+                margin: 0 0 5px 0;
+                color: var(--text-primary);
+            }
+
+            p {
+                margin: 0 0 10px 0;
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+            }
+
+            .select-text {
+                font-weight: 700;
+                color: var(--accent-color);
+                font-size: 0.85rem;
+                text-transform: uppercase;
+            }
+
+            &:hover {
+                border-color: var(--accent-color);
+                background: white;
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(124, 77, 255, 0.1);
+            }
+        }
+    }
+
+    .download-badges {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+
+        img {
+            height: 45px;
+            transition: transform 0.2s;
+            &:hover { transform: scale(1.05); }
+        }
+    }
+
+    .btn-back {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 0 auto;
+        &:hover { color: var(--accent-color); }
+    }
+}
+
+@keyframes popupFadeUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
 
     .hero-content {
         flex: 1; 
@@ -153,23 +312,23 @@
             font-family: 'Playfair Display', serif;
             line-height: 1.2;
             margin-bottom: 24px;
-            color: var(--text-primary); // Deep purple-black
+            color: var(--text-primary); 
         }
 
         .hero-desc {
-            color: var(--text-secondary); // Muted purple
+            color: var(--text-secondary);
             margin-bottom: 30px;
             line-height: 1.8;
             font-size: 1rem;
         }
 
         .btn {
-            background: var(--accent-color); // Primary Purple
+            background: var(--accent-color);
             color: var(--white);
             border: 1px solid var(--accent-color);
             padding: 15px 35px;
             font-weight: 600;
-            border-radius: 8px; // Modern rounded buttons
+            border-radius: 8px; 
             transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(124, 77, 255, 0.2);
@@ -189,24 +348,22 @@
         justify-content: flex-end; 
 
         img {
-            // Updated shadow to a soft purple tint
             box-shadow: 20px 20px 50px rgba(124, 77, 255, 0.15);
             max-width: 350px; 
             width: 100%;
             height: auto;
-            border-radius: 20px; // More pronounced rounding
+            border-radius: 20px;
             display: block; 
         }
     }
 }
 
-/* Global Fixes */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; // Primary fix for the right-side gap
+    overflow-x: hidden; 
 }
 
 #root {
@@ -222,7 +379,7 @@ html, body {
         .hero-container {
             flex-direction: column;
             text-align: center;
-            width: 95%; // Slightly wider on mobile
+            width: 95%; 
             gap: 40px;
         }
         
