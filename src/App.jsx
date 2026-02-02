@@ -12,6 +12,7 @@ import ReaderSection from './components/Reader';
 import AuthorSection from './components/Author';
 import DownloadApp from './components/DownloadApp';
 import Genres from './components/Genres';
+import ContactUs from './components/ContactUs';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
       <About />
       <ReaderSection />
       <AuthorSection />
-      <Newsletter />
+      {/* <Newsletter /> */}
+      <ContactUs />
       <DownloadApp />
       {/* <FeaturedBooks /> */}
       <Articles />
