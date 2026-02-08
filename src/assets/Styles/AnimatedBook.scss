@@ -247,7 +247,6 @@
   }
 }
 
-/* --- Updated Marquee Icons (Lavender BG & Gray Icons) --- */
 .hero-marquee {
   position: absolute;
   bottom: 70px; 
@@ -260,7 +259,7 @@
   
   /* Changed background to lavender */
   background-color: #E6E6FA; 
-  padding: 20px 0; /* Added padding to make the background visible */
+  padding: 20px 0; 
 
   .marquee-content {
     display: inline-flex;
