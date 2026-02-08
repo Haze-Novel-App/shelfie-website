@@ -55,11 +55,11 @@ const LatestArticles = () => {
           ))}
         </div>
 
-        <div className="section-footer">
+        {/* <div className="section-footer">
           <button className="btn-read-all">
             READ ALL ARTICLES <i className="fas fa-arrow-right"></i>
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

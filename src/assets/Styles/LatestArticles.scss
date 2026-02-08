@@ -2,6 +2,164 @@
 
 
 
+
+// .articles-section {
+//     padding: 80px 0;
+//     background-color: var(--bg-secondary); 
+//     width: 100%;
+//     box-sizing: border-box;
+//     overflow: hidden;
+//     text-align: center;
+
+//     .container {
+//         width: 90%;
+//         max-width: 1100px;
+//         margin: 0 auto;
+//     }
+
+//     .section-header {
+//         margin-bottom: 60px;
+//         position: relative;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+
+//         &::before, &::after {
+//             content: '';
+//             position: absolute;
+//             top: 65%;
+//             width: 25%; 
+//             height: 1px;
+//             background-color: var(--border-color);
+//         }
+//         &::before { left: 0; }
+//         &::after { right: 0; }
+
+//         .subtitle {
+//             font-size: 0.75rem;
+//             text-transform: uppercase;
+//             letter-spacing: 2px;
+//             color: var(--text-secondary);
+//             margin-bottom: 10px;
+//         }
+
+//         .title {
+//             font-family: 'Playfair Display', serif;
+//             font-size: 2.8rem;
+//             color: var(--text-primary); 
+//             margin: 0;
+//         }
+//     }
+
+//     .articles-grid {
+//         display: grid;
+//         grid-template-columns: repeat(3, 1fr);
+//         gap: 30px;
+//         margin-bottom: 50px;
+//     }
+
+//     .article-card {
+//         text-align: left;
+
+//         .article-image {
+//             margin-bottom: 20px;
+//             overflow: hidden;
+//             border-radius: 8px;
+//             img {
+//                 width: 100%;
+//                 height: auto;
+//                 display: block;
+//                 transition: transform 0.5s ease;
+//             }
+//             &:hover img { transform: scale(1.05); }
+//         }
+
+//         .article-info {
+//             .date {
+//                 font-size: 0.8rem;
+//                 color: var(--accent-color);
+//                 display: block;
+//                 margin-bottom: 10px;
+//                 font-weight: 600;
+//             }
+
+//             .article-title {
+//                 font-family: 'Playfair Display', serif;
+//                 font-size: 1.4rem;
+//                 line-height: 1.4;
+//                 color: var(--text-primary);
+//                 margin-bottom: 20px;
+//             }
+            
+//         }
+//     }
+
+//     .section-footer {
+//         margin-top: 40px; 
+//         display: flex;
+//         justify-content: center;
+
+//         .btn-read-all {
+//             display: inline-flex;
+//             align-items: center;
+//             gap: 12px;
+//             padding: 14px 40px;
+            
+//             background: transparent;
+//             border: 1px solid var(--text-primary); 
+//             border-radius: 4px; 
+            
+//             font-size: 0.85rem;
+//             font-weight: 700;
+//             letter-spacing: 1.5px;
+//             text-transform: uppercase;
+//             color: var(--text-primary); 
+//             cursor: pointer;
+//             transition: all 0.3s ease;
+
+//             i {
+//                 font-size: 0.75rem;
+//                 transition: transform 0.3s ease;
+//             }
+
+//             &:hover {
+//                 background: var(--text-primary);
+//                 color: var(--white);
+//                 transform: translateY(-3px);
+                
+//                 i {
+//                     transform: translateX(5px);
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media (max-width: 992px) {
+//     .articles-section .articles-grid {
+//         grid-template-columns: 1fr 1fr;
+//     }
+// }
+
+// @media (max-width: 768px) {
+//     .articles-section {
+//         .section-header::before, .section-header::after { display: none; }
+//         .articles-grid { grid-template-columns: 1fr; }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* src/assets/Styles/LatestArticles.scss */
 
 .articles-section {
@@ -29,7 +187,7 @@
             content: '';
             position: absolute;
             top: 65%;
-            width: 25%; // Slightly shorter to avoid crowding
+            width: 25%; 
             height: 1px;
             background-color: var(--border-color);
         }
@@ -37,18 +195,21 @@
         &::after { right: 0; }
 
         .subtitle {
-            font-size: 0.75rem;
+            font-family: 'Abel', sans-serif; // Changed to Abel
+            font-size: 0.9rem; // Slightly larger for Abel
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--text-secondary);
             margin-bottom: 10px;
         }
 
         .title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-family: 'Bebas Neue', cursive; // Changed to Bebas Neue
+            font-size: 3.5rem; // Increased for impact
+            letter-spacing: 1px;
             color: var(--text-primary); 
             margin: 0;
+            line-height: 1;
         }
     }
 
@@ -77,45 +238,45 @@
 
         .article-info {
             .date {
-                font-size: 0.8rem;
+                font-family: 'Abel', sans-serif; // Changed to Abel
+                font-size: 0.9rem;
                 color: var(--accent-color);
                 display: block;
                 margin-bottom: 10px;
                 font-weight: 600;
+                letter-spacing: 1px;
             }
 
             .article-title {
-                font-family: 'Playfair Display', serif;
-                font-size: 1.4rem;
-                line-height: 1.4;
+                font-family: 'Bebas Neue', cursive; // Changed to Bebas Neue
+                font-size: 1.8rem; // Adjusted for Bebas
+                line-height: 1.1;
+                letter-spacing: 0.5px;
                 color: var(--text-primary);
                 margin-bottom: 20px;
             }
-            
-            // Note: article-footer logic removed from here to keep things clean
         }
     }
 
-    // FIXED: Moved outside of article-card logic
     .section-footer {
         margin-top: 40px; 
         display: flex;
         justify-content: center;
 
         .btn-read-all {
+            font-family: 'Abel', sans-serif; // Changed to Abel
             display: inline-flex;
             align-items: center;
             gap: 12px;
             padding: 14px 40px;
             
-            // The Editorial Style
             background: transparent;
             border: 1px solid var(--text-primary); 
             border-radius: 4px; 
             
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-primary); 
             cursor: pointer;
@@ -150,5 +311,6 @@
     .articles-section {
         .section-header::before, .section-header::after { display: none; }
         .articles-grid { grid-template-columns: 1fr; }
+        .section-header .title { font-size: 2.8rem; }
     }
 }

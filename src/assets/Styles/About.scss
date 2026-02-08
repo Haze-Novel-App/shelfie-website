@@ -2,11 +2,107 @@
 
 
 
-/* src/assets/styles/About.scss */
+
+// .about-section {
+//     padding: 80px 0; 
+//     background-color: var(--bg-primary); 
+//     display: flex;
+//     justify-content: center;
+//     width: 100%;
+//     box-sizing: border-box;
+//     overflow: hidden;
+
+//     .container {
+//         width: 90%;
+//         max-width: 1100px; 
+//     }
+
+//     .about-grid {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         gap: 60px;
+//         align-items: start;
+//     }
+
+//     .section-subtitle {
+//         font-family: 'Inter', sans-serif;
+//         text-transform: uppercase;
+//         letter-spacing: 2px;
+//         font-size: 0.8rem;
+//         color: var(--text-secondary); 
+//         margin-bottom: 15px;
+//         position: relative;
+//         display: inline-block;
+
+//         &::before {
+//             content: "";
+//             position: absolute;
+//             bottom: -5px;
+//             left: 0;
+//             width: 40px;
+//             height: 2px;
+//             background-color: var(--accent-color); 
+//         }
+//     }
+
+//     .section-title {
+//         font-family: 'Playfair Display', serif;
+//         font-size: 2.5rem; 
+//         line-height: 1.2;
+//         color: var(--text-primary); 
+//         margin-top: 20px;
+//     }
+
+//     .about-content {
+//         .highlight-text {
+//             font-size: 1.2rem;
+//             color: var(--text-primary);
+//             margin-bottom: 25px;
+//             line-height: 1.6;
+//             font-weight: 500;
+//         }
+
+//         .description-text {
+//             font-size: 1rem;
+//             color: var(--text-secondary);
+//             line-height: 1.8;
+//             margin-bottom: 20px;
+//         }
+//     }
+// }
+
+// @media (max-width: 992px) {
+//     .about-section {
+//         padding: 60px 0;
+//         .about-grid {
+//             grid-template-columns: 1fr;
+//             gap: 30px;
+//             text-align: center;
+//         }
+//         .section-subtitle::before {
+//             left: 50%;
+//             transform: translateX(-50%);
+//         }
+//         .section-title {
+//             font-size: 2.2rem;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+/* src/assets/Styles/About.scss */
 
 .about-section {
-    padding: 80px 0; // Slightly tighter padding for a more compact feel
-    background-color: var(--bg-primary); // Back to white for contrast against Genres
+    padding: 80px 0;
+    background-color: var(--bg-primary);
     display: flex;
     justify-content: center;
     width: 100%;
@@ -15,7 +111,7 @@
 
     .container {
         width: 90%;
-        max-width: 1100px; // Matching the narrower container of other sections
+        max-width: 1100px;
     }
 
     .about-grid {
@@ -26,11 +122,11 @@
     }
 
     .section-subtitle {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Abel', sans-serif; // Changed to Abel
         text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.8rem;
-        color: var(--text-secondary); // Muted purple
+        letter-spacing: 3px; // Increased slightly for Abel
+        font-size: 0.9rem;
+        color: var(--text-secondary);
         margin-bottom: 15px;
         position: relative;
         display: inline-block;
@@ -42,31 +138,34 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background-color: var(--accent-color); // Purple accent line
+            background-color: var(--accent-color);
         }
     }
 
     .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem; // Scaled down for consistent hierarchy
-        line-height: 1.2;
-        color: var(--text-primary); // Deep purple-black
-        margin-top: 20px;
+        font-family: 'Bebas Neue', cursive; // Changed to Bebas Neue
+        font-size: 3.5rem; // Bebas Neue usually needs a larger size than Playfair
+        letter-spacing: 1px;
+        line-height: 1; // Tighter line height for Bebas
+        color: var(--text-primary);
+        margin-top: 10px;
     }
 
     .about-content {
         .highlight-text {
-            font-size: 1.2rem;
+            font-family: 'Abel', sans-serif; // Changed to Abel
+            font-size: 1.4rem; // Slightly larger for readability
             color: var(--text-primary);
             margin-bottom: 25px;
-            line-height: 1.6;
-            font-weight: 500;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         .description-text {
-            font-size: 1rem;
+            font-family: 'Abel', sans-serif; // Changed to Abel
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            line-height: 1.8;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
     }
@@ -85,7 +184,7 @@
             transform: translateX(-50%);
         }
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
         }
     }
 }

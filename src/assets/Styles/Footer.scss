@@ -1,11 +1,95 @@
 
 
 
-/* src/components/Footer.scss */
+
+// .main-footer {
+//     background: linear-gradient(rgba(26, 11, 46, 0.85), rgba(26, 11, 46, 0.85)), 
+//                 url('../assets/imgs/footer-banner.png');
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+    
+//     padding: 80px 0;
+//     width: 100%;
+//     font-family: "Inter", sans-serif;
+//     color: #ffffff;
+//     box-sizing: border-box;
+//     position: relative;
+//     overflow: hidden;
+
+//     .footer-container {
+//         max-width: 1200px;
+//         margin: 0 auto;
+//         padding: 0 5%;
+//         display: grid;
+//         grid-template-columns: 2.5fr 1fr 1fr 1fr;
+//         gap: 60px;
+//         align-items: flex-start;
+//     }
+
+//     .footer-brand {
+//         .footer-logo {
+//             font-family: "Playfair Display", serif;
+//             font-size: 2.2rem;
+//             font-weight: 700;
+//             letter-spacing: 4px;
+//             margin: 0 0 12px 0;
+//             color: #ffffff;
+//             line-height: 1;
+//         }
+
+//         .description {
+//             font-size: 0.95rem;
+//             line-height: 1.8;
+//             max-width: 380px;
+//             margin: 0;
+//             color: rgba(255, 255, 255, 0.8);
+//         }
+//     }
+
+//     .footer-col {
+//         h4 {
+//             font-size: 0.85rem;
+//             text-transform: uppercase;
+//             letter-spacing: 2px;
+//             margin: 0 0 25px 0;
+//             font-weight: 700;
+//             color: #ffffff;
+//         }
+
+//         a {
+//             display: block;
+//             text-decoration: none;
+//             font-size: 0.9rem;
+//             margin-bottom: 15px;
+//             color: rgba(255, 255, 255, 0.6);
+//             transition: all 0.3s ease;
+
+//             &:hover {
+//                 color: #7c4dff;
+//                 transform: translateX(5px);
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* src/assets/Styles/Footer.scss */
 
 .main-footer {
-    // Standardizing the dark tone with a visible banner overlay
-    // The rgba(26, 11, 46, 0.85) creates a 85% opaque purple tint over the image
     background: linear-gradient(rgba(26, 11, 46, 0.85), rgba(26, 11, 46, 0.85)), 
                 url('../assets/imgs/footer-banner.png');
     background-size: cover;
@@ -14,7 +98,6 @@
     
     padding: 80px 0;
     width: 100%;
-    font-family: "Inter", sans-serif;
     color: #ffffff;
     box-sizing: border-box;
     position: relative;
@@ -32,18 +115,19 @@
 
     .footer-brand {
         .footer-logo {
-            font-family: "Playfair Display", serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 4px;
+            font-family: 'Bebas Neue', cursive; // Changed to Bebas Neue
+            font-size: 3rem; // Scaled up
+            font-weight: 400; // Bebas Neue is naturally bold
+            letter-spacing: 5px; // Increased for a wide, premium look
             margin: 0 0 12px 0;
             color: #ffffff;
             line-height: 1;
         }
 
         .description {
-            font-size: 0.95rem;
-            line-height: 1.8;
+            font-family: 'Abel', sans-serif; // Changed to Abel
+            font-size: 1.1rem; // Abel looks better slightly larger
+            line-height: 1.6;
             max-width: 380px;
             margin: 0;
             color: rgba(255, 255, 255, 0.8);
@@ -52,26 +136,47 @@
 
     .footer-col {
         h4 {
-            font-size: 0.85rem;
+            font-family: 'Bebas Neue', cursive; // Titles also look great in Bebas
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0 0 25px 0;
-            font-weight: 700;
+            font-weight: 400;
             color: #ffffff;
         }
 
         a {
+            font-family: 'Abel', sans-serif; // Changed to Abel
             display: block;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 15px;
             color: rgba(255, 255, 255, 0.6);
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
 
             &:hover {
-                color: #7c4dff;
+                color: #7c4dff; // Your accent purple
                 transform: translateX(5px);
             }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .main-footer .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-footer .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        
+        .footer-brand .description {
+            margin: 0 auto;
         }
     }
 }
