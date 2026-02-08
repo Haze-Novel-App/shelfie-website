@@ -1,29 +1,38 @@
 
+
+
+
 // .main-header {
 //     display: flex;
 //     justify-content: space-between;
 //     align-items: center;
 //     height: 60px; 
-//     padding: 0 8%;
-//     background-color: #F3F2EC; 
+//     padding: 0 10%; 
+//     background-color: var(--white); 
 //     position: sticky;
 //     top: 0;
 //     z-index: 1000;
-//     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+//     border-bottom: 1px solid var(--border-color);
+//     width: 100%;
+//     box-sizing: border-box;
 
 //     .logo {
 //         font-family: 'Playfair Display', serif;
 //         font-weight: 700;
 //         font-size: 1.3rem; 
 //         letter-spacing: 3px;
-//         color: #1a1a1a;
+//         color: var(--text-primary);
 //         text-transform: uppercase;
 //         cursor: pointer;
-        
 //         display: flex;
 //         align-items: center;
 //         line-height: 1; 
 //         margin: 0; 
+//         transition: color 0.3s ease;
+
+//         &:hover {
+//             color: var(--accent-color); 
+//         }
 //     }
 
 //     .navbar {
@@ -39,14 +48,29 @@
 //             font-weight: 600;
 //             text-transform: uppercase;
 //             letter-spacing: 1.2px;
-//             color: #666;
-//             transition: color 0.3s ease;
+//             color: var(--text-secondary);
+//             transition: all 0.3s ease;
 //             line-height: 1;
 //             display: flex;
 //             align-items: center;
 
 //             &:hover {
-//                 color: #1a1a1a;
+//                 color: var(--accent-color);
+//                 transform: translateY(-1px);
+//             }
+//         }
+//     }
+// }
+
+// @media (max-width: 768px) {
+//     .main-header {
+//         padding: 0 5%;
+        
+//         .navbar {
+//             gap: 15px;
+//             a {
+//                 font-size: 0.7rem;
+//                 letter-spacing: 0.5px;
 //             }
 //         }
 //     }
@@ -61,28 +85,31 @@
 
 
 
-/* src/components/Header.scss */
+
+
+/* src/assets/styles/Header.scss */
 
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px; 
-    padding: 0 10%; // Aligns with your Hero container padding
-    background-color: var(--white); // Pure white background
+    height: 70px; /* Slightly taller for Bebas Neue */
+    padding: 0 7%; /* Aligns with your Hero container padding */
+    background-color: var(--white);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color); // Light purple border
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     width: 100%;
-    box-sizing: border-box; // Fixes the right-side gap issue
+    box-sizing: border-box;
 
     .logo {
-        font-family: 'Playfair Display', serif;
-        font-weight: 700;
-        font-size: 1.3rem; 
-        letter-spacing: 3px;
-        color: var(--text-primary); // Deep purple-black
+        /* CHANGED: Bebas Neue */
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: 400; /* Bebas is usually regular weight */
+        font-size: 2rem; /* Increased size because Bebas is condensed */
+        letter-spacing: 2px;
+        color: #001a33; /* Dark Blue */
         text-transform: uppercase;
         cursor: pointer;
         display: flex;
@@ -92,32 +119,33 @@
         transition: color 0.3s ease;
 
         &:hover {
-            color: var(--accent-color); // Purple hover effect
+            color: #7c4dff; /* Purple hover effect */
         }
     }
 
     .navbar {
         display: flex;
-        gap: 25px; 
+        gap: 30px; 
         align-items: center; 
         height: 100%;
 
         a {
             text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem; 
-            font-weight: 600;
+            /* CHANGED: Bebas Neue */
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem; /* Increased for readability */
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--text-secondary); // Muted purple
+            letter-spacing: 1.5px;
+            color: rgba(0, 26, 51, 0.7); /* Muted Dark Blue */
             transition: all 0.3s ease;
             line-height: 1;
             display: flex;
             align-items: center;
 
             &:hover {
-                color: var(--accent-color); // Primary purple on hover
-                transform: translateY(-1px);
+                color: #7c4dff; /* Purple hover */
+                transform: translateY(-2px);
             }
         }
     }
@@ -127,12 +155,17 @@
 @media (max-width: 768px) {
     .main-header {
         padding: 0 5%;
+        height: 60px;
         
+        .logo {
+            font-size: 1.6rem;
+        }
+
         .navbar {
             gap: 15px;
             a {
-                font-size: 0.7rem;
-                letter-spacing: 0.5px;
+                font-size: 1rem;
+                letter-spacing: 1px;
             }
         }
     }

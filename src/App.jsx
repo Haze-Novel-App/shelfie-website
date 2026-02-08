@@ -13,20 +13,22 @@ import AuthorSection from './components/Author';
 import DownloadApp from './components/DownloadApp';
 import Genres from './components/Genres';
 import ContactUs from './components/ContactUs';
+import AnimatedBook from './components/AnimatedBook';
 
 function App() {
   return (
     <div className="app-container">
       <Header />
-      <Hero />
+      {/* <Hero /> */}
+      <AnimatedBook />
       <Genres />
       {/* <Brands /> */}
       <About />
-      <ReaderSection />
-      <AuthorSection />
+      {/* <ReaderSection /> */}
+      {/* <AuthorSection /> */}
       {/* <Newsletter /> */}
-      <ContactUs />
-      <DownloadApp />
+      {/* <ContactUs /> */}
+      {/* <DownloadApp /> */}
       {/* <FeaturedBooks /> */}
       <Articles />
       <Footer />
