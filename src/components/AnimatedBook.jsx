@@ -507,8 +507,8 @@ import TWEEN from '@tweenjs/tween.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import '../assets/styles/AnimatedBook.scss';
-// import BookCover from '../assets/imgs/bookCover/romantic.png';
+// import '../assets/styles/AnimatedBook.scss';
+import BookCover from '../assets/imgs/bookCover/romantic.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
