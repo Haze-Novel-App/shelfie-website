@@ -9,7 +9,8 @@ import adventure from '../assets/imgs/generes/adventure-sports.png';
 import selfhelp from '../assets/imgs/generes/book.png';
 import drama from '../assets/imgs/generes/drama.png';
 import historical from '../assets/imgs/generes/historical.png';
-import mystery from '../assets/imgs/generes/mystery.png';
+import historical from '../assets/imgs/generes/Mystery.png';
+// import mystery from '../assets/imgs/generes/mystery.png';
 
 
 
