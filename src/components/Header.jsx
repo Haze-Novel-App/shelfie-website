@@ -49,7 +49,7 @@
 
 import React from 'react';
 // Import the styles!
-import '../assets/styles/Header.scss'; 
+// import '../assets/styles/Header.scss'; 
 
 const Header = () => {
   const handleScroll = (e, targetId) => {
