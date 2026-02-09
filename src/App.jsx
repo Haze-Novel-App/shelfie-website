@@ -19,16 +19,16 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      {/* <Hero /> */}
-      <AnimatedBook />
+      <Hero />
+      {/* <AnimatedBook /> */}
       <Genres />
       {/* <Brands /> */}
       <About />
-      {/* <ReaderSection /> */}
-      {/* <AuthorSection /> */}
+      <ReaderSection />
+      <AuthorSection />
       {/* <Newsletter /> */}
       {/* <ContactUs /> */}
-      {/* <DownloadApp /> */}
+      <DownloadApp />
       {/* <FeaturedBooks /> */}
       <Articles />
       <Footer />

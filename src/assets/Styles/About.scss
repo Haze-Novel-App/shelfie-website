@@ -1,11 +1,7 @@
 
-
-
-
-
 // .about-section {
-//     padding: 80px 0; 
-//     background-color: var(--bg-primary); 
+//     padding: 80px 0;
+//     background-color: var(--bg-primary);
 //     display: flex;
 //     justify-content: center;
 //     width: 100%;
@@ -14,7 +10,7 @@
 
 //     .container {
 //         width: 90%;
-//         max-width: 1100px; 
+//         max-width: 1100px;
 //     }
 
 //     .about-grid {
@@ -25,11 +21,11 @@
 //     }
 
 //     .section-subtitle {
-//         font-family: 'Inter', sans-serif;
+//         font-family: 'Abel', sans-serif; // Changed to Abel
 //         text-transform: uppercase;
-//         letter-spacing: 2px;
-//         font-size: 0.8rem;
-//         color: var(--text-secondary); 
+//         letter-spacing: 3px; // Increased slightly for Abel
+//         font-size: 0.9rem;
+//         color: var(--text-secondary);
 //         margin-bottom: 15px;
 //         position: relative;
 //         display: inline-block;
@@ -41,31 +37,34 @@
 //             left: 0;
 //             width: 40px;
 //             height: 2px;
-//             background-color: var(--accent-color); 
+//             background-color: var(--accent-color);
 //         }
 //     }
 
 //     .section-title {
-//         font-family: 'Playfair Display', serif;
-//         font-size: 2.5rem; 
-//         line-height: 1.2;
-//         color: var(--text-primary); 
-//         margin-top: 20px;
+//         font-family: 'Bebas Neue', cursive; // Changed to Bebas Neue
+//         font-size: 3.5rem; // Bebas Neue usually needs a larger size than Playfair
+//         letter-spacing: 1px;
+//         line-height: 1; // Tighter line height for Bebas
+//         color: var(--text-primary);
+//         margin-top: 10px;
 //     }
 
 //     .about-content {
 //         .highlight-text {
-//             font-size: 1.2rem;
+//             font-family: 'Abel', sans-serif; // Changed to Abel
+//             font-size: 1.4rem; // Slightly larger for readability
 //             color: var(--text-primary);
 //             margin-bottom: 25px;
-//             line-height: 1.6;
-//             font-weight: 500;
+//             line-height: 1.5;
+//             font-weight: 400;
 //         }
 
 //         .description-text {
-//             font-size: 1rem;
+//             font-family: 'Abel', sans-serif; // Changed to Abel
+//             font-size: 1.1rem;
 //             color: var(--text-secondary);
-//             line-height: 1.8;
+//             line-height: 1.6;
 //             margin-bottom: 20px;
 //         }
 //     }
@@ -84,7 +83,7 @@
 //             transform: translateX(-50%);
 //         }
 //         .section-title {
-//             font-size: 2.2rem;
+//             font-size: 2.8rem;
 //         }
 //     }
 // }
@@ -98,93 +97,116 @@
 
 
 
-/* src/assets/Styles/About.scss */
+.about-elegant {
+  padding: 140px 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 
-.about-section {
-    padding: 80px 0;
-    background-color: var(--bg-primary);
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
+  .container {
+    width: 90%;
+    max-width: 1100px;
+  }
 
-    .container {
-        width: 90%;
-        max-width: 1100px;
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; // Asymmetrical for elegance
+    gap: 100px;
+    align-items: start;
+  }
+
+  .header-column {
+    .accent-bar {
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent-color);
+      margin-bottom: 25px;
     }
 
-    .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: start;
+    .main-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem; // Bold but clean
+      line-height: 1;
+      color: var(--text-primary);
+      margin: 0 0 15px 0;
+      letter-spacing: 1px;
     }
 
-    .section-subtitle {
-        font-family: 'Abel', sans-serif; // Changed to Abel
-        text-transform: uppercase;
-        letter-spacing: 3px; // Increased slightly for Abel
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        margin-bottom: 15px;
-        position: relative;
-        display: inline-block;
+    .subtitle {
+      font-family: 'Abel', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+  }
 
-        &::before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent-color);
+  .content-column {
+    padding-top: 20px;
+
+    .lead-paragraph {
+      font-family: 'Abel', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: var(--text-primary);
+      margin-bottom: 35px;
+    }
+
+    .main-description {
+      font-family: 'Abel', sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    // Interactive Highlight Logic
+    .interactive-highlight {
+      position: relative;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: default;
+      transition: color 0.3s ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background-color: var(--accent-color);
+        opacity: 0.1;
+        transition: opacity 0.3s ease, height 0.3s ease;
+        z-index: -1;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 0.25;
+          height: 10px;
         }
+      }
     }
 
-    .section-title {
-        font-family: 'Bebas Neue', cursive; // Changed to Bebas Neue
-        font-size: 3.5rem; // Bebas Neue usually needs a larger size than Playfair
-        letter-spacing: 1px;
-        line-height: 1; // Tighter line height for Bebas
-        color: var(--text-primary);
-        margin-top: 10px;
+    .minimal-art {
+      margin-top: 20px;
+      opacity: 0.5;
     }
-
-    .about-content {
-        .highlight-text {
-            font-family: 'Abel', sans-serif; // Changed to Abel
-            font-size: 1.4rem; // Slightly larger for readability
-            color: var(--text-primary);
-            margin-bottom: 25px;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-
-        .description-text {
-            font-family: 'Abel', sans-serif; // Changed to Abel
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-    }
+  }
 }
 
+// Mobile Responsive
 @media (max-width: 992px) {
-    .about-section {
-        padding: 60px 0;
-        .about-grid {
-            grid-template-columns: 1fr;
-            gap: 30px;
-            text-align: center;
-        }
-        .section-subtitle::before {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .section-title {
-            font-size: 2.8rem;
-        }
+  .about-elegant {
+    padding: 80px 0;
+    .editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      text-align: left;
     }
+    .main-title { font-size: 4rem; }
+  }
 }

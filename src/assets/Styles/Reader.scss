@@ -1,10 +1,12 @@
 
-
 // .reader-section {
 //     padding: 60px 0; 
-//     background-color: #ffffff;
+//     background-color: var(--bg-secondary); 
 //     display: flex;
 //     justify-content: center;
+//     width: 100%;
+//     box-sizing: border-box;
+//     overflow: hidden;
 
 //     .container {
 //         width: 90%;
@@ -27,7 +29,12 @@
 //             width: 100%;
 //             height: auto;
 //             border-radius: 12px; 
-//             box-shadow: 15px 15px 0px #f3f2ec; 
+//             box-shadow: 15px 15px 0px var(--bg-primary); 
+//             transition: transform 0.3s ease;
+
+//             &:hover {
+//                 transform: scale(1.02);
+//             }
 //         }
 //     }
 
@@ -36,7 +43,7 @@
 //         text-transform: uppercase;
 //         letter-spacing: 2px;
 //         font-size: 0.8rem; 
-//         color: #c5a992;
+//         color: var(--accent-color); 
 //         margin-bottom: 8px;
 //     }
 
@@ -45,7 +52,7 @@
 //         font-size: 2.2rem; 
 //         line-height: 1.2;
 //         margin-bottom: 25px; 
-//         color: #1a1a1a;
+//         color: var(--text-primary); 
 //     }
 
 //     .reader-features {
@@ -58,19 +65,19 @@
 //             align-items: center;
 //             margin-bottom: 15px;
 //             padding-bottom: 10px;
-//             border-bottom: 1px solid #eee;
+//             border-bottom: 1px solid var(--border-color); 
 
 //             .feature-icon {
 //                 font-family: 'Playfair Display', serif;
 //                 font-size: 1rem; 
-//                 color: #c5a992;
+//                 color: var(--accent-color);
 //                 margin-right: 15px;
 //                 font-style: italic;
 //             }
 
 //             p {
 //                 font-size: 0.95rem; 
-//                 color: #333;
+//                 color: var(--text-primary);
 //                 font-weight: 500;
 //             }
 //         }
@@ -80,7 +87,7 @@
 //         p {
 //             font-size: 0.95rem;
 //             line-height: 1.6;
-//             color: #666;
+//             color: var(--text-secondary); 
 //             margin-bottom: 15px;
 //         }
 
@@ -88,7 +95,7 @@
 //             font-family: 'Playfair Display', serif;
 //             font-size: 1.2rem;
 //             font-style: italic;
-//             color: #1a1a1a;
+//             color: var(--text-primary);
 //         }
 //     }
 // }
@@ -117,20 +124,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* src/components/Reader.scss */
+/* ReaderSection.scss */
 
 .reader-section {
-    padding: 60px 0; 
+    padding: 100px 0; 
     background-color: var(--bg-secondary); // Pure white background
     display: flex;
     justify-content: center;
@@ -146,7 +143,7 @@
     .reader-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px; 
+        gap: 80px; // Increased gap for an elegant, spacious feel
         align-items: center;
     }
 
@@ -155,78 +152,112 @@
         justify-content: center;
 
         img {
-            max-width: 320px; 
+            max-width: 400px; 
             width: 100%;
             height: auto;
-            border-radius: 12px; 
-            // Updated shadow to use a soft purple tint
-            box-shadow: 15px 15px 0px var(--bg-primary); 
-            transition: transform 0.3s ease;
+            border-radius: 20px; 
+            // Soft shadow with purple tint for depth
+            box-shadow: 20px 20px 0px rgba(124, 77, 255, 0.05); 
+            transition: transform 0.5s ease;
 
             &:hover {
-                transform: scale(1.02);
+                transform: scale(1.03) rotate(-1deg);
             }
         }
     }
 
-    .section-subtitle {
-        font-family: 'Inter', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.8rem; 
-        color: var(--accent-color); // Primary Purple accent
-        margin-bottom: 8px;
-    }
+    .reader-text {
+        text-align: left;
 
-    .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem; 
-        line-height: 1.2;
-        margin-bottom: 25px; 
-        color: var(--text-primary); // Deep purple-black
+        .section-subtitle {
+            font-family: 'Abel', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.9rem; 
+            color: var(--accent-color); // Primary Purple accent
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem; 
+            line-height: 1;
+            margin-bottom: 30px; 
+            color: var(--text-primary); // Deep purple-black
+            text-transform: uppercase;
+        }
     }
 
     .reader-features {
         list-style: none;
         padding: 0;
-        margin-bottom: 30px;
+        margin-bottom: 35px;
 
         li {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color); // Light purple border
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(124, 77, 255, 0.1); 
 
             .feature-icon {
-                font-family: 'Playfair Display', serif;
-                font-size: 1rem; 
-                color: var(--accent-color); // Primary Purple
-                margin-right: 15px;
-                font-style: italic;
+                font-family: 'Bebas Neue', sans-serif;
+                font-size: 1.4rem; 
+                color: var(--accent-color); 
+                margin-right: 20px;
+                line-height: 1;
             }
 
             p {
-                font-size: 0.95rem; 
+                font-family: 'Abel', sans-serif;
+                font-size: 1.1rem; 
                 color: var(--text-primary);
                 font-weight: 500;
+                margin: 0;
             }
         }
     }
 
     .reader-description {
+        margin-bottom: 40px;
+
         p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-secondary); // Muted purple
-            margin-bottom: 15px;
+            font-family: 'Abel', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary); 
+            margin-bottom: 20px;
         }
 
         .emphasis-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-family: 'Abel', sans-serif;
+            font-size: 1.3rem;
             font-style: italic;
             color: var(--text-primary);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+        }
+    }
+
+    /* DOWNLOAD BADGES STYLES */
+    .reader-download-badges {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        .badge-link {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            img {
+                height: 42px; 
+                width: auto;
+                display: block;
+            }
+
+            &:hover {
+                transform: translateY(-3px);
+            }
         }
     }
 }
@@ -234,19 +265,38 @@
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
     .reader-section {
-        padding: 40px 0;
+        padding: 60px 0;
         
         .reader-grid {
             grid-template-columns: 1fr;
             text-align: center;
-            gap: 30px;
+            gap: 50px;
             
+            .reader-text {
+                text-align: center;
+            }
+
             .reader-features li {
+                justify-content: center;
+                text-align: left;
+            }
+
+            .reader-download-badges {
                 justify-content: center;
             }
             
             .reader-image {
                 order: 2; 
+                img {
+                    max-width: 300px;
+                }
+            }
+
+            .reader-description .emphasis-text {
+                border-left: none;
+                border-top: 1px solid var(--accent-color);
+                padding-left: 0;
+                padding-top: 15px;
             }
         }
     }
