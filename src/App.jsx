@@ -19,8 +19,8 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      <Hero />
-      {/* <AnimatedBook /> */}
+      {/* <Hero /> */}
+      <AnimatedBook />
       <Genres />
       {/* <Brands /> */}
       <About />
