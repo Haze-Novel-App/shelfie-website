@@ -21,7 +21,7 @@ function App() {
       <Header />
       {/* <Hero /> */}
       <AnimatedBook />
-      <Genres />
+      {/* <Genres /> */}
       {/* <Brands /> */}
       <About />
       <ReaderSection />
