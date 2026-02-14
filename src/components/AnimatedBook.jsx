@@ -1,7 +1,5 @@
 
 
-
-
 // import React, { useEffect, useRef, useState } from 'react';
 // import * as THREE from 'three';
 // import TWEEN from '@tweenjs/tween.js';
@@ -110,7 +108,7 @@
 //       ],
 //       img: writer,
 //       showButtons: true,
-//       extraButton: "BECOME AUTHOR", 
+//       // extraButton removed here
 //       link: "https://play.google.com/store/apps/details?id=com.jac.authorapp"
 //     }
 //   ];
@@ -219,6 +217,7 @@
 //             const storeBtnY = 1050;
 //             const extraBtnY = 1180;
             
+//             // Check App Store Button
 //             if (pixelY >= storeBtnY && pixelY <= storeBtnY + btnHeight) {
 //                 if (pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) {
 //                     window.open('https://apps.apple.com', '_blank');
@@ -226,6 +225,7 @@
 //                 }
 //             }
 
+//             // Check Play Store Button
 //             if (pixelY >= storeBtnY && pixelY <= storeBtnY + btnHeight) {
 //                 if (pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) {
 //                     if (object.userData.link) {
@@ -235,6 +235,7 @@
 //                 }
 //             }
 
+//             // Check "Become Author" Button
 //             if (object.userData.hasExtraButton) {
 //                 const extraW = 400;
 //                 const extraH = 80;
@@ -625,13 +626,15 @@
 //           <p className="hero-desc">On Shelfie, reading is just the beginning. Discover writers, explore their stories, and interact directly with authors.</p>
 //           <button className="btn-primary" onClick={togglePopup}>Get Started on Shelfie</button>
 //         </div>
-//         <div className="hero-marquee"><Genres /></div>
+//         {/* <div className="hero-marquee"> */}
+//           <Genres />
+//           {/* </div> */}
 //       </section>
 
-//       {/* RE-STYLED CONTENT SECTION */}
+//       {/* NEW CONTENT SECTION */}
 //       <section id="register" className={`anim-overlay contact-phase ${uiPhase === 2 ? 'active' : ''}`}>
 //         <div className="glass-card">
-//           <h2>World’s first AI‑enabled book playground for india stories</h2>
+//           <h2>World’s first AI‑enabled book playground for indie stories</h2>
 //           <p className="glass-subtitle">
 //             Built for how you actually read and write.
 //           </p>
@@ -679,37 +682,37 @@
 //       {/* UPDATED CSS FOR TRANSPARENT GLASS EFFECT */}
 //       <style>{`
 //         .glass-card {
-//           background: rgba(255, 255, 255, 0.2); /* Low opacity for transparency */
-//           backdrop-filter: blur(40px); /* Strong blur */
+//           background: rgba(191, 87, 0, 0.2); /* Burned orange tint */
+//           backdrop-filter: blur(40px);
 //           -webkit-backdrop-filter: blur(40px);
-//           padding: 60px;
-//           border-radius: 40px;
-//           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Deep shadow */
-//           border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-//           max-width: 600px;
+//           padding: 30px; /* Smaller padding */
+//           border-radius: 30px; /* Smaller radius */
+//           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+//           border: 1px solid rgba(191, 87, 0, 0.3); /* Tinted border */
+//           max-width: 490px; /* Smaller width */
 //           width: 100%;
 //           color: #001a33;
 //           transition: transform 0.3s ease;
+//           margin-left: 100px; /* Add gap between book and card */
 //         }
 //         .glass-card:hover {
 //           transform: translateY(-5px);
 //         }
 //         .glass-card h2 {
 //           font-family: 'Bebas Neue', sans-serif;
-//           font-size: 3.2rem;
+//           font-size: 2.5rem; /* Smaller font */
 //           line-height: 1.1;
 //           margin-bottom: 20px;
 //           margin-top: 0;
 //           text-transform: uppercase;
 //           letter-spacing: 1px;
-//           /* Gradient Text */
 //           background: linear-gradient(90deg, #1C0770, #0AC4E0);
 //           -webkit-background-clip: text;
 //           -webkit-text-fill-color: transparent;
 //         }
 //         .glass-subtitle {
 //           font-family: 'Inter', sans-serif;
-//           font-size: 1.3rem;
+//           font-size: 1.1rem; /* Smaller font */
 //           margin-bottom: 30px;
 //           color: #333;
 //           font-weight: 600;
@@ -719,20 +722,20 @@
 //           padding: 0;
 //           margin: 0;
 //           font-family: 'Inter', sans-serif;
-//           font-size: 1.05rem;
-//           color: #1a1a1a; /* Dark text for readability */
+//           font-size: 0.95rem; /* Smaller font */
+//           color: #1a1a1a;
 //           line-height: 1.7;
 //         }
 //         .glass-list li {
-//           margin-bottom: 24px;
+//           margin-bottom: 18px; /* Smaller spacing */
 //           padding-left: 20px;
-//           border-left: 4px solid #7c4dff; /* Accent line instead of bullets */
+//           border-left: 4px solid #7c4dff;
 //         }
 //         .glass-list strong {
 //           color: #7c4dff;
 //           font-weight: 700;
-//           font-size: 1.1rem;
-//           display: block; /* Make title separate line */
+//           font-size: 1rem; /* Smaller font */
+//           display: block;
 //           margin-bottom: 4px;
 //         }
 //       `}</style>
@@ -757,10 +760,7 @@
 
 
 
-
-
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as THREE from 'three';
 import TWEEN from '@tweenjs/tween.js';
 import gsap from 'gsap';
@@ -804,6 +804,42 @@ const AnimationBook = () => {
   const handleRoleSelect = (role) => { setSelectedRole(role); };
 
   const heroIcons = [booksStack, contractIcon, inkIcon, newspaperIcon, quillIcon, scriptIcon, writeIcon];
+
+  // --- FLOATING ICONS LOGIC ---
+  const floatingIconsElements = useMemo(() => {
+    return Array.from({ length: 30 }).map((_, i) => {
+      const icon = heroIcons[i % heroIcons.length];
+      
+      // Random position: Bias towards Left (0-30%) and Right (70-100%)
+      let left = Math.random() * 100;
+      if (left > 30 && left < 70) {
+        left = Math.random() > 0.5 ? Math.random() * 30 : 70 + Math.random() * 30;
+      }
+
+      const size = 30 + Math.random() * 40; 
+      const duration = 15 + Math.random() * 20; 
+      const delay = -(Math.random() * 30); 
+      const opacity = 0.15 + Math.random() * 0.2; 
+
+      const style = {
+        left: `${left}%`,
+        width: `${size}px`,
+        animationDuration: `${duration}s`,
+        animationDelay: `${delay}s`,
+        opacity: opacity,
+      };
+
+      return (
+        <img 
+          key={i} 
+          src={icon} 
+          className="floating-icon" 
+          style={style} 
+          alt="" 
+        />
+      );
+    });
+  }, []);
 
   // --- GET LOCATION FUNCTION ---
   const handleGetLocation = () => {
@@ -868,7 +904,6 @@ const AnimationBook = () => {
       ],
       img: writer,
       showButtons: true,
-      // extraButton removed here
       link: "https://play.google.com/store/apps/details?id=com.jac.authorapp"
     }
   ];
@@ -916,7 +951,6 @@ const AnimationBook = () => {
     let animationFrameId;
     let safetyTimeout; 
 
-    // Clean up previous canvas
     while (canvasRef.current.firstChild) {
       canvasRef.current.removeChild(canvasRef.current.firstChild);
     }
@@ -1117,7 +1151,6 @@ const AnimationBook = () => {
       const ctx = canvas.getContext('2d');
       const tex = new THREE.CanvasTexture(canvas);
       tex.colorSpace = THREE.SRGBColorSpace;
-      
       const centerX = canvas.width / 2;
       const leftMargin = 100;
       const rightMargin = 1140;
@@ -1378,6 +1411,11 @@ const AnimationBook = () => {
 
   return (
     <div ref={containerRef} className="anim-book-container">
+      {/* 2. ADD FLOATING ICONS CONTAINER HERE */}
+      <div className="floating-icons-layer">
+        {floatingIconsElements}
+      </div>
+
       <div ref={canvasRef} className="anim-book-canvas" />
       {loading && <div className="anim-loader"><div className="loader-text">SHELFIE</div></div>}
       <section className={`anim-overlay hero-phase ${uiPhase === 0 ? 'active' : ''}`}>
@@ -1391,7 +1429,7 @@ const AnimationBook = () => {
           {/* </div> */}
       </section>
 
-      {/* NEW CONTENT SECTION */}
+      {/* RE-STYLED CONTENT SECTION */}
       <section id="register" className={`anim-overlay contact-phase ${uiPhase === 2 ? 'active' : ''}`}>
         <div className="glass-card">
           <h2>World’s first AI‑enabled book playground for indie stories</h2>
@@ -1441,15 +1479,31 @@ const AnimationBook = () => {
       
       {/* UPDATED CSS FOR TRANSPARENT GLASS EFFECT */}
       <style>{`
+        /* CORRECT Z-INDEX LAYERING */
+        .anim-book-canvas {
+          z-index: 5 !important; /* Book sits above icons */
+        }
+        
+        .floating-icons-layer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 1; /* Icons sit behind book */
+          overflow: hidden;
+        }
+
         .glass-card {
           background: rgba(191, 87, 0, 0.2); /* Burned orange tint */
           backdrop-filter: blur(40px);
           -webkit-backdrop-filter: blur(40px);
-          padding: 30px; /* Smaller padding */
+          padding: 26px; /* Smaller padding */
           border-radius: 30px; /* Smaller radius */
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
           border: 1px solid rgba(191, 87, 0, 0.3); /* Tinted border */
-          max-width: 490px; /* Smaller width */
+          max-width: 480px; /* Smaller width */
           width: 100%;
           color: #001a33;
           transition: transform 0.3s ease;
@@ -1497,6 +1551,18 @@ const AnimationBook = () => {
           font-size: 1rem; /* Smaller font */
           display: block;
           margin-bottom: 4px;
+        }
+
+        .floating-icon {
+          position: absolute;
+          bottom: -100px; /* Start below screen */
+          animation-name: floatUp;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+        @keyframes floatUp {
+          0% { top: 110%; transform: rotate(0deg); }
+          100% { top: -20%; transform: rotate(360deg); }
         }
       `}</style>
     </div>
