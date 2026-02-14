@@ -23,9 +23,9 @@ function App() {
       <AnimatedBook />
       {/* <Genres /> */}
       {/* <Brands /> */}
-      <About />
-      <ReaderSection />
-      <AuthorSection />
+      {/* <About /> */}
+      {/* <ReaderSection /> */}
+      {/* <AuthorSection /> */}
       {/* <Newsletter /> */}
       {/* <ContactUs /> */}
       <DownloadApp />

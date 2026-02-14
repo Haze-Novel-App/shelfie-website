@@ -2,38 +2,49 @@
 
 
 // .genres-section {
-//     padding: 40px 0; 
-//     background-color: var(--bg-genres); 
+//     position: absolute;
+//     bottom: 72px;
+//     left: 0;
+//     padding: 10px 0;
+//     background-color: #FFA05C;
 //     width: 100%;
-//     box-sizing: border-box;
-//     border-bottom: 1px solid var(--border-color);
 //     overflow: hidden;
+//     border-bottom: 1px solid var(--border-color);
 
-//     .genres-container {
+//     .genres-slider {
 //         display: flex;
-//         justify-content: space-between;
+//         width: 100%;
+//     }
+
+//     .genres-track {
+//         display: flex;
 //         align-items: center;
-//         width: 90%; 
-//         max-width: 1100px; 
-//         margin: 0 auto;
-//         gap: 15px;
+//         gap: 60px;
+//         padding: 10px 0;
+
+//         animation: scroll-infinite 40s linear infinite;
+
+//         &:hover {
+//             animation-play-state: paused;
+//         }
 //     }
 
 //     .genre-item {
 //         text-align: center;
-//         flex: 1;
+//         flex-shrink: 0;
+//         min-width: 150px;
 //         cursor: pointer;
 
 //         .icon-wrapper {
-//             margin-bottom: 12px; 
+//             margin-bottom: 15px;
 //             display: flex;
 //             justify-content: center;
 
 //             .genre-icon-img {
-//                 width: 45px;  
-//                 height: 45px;
+//                 width: 40px;
+//                 height: 40px;
 //                 object-fit: contain;
-//                 filter: grayscale(100%) sepia(100%) hue-rotate(240deg) saturate(200%) opacity(0.6); 
+//                 filter: grayscale(100%) opacity(0.6);
 //                 transition: all 0.3s ease;
 //             }
 //         }
@@ -41,42 +52,45 @@
 //         &:hover {
 //             .genre-icon-img {
 //                 filter: grayscale(0%) opacity(1);
-//                 transform: scale(1.1); 
+//                 transform: scale(1.15);
 //             }
+
 //             h4 {
 //                 color: var(--accent-color);
 //             }
 //         }
 
 //         h4 {
-//             font-family: 'Inter', sans-serif;
-//             font-size: 0.75rem; 
+//             font-size: 0.94rem;
 //             text-transform: uppercase;
 //             letter-spacing: 1.5px;
 //             margin-bottom: 4px;
 //             color: var(--text-primary);
-//             transition: color 0.3s ease;
 //         }
 
 //         .genre-desc {
-//             font-size: 0.65rem; 
+//             font-size: 0.8rem;
 //             color: var(--text-secondary);
-//             margin: 0;
 //         }
+//     }
+// }
+
+// @keyframes scroll-infinite {
+//     0% {
+//         transform: translateX(0);
+//     }
+
+//     100% {
+//         transform: translateX(calc(-50% - 30px));
 //     }
 // }
 
 // @media (max-width: 768px) {
-//     .genres-section {
-//         padding: 30px 0;
-//         .genres-container {
-//             display: grid;
-//             grid-template-columns: 1fr 1fr;
-//             gap: 30px;
-//             width: 95%;
-//         }
+//     .genres-track {
+//         gap: 40px;
 //     }
 // }
+
 
 
 
@@ -89,12 +103,14 @@
 
 
 .genres-section {
-    padding: 60px 0; // Increased padding for more breathing room
-    // background-color: var(--bg-genres);
-    background-color: #a6fdfd;
+    position: absolute;
+    bottom: 72px;
+    left: 0;
+    padding: 15px 0;
+    background-color: #FFA05C;
     width: 100%;
-    overflow: hidden; // Vital to hide the icons outside the viewport
-    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); // Lightened border for orange bg
 
     .genres-slider {
         display: flex;
@@ -104,14 +120,10 @@
     .genres-track {
         display: flex;
         align-items: center;
-        gap: 60px; // Increased space between icons
+        gap: 60px;
         padding: 10px 0;
-        /* The animation duration (40s) controls the speed. 
-           Lower = Faster. 
-        */
         animation: scroll-infinite 40s linear infinite;
-        
-        // Pause on hover so users can click/read
+
         &:hover {
             animation-play-state: paused;
         }
@@ -119,61 +131,87 @@
 
     .genre-item {
         text-align: center;
-        flex-shrink: 0; // Prevents items from squishing
-        min-width: 150px; // Ensures consistent spacing
+        flex-shrink: 0;
+        min-width: 150px;
         cursor: pointer;
 
         .icon-wrapper {
-            margin-bottom: 15px; 
+            margin-bottom: 12px;
             display: flex;
             justify-content: center;
 
             .genre-icon-img {
-                width: 64px;  // Increased size from 45px
-                height: 64px; // Increased size from 45px
+                width: 40px;
+                height: 40px;
                 object-fit: contain;
-                filter: grayscale(100%) opacity(0.6); 
+                /* Forces any colored icon to turn white */
+                filter: brightness(0) invert(1) opacity(0.8);
                 transition: all 0.3s ease;
             }
         }
 
+        /* Hover States */
         &:hover {
             .genre-icon-img {
-                filter: grayscale(0%) opacity(1);
-                transform: scale(1.15); 
+                filter: brightness(0) invert(1) opacity(1);
+                transform: scale(1.15);
             }
-            h4 { color: var(--accent-color); }
+
+            h4 {
+                color: #FFFFFF;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            
+            .genre-desc {
+                color: #FFFFFF;
+            }
         }
 
+        /* Typography - All White */
         h4 {
-            font-size: 0.94rem; // Slightly larger text
+            font-size: 0.94rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 4px;
-            color: var(--text-primary);
+            color: #FFFFFF; 
+            transition: color 0.3s ease;
         }
 
         .genre-desc {
-            font-size: 0.8rem; 
-            color: var(--text-secondary);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8); // Slightly transparent white for hierarchy
+            transition: color 0.3s ease;
         }
     }
 }
 
-// The magic for the infinite look
+/* Keyframes for Smooth Infinite Loop */
 @keyframes scroll-infinite {
     0% {
         transform: translateX(0);
     }
     100% {
-        /* Moves half of the track (the first set of icons) */
+        /* This assumes you are duplicating the list once in React */
         transform: translateX(calc(-50% - 30px)); 
     }
 }
 
-// On mobile, we can keep it scrolling but maybe faster or smaller gap
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .genres-section {
+        bottom: 60px; // Adjusting position for mobile if needed
+    }
+    
     .genres-track {
         gap: 40px;
+    }
+
+    .genre-item {
+        min-width: 120px;
+        
+        .genre-icon-img {
+            width: 32px;
+            height: 32px;
+        }
     }
 }
