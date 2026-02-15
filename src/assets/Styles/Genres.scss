@@ -3,13 +3,13 @@
 
 // .genres-section {
 //     position: absolute;
-//     bottom: 72px;
+//     bottom: 70px;
 //     left: 0;
 //     padding: 10px 0;
 //     background-color: #FFA05C;
 //     width: 100%;
 //     overflow: hidden;
-//     border-bottom: 1px solid var(--border-color);
+//     border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 
 //     .genres-slider {
 //         display: flex;
@@ -21,7 +21,6 @@
 //         align-items: center;
 //         gap: 60px;
 //         padding: 10px 0;
-
 //         animation: scroll-infinite 40s linear infinite;
 
 //         &:hover {
@@ -36,7 +35,7 @@
 //         cursor: pointer;
 
 //         .icon-wrapper {
-//             margin-bottom: 15px;
+//             margin-bottom: 12px;
 //             display: flex;
 //             justify-content: center;
 
@@ -44,19 +43,24 @@
 //                 width: 40px;
 //                 height: 40px;
 //                 object-fit: contain;
-//                 filter: grayscale(100%) opacity(0.6);
+//                 filter: brightness(0) invert(1) opacity(0.8);
 //                 transition: all 0.3s ease;
 //             }
 //         }
 
 //         &:hover {
 //             .genre-icon-img {
-//                 filter: grayscale(0%) opacity(1);
+//                 filter: brightness(0) invert(1) opacity(1);
 //                 transform: scale(1.15);
 //             }
 
 //             h4 {
-//                 color: var(--accent-color);
+//                 color: #FFFFFF;
+//                 text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+//             }
+            
+//             .genre-desc {
+//                 color: #FFFFFF;
 //             }
 //         }
 
@@ -65,12 +69,14 @@
 //             text-transform: uppercase;
 //             letter-spacing: 1.5px;
 //             margin-bottom: 4px;
-//             color: var(--text-primary);
+//             color: #FFFFFF; 
+//             transition: color 0.3s ease;
 //         }
 
 //         .genre-desc {
 //             font-size: 0.8rem;
-//             color: var(--text-secondary);
+//             color: rgba(255, 255, 255, 0.8); 
+//             transition: color 0.3s ease;
 //         }
 //     }
 // }
@@ -79,17 +85,30 @@
 //     0% {
 //         transform: translateX(0);
 //     }
-
 //     100% {
-//         transform: translateX(calc(-50% - 30px));
+//         transform: translateX(calc(-50% - 30px)); 
 //     }
 // }
 
 // @media (max-width: 768px) {
+//     .genres-section {
+//         bottom: 60px;
+//     }
+    
 //     .genres-track {
 //         gap: 40px;
 //     }
+
+//     .genre-item {
+//         min-width: 120px;
+        
+//         .genre-icon-img {
+//             width: 32px;
+//             height: 32px;
+//         }
+//     }
 // }
+
 
 
 
@@ -110,7 +129,7 @@
     background-color: #FFA05C;
     width: 100%;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); // Lightened border for orange bg
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
     .genres-slider {
         display: flex;
@@ -134,9 +153,13 @@
         flex-shrink: 0;
         min-width: 150px;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .icon-wrapper {
-            margin-bottom: 12px;
+            /* Tightened space between icon and title */
+            margin-bottom: 4px; 
             display: flex;
             justify-content: center;
 
@@ -144,43 +167,48 @@
                 width: 40px;
                 height: 40px;
                 object-fit: contain;
-                /* Forces any colored icon to turn white */
+                /* Turns icons white */
                 filter: brightness(0) invert(1) opacity(0.8);
                 transition: all 0.3s ease;
             }
+        }
+
+        /* Typography */
+        h4 {
+            font-family: 'Bebas Neue', sans-serif; // Assumed based on your Header font
+            font-size: 0.94rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #FFFFFF; 
+            /* Removed default margins to pull text closer */
+            margin: 0; 
+            line-height: 1.1; 
+            transition: color 0.3s ease;
+        }
+
+        .genre-desc {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            /* Minimal gap between title and description */
+            margin: 2px 0 0 0; 
+            transition: color 0.3s ease;
         }
 
         /* Hover States */
         &:hover {
             .genre-icon-img {
                 filter: brightness(0) invert(1) opacity(1);
-                transform: scale(1.15);
+                transform: scale(1.1);
             }
 
             h4 {
                 color: #FFFFFF;
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
             }
             
             .genre-desc {
                 color: #FFFFFF;
             }
-        }
-
-        /* Typography - All White */
-        h4 {
-            font-size: 0.94rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
-            color: #FFFFFF; 
-            transition: color 0.3s ease;
-        }
-
-        .genre-desc {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.8); // Slightly transparent white for hierarchy
-            transition: color 0.3s ease;
         }
     }
 }
@@ -191,7 +219,7 @@
         transform: translateX(0);
     }
     100% {
-        /* This assumes you are duplicating the list once in React */
+        /* Adjust based on duplicating the list once in React */
         transform: translateX(calc(-50% - 30px)); 
     }
 }
@@ -199,19 +227,32 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .genres-section {
-        bottom: 60px; // Adjusting position for mobile if needed
+        bottom: 60px;
+        padding: 8px 0;
     }
     
     .genres-track {
-        gap: 40px;
+        gap: 35px; // Tighter gap for smaller screens
     }
 
     .genre-item {
-        min-width: 120px;
+        min-width: 110px;
         
+        .icon-wrapper {
+            margin-bottom: 2px;
+        }
+
         .genre-icon-img {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
+        }
+
+        h4 {
+            font-size: 0.85rem;
+        }
+
+        .genre-desc {
+            font-size: 0.7rem;
         }
     }
 }

@@ -1,27 +1,25 @@
 
 
 
-
 // .main-header {
 //     display: flex;
 //     justify-content: space-between;
 //     align-items: center;
-//     height: 60px; 
-//     padding: 0 10%; 
-//     background-color: var(--white); 
-//     position: sticky;
+//     height: 70px;
+//     padding: 0 7%; 
+//     background-color: var(--white);
 //     top: 0;
 //     z-index: 1000;
-//     border-bottom: 1px solid var(--border-color);
+//     border-bottom: 1px solid rgba(0,0,0,0.05);
 //     width: 100%;
 //     box-sizing: border-box;
 
 //     .logo {
-//         font-family: 'Playfair Display', serif;
-//         font-weight: 700;
-//         font-size: 1.3rem; 
-//         letter-spacing: 3px;
-//         color: var(--text-primary);
+//         font-family: 'Bebas Neue', sans-serif;
+//         font-weight: 400; 
+//         font-size: 2rem;
+//         letter-spacing: 2px;
+//         color: #001a33;
 //         text-transform: uppercase;
 //         cursor: pointer;
 //         display: flex;
@@ -31,32 +29,32 @@
 //         transition: color 0.3s ease;
 
 //         &:hover {
-//             color: var(--accent-color); 
+//             color: #7c4dff; 
 //         }
 //     }
 
 //     .navbar {
 //         display: flex;
-//         gap: 25px; 
+//         gap: 30px; 
 //         align-items: center; 
 //         height: 100%;
 
 //         a {
 //             text-decoration: none;
-//             font-family: 'Inter', sans-serif;
-//             font-size: 0.75rem; 
-//             font-weight: 600;
+//             font-family: 'Bebas Neue', sans-serif;
+//             font-size: 1.2rem; 
+//             font-weight: 400;
 //             text-transform: uppercase;
-//             letter-spacing: 1.2px;
-//             color: var(--text-secondary);
+//             letter-spacing: 1.5px;
+//             color: rgba(0, 26, 51, 0.7); 
 //             transition: all 0.3s ease;
 //             line-height: 1;
 //             display: flex;
 //             align-items: center;
 
 //             &:hover {
-//                 color: var(--accent-color);
-//                 transform: translateY(-1px);
+//                 color: #7c4dff; 
+//                 transform: translateY(-2px);
 //             }
 //         }
 //     }
@@ -65,12 +63,17 @@
 // @media (max-width: 768px) {
 //     .main-header {
 //         padding: 0 5%;
+//         height: 60px;
         
+//         .logo {
+//             font-size: 1.6rem;
+//         }
+
 //         .navbar {
 //             gap: 15px;
 //             a {
-//                 font-size: 0.7rem;
-//                 letter-spacing: 0.5px;
+//                 font-size: 1rem;
+//                 letter-spacing: 1px;
 //             }
 //         }
 //     }
@@ -87,87 +90,67 @@
 
 
 
-/* src/assets/styles/Header.scss */
 
 .main-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    height: 70px; /* Slightly taller for Bebas Neue */
-    padding: 0 7%; /* Aligns with your Hero container padding */
-    background-color: var(--white);
-    // background-color: #f2f0e6;
-    // position: sticky;
+    
+    // 1. HEIGHT FIXED TO 70PX
+    height: 70px; 
+    padding: 0 7%;
+    
+    // 2. REMOVED STICKY (Using relative so it stays at the top of the page)
+    position: relative; 
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    
+    // 3. COHESIVE COLOR & VISIBILITY
+    background-color: #fdfaf3; // Matches your hero background
+    
+    // 4. DEPTH SHADOW
+    // Since it's no longer sticky, this shadow will help distinguish 
+    // it from the hero content immediately below.
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
     width: 100%;
     box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 
-    .logo {
-        /* CHANGED: Bebas Neue */
-        font-family: 'Bebas Neue', sans-serif;
-        font-weight: 400; /* Bebas is usually regular weight */
-        font-size: 2rem; /* Increased size because Bebas is condensed */
-        letter-spacing: 2px;
-        color: #001a33; /* Dark Blue */
-        text-transform: uppercase;
+    .logo-container {
+        display: flex;
+        flex-direction: column;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        line-height: 1; 
-        margin: 0; 
-        transition: color 0.3s ease;
 
-        &:hover {
-            color: #7c4dff; /* Purple hover effect */
-        }
-    }
-
-    .navbar {
-        display: flex;
-        gap: 30px; 
-        align-items: center; 
-        height: 100%;
-
-        a {
-            text-decoration: none;
-            /* CHANGED: Bebas Neue */
+        .logo-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem; /* Increased for readability */
-            font-weight: 400;
-            text-transform: uppercase;
+            font-weight: 400; 
+            font-size: 2.1rem; // Scaled down slightly to fit 70px height
             letter-spacing: 1.5px;
-            color: rgba(0, 26, 51, 0.7); /* Muted Dark Blue */
-            transition: all 0.3s ease;
-            line-height: 1;
-            display: flex;
-            align-items: center;
+            color: #001a33; 
+            margin: 0;
+            line-height: 0.8; // Tightened for the smaller header height
+        }
 
-            &:hover {
-                color: #7c4dff; /* Purple hover */
-                transform: translateY(-2px);
-            }
+        .logo-slogan {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            // color: #7c4dff; 
+            color: #ffa500; 
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 2px; // Reduced gap to keep everything within 70px
         }
     }
 }
 
-/* Ensure mobile header stays within bounds */
 @media (max-width: 768px) {
     .main-header {
+        height: 60px; // Slightly smaller for mobile
         padding: 0 5%;
-        height: 60px;
         
-        .logo {
-            font-size: 1.6rem;
-        }
-
-        .navbar {
-            gap: 15px;
-            a {
-                font-size: 1rem;
-                letter-spacing: 1px;
-            }
-        }
+        .logo-title { font-size: 1.7rem; }
+        .logo-slogan { font-size: 0.55rem; }
     }
 }

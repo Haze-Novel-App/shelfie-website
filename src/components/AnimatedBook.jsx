@@ -1,6 +1,9 @@
 
 
-// import React, { useEffect, useRef, useState } from 'react';
+
+
+
+// import React, { useEffect, useRef, useState, useMemo } from 'react';
 // import * as THREE from 'three';
 // import TWEEN from '@tweenjs/tween.js';
 // import gsap from 'gsap';
@@ -25,6 +28,12 @@
 
 // gsap.registerPlugin(ScrollTrigger);
 
+// // --- MOVED CONSTANTS TO GLOBAL SCOPE ---
+// const BOOK_WIDTH = 4.0;
+// const BOOK_HEIGHT = 5.2;
+// const SPACING = 0.04;
+// const SPINE_RADIUS = 0.12;
+
 // const AnimationBook = () => {
 //   const containerRef = useRef(null);
 //   const canvasRef = useRef(null);
@@ -44,6 +53,41 @@
 //   const handleRoleSelect = (role) => { setSelectedRole(role); };
 
 //   const heroIcons = [booksStack, contractIcon, inkIcon, newspaperIcon, quillIcon, scriptIcon, writeIcon];
+
+//   // --- FLOATING ICONS LOGIC ---
+//   const floatingIconsElements = useMemo(() => {
+//     return Array.from({ length: 30 }).map((_, i) => {
+//       const icon = heroIcons[i % heroIcons.length];
+      
+//       let left = Math.random() * 100;
+//       if (left > 30 && left < 70) {
+//         left = Math.random() > 0.5 ? Math.random() * 30 : 70 + Math.random() * 30;
+//       }
+
+//       const size = 30 + Math.random() * 40; 
+//       const duration = 15 + Math.random() * 20; 
+//       const delay = -(Math.random() * 30); 
+//       const opacity = 0.15 + Math.random() * 0.2; 
+
+//       const style = {
+//         left: `${left}%`,
+//         width: `${size}px`,
+//         animationDuration: `${duration}s`,
+//         animationDelay: `${delay}s`,
+//         opacity: opacity,
+//       };
+
+//       return (
+//         <img 
+//           key={i} 
+//           src={icon} 
+//           className="floating-icon" 
+//           style={style} 
+//           alt="" 
+//         />
+//       );
+//     });
+//   }, []);
 
 //   // --- GET LOCATION FUNCTION ---
 //   const handleGetLocation = () => {
@@ -108,7 +152,7 @@
 //       ],
 //       img: writer,
 //       showButtons: true,
-//       // extraButton removed here
+//       extraButton: "BECOME AUTHOR", 
 //       link: "https://play.google.com/store/apps/details?id=com.jac.authorapp"
 //     }
 //   ];
@@ -217,7 +261,26 @@
 //             const storeBtnY = 1050;
 //             const extraBtnY = 1180;
             
-//             // Check App Store Button
+//             // Check stored button zones first (Precise)
+//             if (object.userData.buttons) {
+//                 let clicked = false;
+//                 object.userData.buttons.forEach(btn => {
+//                     if (pixelX >= btn.x && pixelX <= btn.x + btn.w && pixelY >= btn.y && pixelY <= btn.y + btn.h) {
+//                         clicked = true;
+//                         if (btn.action === 'link') {
+//                             window.open(btn.url, '_blank');
+//                         } else if (btn.action === 'scroll') {
+//                             const registerSection = document.getElementById(btn.target);
+//                             if (registerSection) {
+//                                 registerSection.scrollIntoView({ behavior: 'smooth' });
+//                             }
+//                         }
+//                     }
+//                 });
+//                 if (clicked) return;
+//             }
+
+//             // Fallback checks (Approximate)
 //             if (pixelY >= storeBtnY && pixelY <= storeBtnY + btnHeight) {
 //                 if (pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) {
 //                     window.open('https://apps.apple.com', '_blank');
@@ -225,7 +288,6 @@
 //                 }
 //             }
 
-//             // Check Play Store Button
 //             if (pixelY >= storeBtnY && pixelY <= storeBtnY + btnHeight) {
 //                 if (pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) {
 //                     if (object.userData.link) {
@@ -235,7 +297,6 @@
 //                 }
 //             }
 
-//             // Check "Become Author" Button
 //             if (object.userData.hasExtraButton) {
 //                 const extraW = 400;
 //                 const extraH = 80;
@@ -268,16 +329,28 @@
 //             const uv = intersect.uv;
 //             const pixelX = uv.x * 1240;
 //             const pixelY = (1 - uv.y) * 1400;
-//             const centerX = 1240 / 2;
-//             const btnWidth = 320;
-//             const gap = 40;
-//             const storeBtnY = 1050;
-//             const extraBtnY = 1180;
+            
+//             if (object.userData.buttons) {
+//                 object.userData.buttons.forEach(btn => {
+//                     if (pixelX >= btn.x && pixelX <= btn.x + btn.w && pixelY >= btn.y && pixelY <= btn.y + btn.h) {
+//                         hoveringLink = true;
+//                     }
+//                 });
+//             }
+            
+//             // Fallback hover checks
+//             if(!hoveringLink) {
+//                 const centerX = 1240 / 2;
+//                 const btnWidth = 320;
+//                 const gap = 40;
+//                 const storeBtnY = 1050;
+//                 const extraBtnY = 1180;
 
-//             if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) hoveringLink = true;
-//             if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) hoveringLink = true;
-//             if (object.userData.hasExtraButton) {
-//                 if (pixelY >= extraBtnY && pixelY <= extraBtnY + 80 && pixelX >= centerX - 200 && pixelX <= centerX + 200) hoveringLink = true;
+//                 if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) hoveringLink = true;
+//                 if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) hoveringLink = true;
+//                 if (object.userData.hasExtraButton) {
+//                     if (pixelY >= extraBtnY && pixelY <= extraBtnY + 80 && pixelX >= centerX - 200 && pixelX <= centerX + 200) hoveringLink = true;
+//                 }
 //             }
 //         }
 //       }
@@ -294,7 +367,7 @@
 //     loader.setCrossOrigin("anonymous");
 
 //     // --- TEXTURE GENERATOR FOR BACK PAGES (Left Side) ---
-//     const createBackTexture = (data) => {
+//     const createBackTexture = (data, mesh) => {
 //       const canvas = document.createElement('canvas');
 //       canvas.width = 1240; canvas.height = 1400;
 //       const ctx = canvas.getContext('2d');
@@ -331,20 +404,33 @@
 
 //           ctx.drawImage(img, drawX, masterY, drawW, drawH);
 
+//           // Store Button Zones
+//           const buttonZones = [];
+
 //           if (data.showButtons) {
 //             const btnWidth = 320; const btnHeight = 95; const btnGap = 40; const btnY = masterY + drawH + gap;
+            
+//             const appX = centerX - btnWidth - btnGap / 2;
 //             const imgApp = new Image(); imgApp.crossOrigin = "Anonymous"; imgApp.src = "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg";
-//             imgApp.onload = () => { ctx.drawImage(imgApp, centerX - btnWidth - btnGap / 2, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+//             imgApp.onload = () => { ctx.drawImage(imgApp, appX, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+//             buttonZones.push({ x: appX, y: btnY, w: btnWidth, h: btnHeight, action: 'link', url: 'https://apps.apple.com' });
+
+//             const playX = centerX + btnGap / 2;
 //             const imgPlay = new Image(); imgPlay.crossOrigin = "Anonymous"; imgPlay.src = "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg";
-//             imgPlay.onload = () => { ctx.drawImage(imgPlay, centerX + btnGap / 2, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+//             imgPlay.onload = () => { ctx.drawImage(imgPlay, playX, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+//             buttonZones.push({ x: playX, y: btnY, w: btnWidth, h: btnHeight, action: 'link', url: data.link || 'https://play.google.com' });
 
 //             if (data.extraButton) {
-//               const extraY = btnY + 130; const extraW = 400; const extraH = 80;
-//               ctx.fillStyle = '#7c4dff'; drawRoundedRect(ctx, centerX - extraW / 2, extraY, extraW, extraH, 40);
+//               const extraY = btnY + 130; const extraW = 400; const extraH = 80; const extraX = centerX - extraW / 2;
+//               ctx.fillStyle = '#7c4dff'; drawRoundedRect(ctx, extraX, extraY, extraW, extraH, 40);
 //               ctx.fillStyle = '#ffffff'; ctx.font = '700 32px "Inter", sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
 //               ctx.fillText(data.extraButton, centerX, extraY + extraH / 2);
+              
+//               buttonZones.push({ x: extraX, y: extraY, w: extraW, h: extraH, action: 'scroll', target: 'register' });
 //             }
-//           } else { tex.needsUpdate = true; }
+//           }
+//           if(mesh) mesh.userData.buttons = buttonZones;
+//           tex.needsUpdate = true; 
 //         };
 //       }
 //       return tex;
@@ -357,7 +443,6 @@
 //       const ctx = canvas.getContext('2d');
 //       const tex = new THREE.CanvasTexture(canvas);
 //       tex.colorSpace = THREE.SRGBColorSpace;
-      
 //       const centerX = canvas.width / 2;
 //       const leftMargin = 100;
 //       const rightMargin = 1140;
@@ -499,7 +584,6 @@
 //       return tex;
 //     };
 
-//     const BOOK_WIDTH = 4.0; const BOOK_HEIGHT = 5.2; const SPACING = 0.04; const SPINE_RADIUS = 0.12;
 //     const leatherMat = new THREE.MeshStandardMaterial({ color: COLORS.leather, roughness: 0.4 });
 //     const goldMat = new THREE.MeshStandardMaterial({ color: COLORS.gold, metalness: 0.8, roughness: 0.2 });
 //     const paperMat = new THREE.MeshStandardMaterial({ color: COLORS.paper, roughness: 0.6, emissive: 0xffffff, emissiveIntensity: 0.02 });
@@ -521,20 +605,33 @@
 
 //     const pageMeshes = [];
 //     CONTENT.forEach((data, i) => {
+//       // FIX: Move nextData declaration to top of loop to prevent ReferenceError
+//       const nextData = CONTENT[i + 1];
+
 //       const pivot = new THREE.Group(); pivot.position.set(-BOOK_WIDTH / 2, 0, SPINE_RADIUS);
 //       const textTex = createTextTexture(data);
 //       const textMat = new THREE.MeshStandardMaterial({ map: textTex, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.02 });
 //       const backMat = new THREE.MeshStandardMaterial({ color: COLORS.paper, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.02 });
 
-//       const nextData = CONTENT[i + 1];
-//       if (nextData) { const backTex = createBackTexture(nextData); backMat.map = backTex; backMat.needsUpdate = true; }
-      
-//       const pageMats = [goldMat, leatherMat, paperMat, paperMat, textMat, backMat];
 //       const geo = new THREE.BoxGeometry(BOOK_WIDTH, BOOK_HEIGHT, 0.02, 12, 1, 1);
-//       const mesh = new THREE.Mesh(geo, pageMats);
+//       const mesh = new THREE.Mesh(geo, [goldMat, leatherMat, paperMat, paperMat, textMat, backMat]);
 //       mesh.position.x = BOOK_WIDTH / 2;
-//       mesh.userData = { originalVertices: geo.attributes.position.array.slice(), link: data.link, isBackPage: false, backData: nextData, hasExtraButton: nextData?.extraButton ? true : false };
       
+//       // FIX: Ensure nextData is defined before using it in userData
+//       mesh.userData = { 
+//           originalVertices: geo.attributes.position.array.slice(), 
+//           link: data.link, 
+//           isBackPage: false,
+//           backData: nextData, 
+//           hasExtraButton: nextData?.extraButton ? true : false 
+//       };
+      
+//       if (nextData) { 
+//         const backTex = createBackTexture(nextData, mesh); 
+//         backMat.map = backTex; backMat.needsUpdate = true; 
+//         mesh.userData.isBackPage = true; 
+//       }
+
 //       pivot.add(mesh); bookGroup.add(pivot); pageMeshes.push(mesh);
 //     });
 //     scene.add(bookGroup);
@@ -542,9 +639,7 @@
 //     loader.load(BookCover, (tex) => { tex.colorSpace = THREE.SRGBColorSpace; coverMesh.material[4] = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.3 }); coverMesh.material.needsUpdate = true; });
 //     if (CONTENT[0].img) { loader.load(CONTENT[0].img, (tex) => { tex.colorSpace = THREE.SRGBColorSpace; coverMesh.material[5] = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.5 }); coverMesh.material.needsUpdate = true; }); }
 
-//     // 2. DEFINE SAFETY TIMEOUT HERE (Before use)
 //     safetyTimeout = setTimeout(() => setLoading(false), 3000);
-
 //     document.fonts.ready.then(() => { if(renderer) renderer.render(scene, camera); });
 
 //     const animate = (time) => {
@@ -618,6 +713,11 @@
 
 //   return (
 //     <div ref={containerRef} className="anim-book-container">
+//       {/* 2. ADD FLOATING ICONS CONTAINER HERE */}
+//       <div className="floating-icons-layer">
+//         {floatingIconsElements}
+//       </div>
+
 //       <div ref={canvasRef} className="anim-book-canvas" />
 //       {loading && <div className="anim-loader"><div className="loader-text">SHELFIE</div></div>}
 //       <section className={`anim-overlay hero-phase ${uiPhase === 0 ? 'active' : ''}`}>
@@ -631,7 +731,7 @@
 //           {/* </div> */}
 //       </section>
 
-//       {/* NEW CONTENT SECTION */}
+//       {/* RE-STYLED CONTENT SECTION */}
 //       <section id="register" className={`anim-overlay contact-phase ${uiPhase === 2 ? 'active' : ''}`}>
 //         <div className="glass-card">
 //           <h2>World’s first AI‑enabled book playground for indie stories</h2>
@@ -681,15 +781,31 @@
       
 //       {/* UPDATED CSS FOR TRANSPARENT GLASS EFFECT */}
 //       <style>{`
+//         /* CORRECT Z-INDEX LAYERING */
+//         .anim-book-canvas {
+//           z-index: 5 !important; /* Book sits above icons */
+//         }
+        
+//         .floating-icons-layer {
+//           position: absolute;
+//           top: 0;
+//           left: 0;
+//           width: 100%;
+//           height: 100%;
+//           pointer-events: none;
+//           z-index: 1; /* Icons sit behind book */
+//           overflow: hidden;
+//         }
+
 //         .glass-card {
 //           background: rgba(191, 87, 0, 0.2); /* Burned orange tint */
 //           backdrop-filter: blur(40px);
 //           -webkit-backdrop-filter: blur(40px);
-//           padding: 30px; /* Smaller padding */
+//           padding: 40px; /* Smaller padding */
 //           border-radius: 30px; /* Smaller radius */
 //           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 //           border: 1px solid rgba(191, 87, 0, 0.3); /* Tinted border */
-//           max-width: 490px; /* Smaller width */
+//           max-width: 450px; /* Smaller width */
 //           width: 100%;
 //           color: #001a33;
 //           transition: transform 0.3s ease;
@@ -738,12 +854,29 @@
 //           display: block;
 //           margin-bottom: 4px;
 //         }
+
+//         .floating-icon {
+//           position: absolute;
+//           bottom: -100px; /* Start below screen */
+//           animation-name: floatUp;
+//           animation-timing-function: linear;
+//           animation-iteration-count: infinite;
+//         }
+//         @keyframes floatUp {
+//           0% { top: 110%; transform: rotate(0deg); }
+//           100% { top: -20%; transform: rotate(360deg); }
+//         }
 //       `}</style>
 //     </div>
 //   );
 // };
 
 // export default AnimationBook;
+
+
+
+
+
 
 
 
@@ -784,6 +917,12 @@ import writer from '../assets/imgs/writer.png';
 import Genres from './Genres';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// --- GLOBAL CONSTANTS ---
+const BOOK_WIDTH = 4.0;
+const BOOK_HEIGHT = 5.2;
+const SPACING = 0.04;
+const SPINE_RADIUS = 0.12;
 
 const AnimationBook = () => {
   const containerRef = useRef(null);
@@ -904,6 +1043,7 @@ const AnimationBook = () => {
       ],
       img: writer,
       showButtons: true,
+      // REMOVED EXTRA BUTTON HERE
       link: "https://play.google.com/store/apps/details?id=com.jac.authorapp"
     }
   ];
@@ -951,6 +1091,7 @@ const AnimationBook = () => {
     let animationFrameId;
     let safetyTimeout; 
 
+    // Clean up previous canvas
     while (canvasRef.current.firstChild) {
       canvasRef.current.removeChild(canvasRef.current.firstChild);
     }
@@ -1011,7 +1152,26 @@ const AnimationBook = () => {
             const storeBtnY = 1050;
             const extraBtnY = 1180;
             
-            // Check App Store Button
+            // Check stored button zones first (Precise)
+            if (object.userData.buttons) {
+                let clicked = false;
+                object.userData.buttons.forEach(btn => {
+                    if (pixelX >= btn.x && pixelX <= btn.x + btn.w && pixelY >= btn.y && pixelY <= btn.y + btn.h) {
+                        clicked = true;
+                        if (btn.action === 'link') {
+                            window.open(btn.url, '_blank');
+                        } else if (btn.action === 'scroll') {
+                            const registerSection = document.getElementById(btn.target);
+                            if (registerSection) {
+                                registerSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    }
+                });
+                if (clicked) return;
+            }
+
+            // Fallback checks (Approximate)
             if (pixelY >= storeBtnY && pixelY <= storeBtnY + btnHeight) {
                 if (pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) {
                     window.open('https://apps.apple.com', '_blank');
@@ -1019,7 +1179,6 @@ const AnimationBook = () => {
                 }
             }
 
-            // Check Play Store Button
             if (pixelY >= storeBtnY && pixelY <= storeBtnY + btnHeight) {
                 if (pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) {
                     if (object.userData.link) {
@@ -1029,7 +1188,6 @@ const AnimationBook = () => {
                 }
             }
 
-            // Check "Become Author" Button
             if (object.userData.hasExtraButton) {
                 const extraW = 400;
                 const extraH = 80;
@@ -1062,16 +1220,28 @@ const AnimationBook = () => {
             const uv = intersect.uv;
             const pixelX = uv.x * 1240;
             const pixelY = (1 - uv.y) * 1400;
-            const centerX = 1240 / 2;
-            const btnWidth = 320;
-            const gap = 40;
-            const storeBtnY = 1050;
-            const extraBtnY = 1180;
+            
+            if (object.userData.buttons) {
+                object.userData.buttons.forEach(btn => {
+                    if (pixelX >= btn.x && pixelX <= btn.x + btn.w && pixelY >= btn.y && pixelY <= btn.y + btn.h) {
+                        hoveringLink = true;
+                    }
+                });
+            }
+            
+            // Fallback hover checks
+            if(!hoveringLink) {
+                const centerX = 1240 / 2;
+                const btnWidth = 320;
+                const gap = 40;
+                const storeBtnY = 1050;
+                const extraBtnY = 1180;
 
-            if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) hoveringLink = true;
-            if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) hoveringLink = true;
-            if (object.userData.hasExtraButton) {
-                if (pixelY >= extraBtnY && pixelY <= extraBtnY + 80 && pixelX >= centerX - 200 && pixelX <= centerX + 200) hoveringLink = true;
+                if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX - btnWidth - gap/2 && pixelX <= centerX - gap/2) hoveringLink = true;
+                if (pixelY >= storeBtnY && pixelY <= storeBtnY + 95 && pixelX >= centerX + gap/2 && pixelX <= centerX + gap/2 + btnWidth) hoveringLink = true;
+                if (object.userData.hasExtraButton) {
+                    if (pixelY >= extraBtnY && pixelY <= extraBtnY + 80 && pixelX >= centerX - 200 && pixelX <= centerX + 200) hoveringLink = true;
+                }
             }
         }
       }
@@ -1088,7 +1258,7 @@ const AnimationBook = () => {
     loader.setCrossOrigin("anonymous");
 
     // --- TEXTURE GENERATOR FOR BACK PAGES (Left Side) ---
-    const createBackTexture = (data) => {
+    const createBackTexture = (data, mesh) => {
       const canvas = document.createElement('canvas');
       canvas.width = 1240; canvas.height = 1400;
       const ctx = canvas.getContext('2d');
@@ -1125,20 +1295,33 @@ const AnimationBook = () => {
 
           ctx.drawImage(img, drawX, masterY, drawW, drawH);
 
+          // Store Button Zones
+          const buttonZones = [];
+
           if (data.showButtons) {
             const btnWidth = 320; const btnHeight = 95; const btnGap = 40; const btnY = masterY + drawH + gap;
+            
+            const appX = centerX - btnWidth - btnGap / 2;
             const imgApp = new Image(); imgApp.crossOrigin = "Anonymous"; imgApp.src = "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg";
-            imgApp.onload = () => { ctx.drawImage(imgApp, centerX - btnWidth - btnGap / 2, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+            imgApp.onload = () => { ctx.drawImage(imgApp, appX, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+            buttonZones.push({ x: appX, y: btnY, w: btnWidth, h: btnHeight, action: 'link', url: 'https://apps.apple.com' });
+
+            const playX = centerX + btnGap / 2;
             const imgPlay = new Image(); imgPlay.crossOrigin = "Anonymous"; imgPlay.src = "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg";
-            imgPlay.onload = () => { ctx.drawImage(imgPlay, centerX + btnGap / 2, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+            imgPlay.onload = () => { ctx.drawImage(imgPlay, playX, btnY, btnWidth, btnHeight); tex.needsUpdate = true; };
+            buttonZones.push({ x: playX, y: btnY, w: btnWidth, h: btnHeight, action: 'link', url: data.link || 'https://play.google.com' });
 
             if (data.extraButton) {
-              const extraY = btnY + 130; const extraW = 400; const extraH = 80;
-              ctx.fillStyle = '#7c4dff'; drawRoundedRect(ctx, centerX - extraW / 2, extraY, extraW, extraH, 40);
+              const extraY = btnY + 130; const extraW = 400; const extraH = 80; const extraX = centerX - extraW / 2;
+              ctx.fillStyle = '#7c4dff'; drawRoundedRect(ctx, extraX, extraY, extraW, extraH, 40);
               ctx.fillStyle = '#ffffff'; ctx.font = '700 32px "Inter", sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
               ctx.fillText(data.extraButton, centerX, extraY + extraH / 2);
+              
+              buttonZones.push({ x: extraX, y: extraY, w: extraW, h: extraH, action: 'scroll', target: 'register' });
             }
-          } else { tex.needsUpdate = true; }
+          }
+          if(mesh) mesh.userData.buttons = buttonZones;
+          tex.needsUpdate = true; 
         };
       }
       return tex;
@@ -1292,7 +1475,6 @@ const AnimationBook = () => {
       return tex;
     };
 
-    const BOOK_WIDTH = 4.0; const BOOK_HEIGHT = 5.2; const SPACING = 0.04; const SPINE_RADIUS = 0.12;
     const leatherMat = new THREE.MeshStandardMaterial({ color: COLORS.leather, roughness: 0.4 });
     const goldMat = new THREE.MeshStandardMaterial({ color: COLORS.gold, metalness: 0.8, roughness: 0.2 });
     const paperMat = new THREE.MeshStandardMaterial({ color: COLORS.paper, roughness: 0.6, emissive: 0xffffff, emissiveIntensity: 0.02 });
@@ -1314,20 +1496,33 @@ const AnimationBook = () => {
 
     const pageMeshes = [];
     CONTENT.forEach((data, i) => {
+      // FIX: Move nextData declaration to top of loop to prevent ReferenceError
+      const nextData = CONTENT[i + 1];
+
       const pivot = new THREE.Group(); pivot.position.set(-BOOK_WIDTH / 2, 0, SPINE_RADIUS);
       const textTex = createTextTexture(data);
       const textMat = new THREE.MeshStandardMaterial({ map: textTex, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.02 });
       const backMat = new THREE.MeshStandardMaterial({ color: COLORS.paper, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.02 });
 
-      const nextData = CONTENT[i + 1];
-      if (nextData) { const backTex = createBackTexture(nextData); backMat.map = backTex; backMat.needsUpdate = true; }
-      
-      const pageMats = [goldMat, leatherMat, paperMat, paperMat, textMat, backMat];
       const geo = new THREE.BoxGeometry(BOOK_WIDTH, BOOK_HEIGHT, 0.02, 12, 1, 1);
-      const mesh = new THREE.Mesh(geo, pageMats);
+      const mesh = new THREE.Mesh(geo, [goldMat, leatherMat, paperMat, paperMat, textMat, backMat]);
       mesh.position.x = BOOK_WIDTH / 2;
-      mesh.userData = { originalVertices: geo.attributes.position.array.slice(), link: data.link, isBackPage: false, backData: nextData, hasExtraButton: nextData?.extraButton ? true : false };
       
+      // FIX: Ensure nextData is defined before using it in userData
+      mesh.userData = { 
+          originalVertices: geo.attributes.position.array.slice(), 
+          link: data.link, 
+          isBackPage: false,
+          backData: nextData, 
+          hasExtraButton: nextData?.extraButton ? true : false 
+      };
+      
+      if (nextData) { 
+        const backTex = createBackTexture(nextData, mesh); 
+        backMat.map = backTex; backMat.needsUpdate = true; 
+        mesh.userData.isBackPage = true; 
+      }
+
       pivot.add(mesh); bookGroup.add(pivot); pageMeshes.push(mesh);
     });
     scene.add(bookGroup);
@@ -1335,9 +1530,7 @@ const AnimationBook = () => {
     loader.load(BookCover, (tex) => { tex.colorSpace = THREE.SRGBColorSpace; coverMesh.material[4] = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.3 }); coverMesh.material.needsUpdate = true; });
     if (CONTENT[0].img) { loader.load(CONTENT[0].img, (tex) => { tex.colorSpace = THREE.SRGBColorSpace; coverMesh.material[5] = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.5 }); coverMesh.material.needsUpdate = true; }); }
 
-    // 2. DEFINE SAFETY TIMEOUT HERE (Before use)
     safetyTimeout = setTimeout(() => setLoading(false), 3000);
-
     document.fonts.ready.then(() => { if(renderer) renderer.render(scene, camera); });
 
     const animate = (time) => {
@@ -1412,7 +1605,7 @@ const AnimationBook = () => {
   return (
     <div ref={containerRef} className="anim-book-container">
       {/* 2. ADD FLOATING ICONS CONTAINER HERE */}
-      <div className="floating-icons-layer">
+      <div className={`floating-icons-layer ${uiPhase > 0 ? 'active' : ''}`}>
         {floatingIconsElements}
       </div>
 
@@ -1493,17 +1686,23 @@ const AnimationBook = () => {
           pointer-events: none;
           z-index: 1; /* Icons sit behind book */
           overflow: hidden;
+          opacity: 0; /* Hidden by default */
+          transition: opacity 1.5s ease;
+        }
+        
+        .floating-icons-layer.active {
+          opacity: 1; /* Visible when book opens */
         }
 
         .glass-card {
           background: rgba(191, 87, 0, 0.2); /* Burned orange tint */
           backdrop-filter: blur(40px);
           -webkit-backdrop-filter: blur(40px);
-          padding: 26px; /* Smaller padding */
+          padding: 30px; /* Smaller padding */
           border-radius: 30px; /* Smaller radius */
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
           border: 1px solid rgba(191, 87, 0, 0.3); /* Tinted border */
-          max-width: 480px; /* Smaller width */
+          max-width: 490px; /* Smaller width */
           width: 100%;
           color: #001a33;
           transition: transform 0.3s ease;

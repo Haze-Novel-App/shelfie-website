@@ -6,19 +6,19 @@ import article3 from '../assets/imgs/articles/article3.jpg';
 const LatestArticles = () => {
   const articles = [
     {
-      date: '2 Aug, 2021',
+      date: '13 jan, 2026',
       title: 'Reading Books Always Makes The Moments Happy',
       category: 'Inspiration',
       image: article1
     },
     {
-      date: '2 Aug, 2021',
+      date: '2 feb, 2026',
       title: 'Reading Books Always Makes The Moments Happy',
       category: 'Inspiration',
       image: article2
     },
     {
-      date: '2 Aug, 2021',
+      date: '14 feb, 2021',
       title: 'Reading Books Always Makes The Moments Happy',
       category: 'Inspiration',
       image: article3
