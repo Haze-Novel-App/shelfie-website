@@ -1,3 +1,6 @@
+
+
+
 // import React from 'react';
 // import adventure from '../assets/imgs/bookCover/advantur.png';
 
@@ -22,15 +25,26 @@
 //               </p>
 //             </div>
 
+//             {/* BENEFITS AS CARDS */}
 //             <div className="author-benefits">
-//               <div className="benefit-item">
+//               <div className="benefit-card">
 //                 <h4>Direct Connection</h4>
 //                 <p>Talk to your audience without intermediaries.</p>
 //               </div>
-//               <div className="benefit-item">
+//               <div className="benefit-card">
 //                 <h4>Community Building</h4>
 //                 <p>Foster a loyal following that grows with every chapter.</p>
 //               </div>
+//             </div>
+
+//             {/* DOWNLOAD BADGES */}
+//             <div className="author-download-badges">
+//                <a href="#store" className="badge-link">
+//                   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" />
+//                </a>
+//                <a href="#store" className="badge-link">
+//                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" />
+//                </a>
 //             </div>
 //           </div>
 
@@ -59,12 +73,8 @@
 
 
 
-
-
-
-
 import React from 'react';
-import adventure from '../assets/imgs/bookCover/advantur.png';
+import adventure from '../assets/imgs/bookCover/adventure1.png'; // Make sure path matches your file
 
 const AuthorSection = () => {
   return (
@@ -72,9 +82,11 @@ const AuthorSection = () => {
       <div className="container">
         <div className="author-grid">
           
+          {/* TEXT SIDE (Left) */}
           <div className="author-text">
-            <h2 className="section-subtitle">For Writers</h2>
-            <h3 className="section-title">For writers who want real reader engagement</h3>
+            {/* SWAPPED: Main Title is now "FOR WRITERS" */}
+            <h2 className="section-title">For Writers</h2>
+            <h3 className="section-subtitle">For writers who want real reader engagement</h3>
             
             <div className="author-description">
               <p className="highlight-text">
@@ -87,7 +99,7 @@ const AuthorSection = () => {
               </p>
             </div>
 
-            {/* BENEFITS AS CARDS */}
+            {/* BENEFITS CARDS (Orange Theme) */}
             <div className="author-benefits">
               <div className="benefit-card">
                 <h4>Direct Connection</h4>
@@ -102,14 +114,15 @@ const AuthorSection = () => {
             {/* DOWNLOAD BADGES */}
             <div className="author-download-badges">
                <a href="#store" className="badge-link">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" />
                </a>
                <a href="#store" className="badge-link">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
                </a>
             </div>
           </div>
 
+          {/* IMAGE SIDE (Right) */}
           <div className="author-image">
             <img 
               src={adventure} 
