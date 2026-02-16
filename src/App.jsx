@@ -19,13 +19,13 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      {/* <Hero /> */}
-      <AnimatedBook />
-      {/* <Genres /> */}
+      <Hero />
+      {/* <AnimatedBook /> */}
+      <Genres />
       {/* <Brands /> */}
-      {/* <About /> */}
-      {/* <ReaderSection /> */}
-      {/* <AuthorSection /> */}
+      <About />
+      <ReaderSection />
+      <AuthorSection />
       {/* <Newsletter /> */}
       {/* <ContactUs /> */}
       <DownloadApp />

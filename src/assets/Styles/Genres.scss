@@ -122,14 +122,11 @@
 
 
 .genres-section {
-    position: absolute;
-    bottom: 70px;
-    left: 0;
-    padding: 10px 0;
-    background-color: #FFA05C;
+    padding: 60px 0; // Increased padding for more breathing room
+    background-color: var(--bg-genres);
     width: 100%;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden; // Vital to hide the icons outside the viewport
+    border-bottom: 1px solid var(--border-color);
 
     .genres-slider {
         display: flex;
@@ -139,10 +136,14 @@
     .genres-track {
         display: flex;
         align-items: center;
-        gap: 60px;
+        gap: 60px; // Increased space between icons
         padding: 10px 0;
+        /* The animation duration (40s) controls the speed. 
+           Lower = Faster. 
+        */
         animation: scroll-infinite 40s linear infinite;
-
+        
+        // Pause on hover so users can click/read
         &:hover {
             animation-play-state: paused;
         }
@@ -150,109 +151,61 @@
 
     .genre-item {
         text-align: center;
-        flex-shrink: 0;
-        min-width: 150px;
+        flex-shrink: 0; // Prevents items from squishing
+        min-width: 150px; // Ensures consistent spacing
         cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
         .icon-wrapper {
-            /* Tightened space between icon and title */
-            margin-bottom: 4px; 
+            margin-bottom: 15px; 
             display: flex;
             justify-content: center;
 
             .genre-icon-img {
-                width: 40px;
-                height: 40px;
+                width: 64px;  // Increased size from 45px
+                height: 64px; // Increased size from 45px
                 object-fit: contain;
-                /* Turns icons white */
-                filter: brightness(0) invert(1) opacity(0.8);
+                filter: grayscale(100%) opacity(0.6); 
                 transition: all 0.3s ease;
             }
         }
 
-        /* Typography */
+        &:hover {
+            .genre-icon-img {
+                filter: grayscale(0%) opacity(1);
+                transform: scale(1.15); 
+            }
+            h4 { color: var(--accent-color); }
+        }
+
         h4 {
-            font-family: 'Bebas Neue', sans-serif; // Assumed based on your Header font
-            font-size: 0.94rem;
+            font-size: 0.94rem; // Slightly larger text
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #FFFFFF; 
-            /* Removed default margins to pull text closer */
-            margin: 0; 
-            line-height: 1.1; 
-            transition: color 0.3s ease;
+            margin-bottom: 4px;
+            color: var(--text-primary);
         }
 
         .genre-desc {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.8);
-            /* Minimal gap between title and description */
-            margin: 2px 0 0 0; 
-            transition: color 0.3s ease;
-        }
-
-        /* Hover States */
-        &:hover {
-            .genre-icon-img {
-                filter: brightness(0) invert(1) opacity(1);
-                transform: scale(1.1);
-            }
-
-            h4 {
-                color: #FFFFFF;
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-            }
-            
-            .genre-desc {
-                color: #FFFFFF;
-            }
+            font-size: 0.8rem; 
+            color: var(--text-secondary);
         }
     }
 }
 
-/* Keyframes for Smooth Infinite Loop */
+// The magic for the infinite look
 @keyframes scroll-infinite {
     0% {
         transform: translateX(0);
     }
     100% {
-        /* Adjust based on duplicating the list once in React */
+        /* Moves half of the track (the first set of icons) */
         transform: translateX(calc(-50% - 30px)); 
     }
 }
 
-/* Responsive Adjustments */
+// On mobile, we can keep it scrolling but maybe faster or smaller gap
 @media (max-width: 768px) {
-    .genres-section {
-        bottom: 60px;
-        padding: 8px 0;
-    }
-    
     .genres-track {
-        gap: 35px; // Tighter gap for smaller screens
-    }
-
-    .genre-item {
-        min-width: 110px;
-        
-        .icon-wrapper {
-            margin-bottom: 2px;
-        }
-
-        .genre-icon-img {
-            width: 30px;
-            height: 30px;
-        }
-
-        h4 {
-            font-size: 0.85rem;
-        }
-
-        .genre-desc {
-            font-size: 0.7rem;
-        }
+        gap: 40px;
     }
 }

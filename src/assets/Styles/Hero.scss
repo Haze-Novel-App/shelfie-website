@@ -1,256 +1,316 @@
 
 
 
+
+
+// :root {
+//   --accent-color: #7c4dff;
+//   --text-primary: #1a1a1a;
+//   --text-secondary: #555555;
+//   --bg-secondary: #f8f7ff;
+//   --white: #ffffff;
+// }
+
+// // --- HERO SECTION ---
 // .hero {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center; 
-//     padding: 60px 10%; 
-//     min-height: 70vh; 
-//     background-color: var(--bg-secondary); 
-//     width: 100%;
-//     box-sizing: border-box; 
+//   position: relative;
+//   width: 100%;
+//   min-height: 75vh;
+//   background-color: var(--bg-secondary);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   overflow: hidden;
+//   padding: 40px 0;
+
+//   .hero-carousel {
 //     position: relative;
-//     overflow: hidden; 
-
-//     .hero-container {
-//         display: flex;
-//         align-items: center;
-//         justify-content: space-between;
-//         width: 90%; 
-//         max-width: 1200px; 
-//         margin: 0 auto; 
-//         gap: 40px;
-//     }
-
-
-// .popup-overlay {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100vw;
-//     height: 100vh;
-//     background: rgba(26, 11, 46, 0.6); 
-//     backdrop-filter: blur(8px); 
+//     width: 100%;
+//     max-width: 1400px;
+//     height: 600px; 
 //     display: flex;
 //     align-items: center;
 //     justify-content: center;
-//     z-index: 2000; 
-//     padding: 20px;
+//   }
+
+//   .hero-container {
+//     position: absolute;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 90%;
+//     gap: 80px; 
+    
+//     // DEFAULT STATE: Off-screen to the right
+//     opacity: 0;
+//     visibility: hidden;
+//     transform: translateX(100px); // Incoming from right
+//     transition: 
+//       opacity 0.8s ease, 
+//       transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+//       visibility 0.8s;
+
+//     &.active {
+//       position: relative;
+//       opacity: 1;
+//       visibility: visible;
+//       transform: translateX(0); // Center
+//       z-index: 2;
+//     }
+
+//     // EXIT STATE: Moving to the left
+//     // Note: This works best if you add an 'exit' class in React, 
+//     // otherwise, the slide simply snaps back to the right when .active is removed.
+//     &:not(.active) {
+//       transform: translateX(-100px); // Go to left
+//       opacity: 0;
+//     }
+//   }
+
+//   .hero-content {
+//     flex: 1.2;
+//     max-width: 600px;
+//     text-align: left;
+
+//     .hero-title {
+//       font-family: 'Bebas Neue', sans-serif;
+//       font-size: 5rem; 
+//       line-height: 0.95;
+//       letter-spacing: -1px;
+//       margin-bottom: 25px;
+//       color: var(--text-primary);
+//       text-transform: uppercase;
+//     }
+
+//     .hero-desc {
+//       font-family: 'Abel', sans-serif;
+//       color: var(--text-secondary);
+//       margin-bottom: 40px;
+//       line-height: 1.6;
+//       font-size: 1.25rem;
+//       max-width: 520px;
+//     }
+
+//     .btn {
+//       font-family: 'Abel', sans-serif;
+//       background: var(--accent-color);
+//       color: var(--white);
+//       padding: 16px 45px;
+//       font-weight: 600;
+//       font-size: 1.1rem;
+//       border: none;
+//       border-radius: 50px;
+//       cursor: pointer;
+//       text-transform: uppercase;
+//       letter-spacing: 1px;
+//       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+//       box-shadow: 0 4px 15px rgba(124, 77, 255, 0.2);
+      
+//       &:hover {
+//         transform: translateY(-3px) scale(1.05);
+//         box-shadow: 0 10px 25px rgba(124, 77, 255, 0.3);
+//       }
+//     }
+//   }
+
+//   .hero-image {
+//     flex: 0.8;
+//     display: flex;
+//     justify-content: center;
+
+//     img {
+//       max-width: 420px;
+//       width: 65%;
+//       height: auto;
+//       border-radius: 25px;
+//       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+//       display: block;
+//     }
+//   }
+
+//   .carousel-dots {
+//     position: absolute;
+//     bottom: 30px;
+//     display: flex;
+//     gap: 12px;
+//     z-index: 10;
+
+//     .dot {
+//       width: 10px;
+//       height: 10px;
+//       background: #cccccc;
+//       border-radius: 50%;
+//       cursor: pointer;
+//       transition: all 0.4s ease;
+
+//       &.active {
+//         background: var(--accent-color);
+//         transform: scale(1.4);
+//       }
+//     }
+//   }
+// }
+
+// // --- POPUP MODAL ENHANCEMENTS ---
+// .popup-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: rgba(26, 11, 46, 0.7); // Darker backdrop for better focus
+//   backdrop-filter: blur(10px);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 9999;
+//   padding: 20px;
 // }
 
 // .popup-card {
-//     background: var(--white);
-//     width: 100%;
-//     max-width: 500px;
-//     padding: 40px;
-//     border-radius: 24px;
-//     position: relative;
-//     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-//     text-align: center;
-//     animation: popupFadeUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+//   background: var(--white);
+//   width: 100%;
+//   max-width: 540px; // Slightly wider for better badge breathing room
+//   padding: 50px 40px;
+//   border-radius: 32px; // Softer corners
+//   position: relative;
+//   text-align: center;
+//   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 
-//     .close-x {
-//         position: absolute;
-//         top: 20px;
-//         right: 20px;
-//         background: var(--bg-secondary);
-//         border: none;
-//         font-size: 24px;
-//         width: 35px;
-//         height: 35px;
-//         border-radius: 50%;
-//         cursor: pointer;
+//   .popup-h2 {
+//     font-family: 'Bebas Neue', sans-serif;
+//     font-size: 3.2rem; // Stronger heading
+//     color: var(--text-primary);
+//     margin-bottom: 8px;
+//     letter-spacing: 1px;
+//     line-height: 1;
+//   }
+
+//   .popup-p {
+//     font-family: 'Abel', sans-serif;
+//     color: var(--text-secondary);
+//     font-size: 1.2rem;
+//     margin-bottom: 40px;
+//   }
+
+//   .role-selection {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 24px; // More space between Reader and Author blocks
+
+//     .choice-box {
+//       background: #f6f4ff; // Very subtle lavender
+//       padding: 30px;
+//       border-radius: 24px;
+//       border: 2px solid transparent;
+//       transition: all 0.3s ease;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center; // Center content for a balanced look
+
+//       h3 {
+//         font-family: 'Bebas Neue', sans-serif;
+//         font-size: 2.2rem;
+//         margin: 0;
 //         color: var(--text-primary);
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         transition: all 0.2s ease;
+//         letter-spacing: 1px;
+//       }
 
-//         &:hover {
-//             background: #ff4d4d;
-//             color: white;
-//         }
-//     }
-
-//     .popup-h2 {
-//         font-family: 'Playfair Display', serif;
-//         font-size: 2rem;
-//         color: var(--text-primary);
-//         margin-bottom: 12px;
-//     }
-
-//     .popup-p {
-//         color: var(--text-secondary);
-//         margin-bottom: 30px;
+//       p {
+//         font-family: 'Abel', sans-serif;
+//         margin: 4px 0 20px 0;
 //         font-size: 1.1rem;
-//     }
-
-//     .role-selection {
-//         display: flex;
-//         flex-direction: column;
-//         gap: 15px;
-
-//         .choice-box {
-//             background: var(--bg-secondary);
-//             padding: 20px;
-//             border-radius: 15px;
-//             cursor: pointer;
-//             border: 2px solid transparent;
-//             transition: all 0.3s ease;
-
-//             h3 {
-//                 margin: 0 0 5px 0;
-//                 color: var(--text-primary);
-//             }
-
-//             p {
-//                 margin: 0 0 10px 0;
-//                 font-size: 0.9rem;
-//                 color: var(--text-secondary);
-//             }
-
-//             .select-text {
-//                 font-weight: 700;
-//                 color: var(--accent-color);
-//                 font-size: 0.85rem;
-//                 text-transform: uppercase;
-//             }
-
-//             &:hover {
-//                 border-color: var(--accent-color);
-//                 background: white;
-//                 transform: translateY(-3px);
-//                 box-shadow: 0 10px 20px rgba(124, 77, 255, 0.1);
-//             }
-//         }
-//     }
-
-//     .download-badges {
-//         display: flex;
-//         justify-content: center;
-//         gap: 15px;
-//         margin-bottom: 25px;
-
-//         img {
-//             height: 45px;
-//             transition: transform 0.2s;
-//             &:hover { transform: scale(1.05); }
-//         }
-//     }
-
-//     .btn-back {
-//         background: transparent;
-//         border: none;
 //         color: var(--text-secondary);
-//         font-weight: 600;
-//         cursor: pointer;
+//       }
+
+//       .download-row {
 //         display: flex;
-//         align-items: center;
 //         justify-content: center;
-//         gap: 8px;
-//         margin: 0 auto;
-//         &:hover { color: var(--accent-color); }
-//     }
-// }
-
-// @keyframes popupFadeUp {
-//     from { opacity: 0; transform: translateY(30px) scale(0.9); }
-//     to { opacity: 1; transform: translateY(0) scale(1); }
-// }
-
-//     .hero-content {
-//         flex: 1; 
-//         max-width: 550px; 
-//         text-align: left;
-//         z-index: 1;
-
-//         .hero-title {
-//             font-size: 3rem;
-//             font-family: 'Playfair Display', serif;
-//             line-height: 1.2;
-//             margin-bottom: 24px;
-//             color: var(--text-primary); 
-//         }
-
-//         .hero-desc {
-//             color: var(--text-secondary);
-//             margin-bottom: 30px;
-//             line-height: 1.8;
-//             font-size: 1rem;
-//         }
-
-//         .btn {
-//             background: var(--accent-color);
-//             color: var(--white);
-//             border: 1px solid var(--accent-color);
-//             padding: 15px 35px;
-//             font-weight: 600;
-//             border-radius: 8px; 
-//             transition: all 0.3s ease;
-//             cursor: pointer;
-//             box-shadow: 0 4px 15px rgba(124, 77, 255, 0.2);
-            
-//             &:hover {
-//                 background: var(--accent-hover);
-//                 color: var(--white);
-//                 transform: translateY(-2px);
-//                 box-shadow: 0 6px 20px rgba(124, 77, 255, 0.3);
-//             }
-//         }
-//     }
-
-//     .hero-image {
-//         flex: 1;
-//         display: flex;
-//         justify-content: flex-end; 
+//         gap: 16px; // Space between badges
 
 //         img {
-//             box-shadow: 20px 20px 50px rgba(124, 77, 255, 0.15);
-//             max-width: 350px; 
-//             width: 100%;
-//             height: auto;
-//             border-radius: 20px;
-//             display: block; 
+//           height: 42px; // Uniform badge height
+//           width: auto;
+//           transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          
+//           &:hover {
+//             transform: scale(1.08);
+//           }
 //         }
+//       }
+
+//       &:hover {
+//         background: var(--white);
+//         border-color: var(--accent-color);
+//         box-shadow: 0 15px 30px rgba(124, 77, 255, 0.12);
+//         transform: translateY(-4px);
+//       }
 //     }
+//   }
+
+//   .close-x {
+//     position: absolute;
+//     top: 12px;
+//     right: 14px;
+//     width: 44px;
+//     height: 44px;
+//     background: #f0f0f0;
+//     border: none;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     font-size: 1.6rem;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: #333;
+//     transition: all 0.2s ease;
+
+//     &:hover {
+//       background: #ff4d4d;
+//       color: var(--white);
+//       transform: rotate(90deg);
+//     }
+//   }
 // }
 
-// html, body {
-//     margin: 0;
-//     padding: 0;
-//     width: 100%;
-//     max-width: 100%;
-//     overflow-x: hidden; 
+// // --- ANIMATIONS & QUERIES ---
+// @keyframes popupFadeUp {
+//   from { opacity: 0; transform: translateY(30px) scale(0.9); }
+//   to { opacity: 1; transform: translateY(0) scale(1); }
 // }
 
-// #root {
-//     width: 100%;
-//     margin: 0;
-//     padding: 0;
+// @media (max-width: 992px) {
+//   .hero {
+//     .hero-content .hero-title { font-size: 3.8rem; }
+//     .hero-image img { max-width: 350px; }
+//   }
 // }
 
 // @media (max-width: 768px) {
-//     .hero {
-//         padding: 40px 0;
-        
-//         .hero-container {
-//             flex-direction: column;
-//             text-align: center;
-//             width: 95%; 
-//             gap: 40px;
-//         }
-        
-//         .hero-content {
-//             max-width: 100%;
-//             text-align: center;
-//         }
-        
-//         .hero-image {
-//             justify-content: center;
-//         }
+//   .hero {
+//     padding: 60px 0;
+//     .hero-carousel { height: auto; }
+//     .hero-container {
+//       flex-direction: column;
+//       text-align: center;
+//       gap: 40px;
+//       position: relative;
 //     }
+//     .hero-content {
+//       order: 1;
+//       max-width: 100%;
+//       .hero-title { font-size: 3.2rem; }
+//       .hero-desc { margin: 0 auto 30px; }
+//     }
+//     .hero-image {
+//       order: 2;
+//       img { max-width: 280px; width: 80%; }
+//     }
+//     .carousel-dots { bottom: -20px; }
+//   }
 // }
+
+
 
 
 
@@ -264,7 +324,8 @@
 
 
 :root {
-  --accent-color: #7c4dff;
+  /* CHANGED: Updated to Burnt Orange */
+  --accent-color: #cc5500; 
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
   --bg-secondary: #f8f7ff;
@@ -319,8 +380,6 @@
     }
 
     // EXIT STATE: Moving to the left
-    // Note: This works best if you add an 'exit' class in React, 
-    // otherwise, the slide simply snaps back to the right when .active is removed.
     &:not(.active) {
       transform: translateX(-100px); // Go to left
       opacity: 0;
@@ -364,11 +423,14 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 4px 15px rgba(124, 77, 255, 0.2);
+      
+      /* CHANGED: Updated shadow color to match orange (rgba equivalent of #cc5500) */
+      box-shadow: 0 4px 15px rgba(204, 85, 0, 0.2); 
       
       &:hover {
         transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 10px 25px rgba(124, 77, 255, 0.3);
+        /* CHANGED: Updated hover shadow color */
+        box-shadow: 0 10px 25px rgba(204, 85, 0, 0.3);
       }
     }
   }
@@ -404,6 +466,7 @@
       transition: all 0.4s ease;
 
       &.active {
+        /* This automatically picks up the new Burnt Orange var */
         background: var(--accent-color);
         transform: scale(1.4);
       }
@@ -418,7 +481,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(26, 11, 46, 0.7); // Darker backdrop for better focus
+  background: rgba(26, 11, 46, 0.7); 
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
@@ -430,16 +493,16 @@
 .popup-card {
   background: var(--white);
   width: 100%;
-  max-width: 540px; // Slightly wider for better badge breathing room
+  max-width: 540px; 
   padding: 50px 40px;
-  border-radius: 32px; // Softer corners
+  border-radius: 32px; 
   position: relative;
   text-align: center;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 
   .popup-h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.2rem; // Stronger heading
+    font-size: 3.2rem; 
     color: var(--text-primary);
     margin-bottom: 8px;
     letter-spacing: 1px;
@@ -456,17 +519,17 @@
   .role-selection {
     display: flex;
     flex-direction: column;
-    gap: 24px; // More space between Reader and Author blocks
+    gap: 24px; 
 
     .choice-box {
-      background: #f6f4ff; // Very subtle lavender
+      background: #f6f4ff; 
       padding: 30px;
       border-radius: 24px;
       border: 2px solid transparent;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      align-items: center; // Center content for a balanced look
+      align-items: center; 
 
       h3 {
         font-family: 'Bebas Neue', sans-serif;
@@ -486,10 +549,10 @@
       .download-row {
         display: flex;
         justify-content: center;
-        gap: 16px; // Space between badges
+        gap: 16px; 
 
         img {
-          height: 42px; // Uniform badge height
+          height: 42px; 
           width: auto;
           transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           
@@ -502,7 +565,8 @@
       &:hover {
         background: var(--white);
         border-color: var(--accent-color);
-        box-shadow: 0 15px 30px rgba(124, 77, 255, 0.12);
+        /* CHANGED: Updated shadow color slightly to match theme */
+        box-shadow: 0 15px 30px rgba(204, 85, 0, 0.12);
         transform: translateY(-4px);
       }
     }
