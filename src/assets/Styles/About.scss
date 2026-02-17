@@ -121,7 +121,7 @@
 
 
 .about-elegant {
-  padding: 140px 0;
+  padding: 40px 0;
   background-color: #fdf9f0;
   display: flex;
   justify-content: center;
@@ -224,7 +224,7 @@
 // Mobile Responsive
 @media (max-width: 992px) {
   .about-elegant {
-    padding: 80px 0;
+    padding: 20px 0;
 
     .editorial-grid {
       grid-template-columns: 1fr;
