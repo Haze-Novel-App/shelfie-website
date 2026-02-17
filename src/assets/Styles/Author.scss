@@ -1,180 +1,5 @@
 
 
-// .author-section {
-//     padding: 100px 0;
-//     background-color: var(--white); // Pure White
-//     display: flex;
-//     justify-content: center;
-//     width: 100%;
-//     box-sizing: border-box;
-//     overflow: hidden;
-
-//     .container {
-//         width: 90%;
-//         max-width: 1100px; 
-//     }
-
-//     .author-grid {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         gap: 80px;
-//         align-items: center;
-//     }
-
-//     .author-text {
-//         text-align: left;
-
-//         .section-subtitle {
-//             font-family: 'Abel', sans-serif;
-//             text-transform: uppercase;
-//             letter-spacing: 4px;
-//             font-size: 0.9rem;
-//             color: var(--accent-color);
-//             margin-bottom: 12px;
-//             display: block;
-//         }
-
-//         .section-title {
-//             font-family: 'Bebas Neue', sans-serif;
-//             font-size: 3.5rem; 
-//             line-height: 1;
-//             margin-bottom: 25px;
-//             color: var(--text-primary);
-//             text-transform: uppercase;
-//         }
-
-//         .author-description {
-//             margin-bottom: 35px;
-            
-//             .highlight-text {
-//                 font-family: 'Abel', sans-serif;
-//                 font-size: 1.2rem; 
-//                 font-weight: 600;
-//                 color: var(--text-primary);
-//                 margin-bottom: 15px;
-//             }
-
-//             p {
-//                 font-family: 'Abel', sans-serif;
-//                 font-size: 1.1rem;
-//                 line-height: 1.7;
-//                 color: var(--text-secondary);
-//             }
-//         }
-//     }
-
-//     /* CARDS FOR BENEFITS */
-//     .author-benefits {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         gap: 20px;
-//         margin-bottom: 40px;
-
-//         .benefit-card {
-//             background: #f8f7ff; // Very light lavender
-//             padding: 25px;
-//             border-radius: 18px;
-//             transition: all 0.3s ease;
-//             border: 1px solid rgba(124, 77, 255, 0.05);
-
-//             h4 {
-//                 font-family: 'Bebas Neue', sans-serif;
-//                 font-size: 1.6rem;
-//                 margin-bottom: 10px;
-//                 color: var(--text-primary);
-//                 letter-spacing: 1px;
-//             }
-//             p {
-//                 font-family: 'Abel', sans-serif;
-//                 font-size: 0.95rem;
-//                 color: var(--text-secondary);
-//                 line-height: 1.5;
-//                 margin: 0;
-//             }
-
-//             &:hover {
-//                 background: var(--white);
-//                 box-shadow: 0 10px 25px rgba(124, 77, 255, 0.1);
-//                 transform: translateY(-5px);
-//                 border-color: var(--accent-color);
-//             }
-//         }
-//     }
-
-//     .author-download-badges {
-//         display: flex;
-//         gap: 15px;
-//         align-items: center;
-
-//         .badge-link {
-//             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-//             img {
-//                 height: 42px;
-//                 width: auto;
-//                 display: block;
-//             }
-
-//             &:hover {
-//                 transform: translateY(-3px);
-//             }
-//         }
-//     }
-
-//     .author-image {
-//         display: flex;
-//         justify-content: center;
-        
-//         img {
-//             max-width: 400px; 
-//             width: 100%;
-//             height: auto;
-//             border-radius: 20px; 
-//             box-shadow: -20px 20px 0px rgba(124, 77, 255, 0.05); 
-//             transition: transform 0.5s ease;
-
-//             &:hover {
-//                 transform: scale(1.03) rotate(1deg);
-//             }
-//         }
-//     }
-// }
-
-// /* Mobile Responsiveness */
-// @media (max-width: 992px) {
-//     .author-section {
-//         padding: 60px 0;
-        
-//         .author-grid {
-//             grid-template-columns: 1fr;
-//             text-align: center;
-//             gap: 50px;
-            
-//             .author-image { order: 1; img { max-width: 300px; } }
-//             .author-text { order: 2; text-align: center; }
-
-//             .author-benefits {
-//                 grid-template-columns: 1fr;
-//                 .benefit-card { text-align: center; }
-//             }
-
-//             .author-download-badges {
-//                 justify-content: center;
-//             }
-//         }
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
 
 
 :root {
@@ -331,36 +156,63 @@
     }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 992px) {
+
+
+/* === RESPONSIVE (PHONE & TABLET) === */
+@media (max-width: 780px) {
     .author-section {
         padding: 60px 0;
         
         .author-grid {
+            /* Switch to single column */
             grid-template-columns: 1fr;
-            text-align: center;
-            gap: 50px;
+            gap: 0; 
             
-            /* Reorder on Mobile: Image top, Text bottom if you prefer, 
-               or keep Text top. Here keeps Text top (default block flow). 
-               To swap: set .author-image { order: 1; } etc.
-            */
+            /* 1. HIDE THE IMAGE COMPLETELY */
             .author-image { 
-                order: 2; /* Puts image below text on mobile */
-                img { max-width: 320px; } 
+                display: none; 
             }
+
+            /* 2. CENTER THE TEXT CONTENT */
             .author-text { 
-                order: 1; 
-                text-align: center; 
-            }
+                text-align: center;
+                width: 100%;
+                max-width: 600px; /* Prevent text from being too wide */
+                margin: 0 auto;
+                
+                .section-title {
+                    font-size: 3.5rem; /* Smaller title for mobile */
+                }
 
-            .author-benefits {
-                grid-template-columns: 1fr; /* Stack cards */
-                .benefit-card { text-align: center; }
-            }
+                .section-subtitle {
+                    font-size: 1rem;
+                    margin-bottom: 30px;
+                    line-height: 1.5;
+                }
 
-            .author-download-badges {
-                justify-content: center;
+                .author-description {
+                    margin-bottom: 30px;
+                    p { font-size: 1.05rem; }
+                }
+
+                /* stack benefits cards vertically */
+                .author-benefits {
+                    grid-template-columns: 1fr; 
+                    gap: 15px;
+                    margin-bottom: 35px;
+
+                    .benefit-card { 
+                        text-align: center; 
+                        padding: 20px;
+                        
+                        h4 { font-size: 1.4rem; }
+                    }
+                }
+
+                /* Center download buttons */
+                .author-download-badges {
+                    justify-content: center;
+                }
             }
         }
     }

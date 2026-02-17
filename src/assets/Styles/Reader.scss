@@ -1,7 +1,15 @@
 
+
+// :root {
+//   --accent-color: #cc5500; /* Burnt Orange */
+//   --text-primary: #1a1a1a;
+//   --text-secondary: #555555;
+//   --bg-secondary: #fffaf7;
+// }
+
 // .reader-section {
 //     padding: 100px 0; 
-//     background-color: var(--bg-secondary); // Pure white background
+//     background-color: var(--bg-secondary);
 //     display: flex;
 //     justify-content: center;
 //     width: 100%;
@@ -10,13 +18,13 @@
 
 //     .container {
 //         width: 90%;
-//         max-width: 1100px; 
+//         max-width: 1200px; /* Slightly wider container */
 //     }
 
 //     .reader-grid {
 //         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         gap: 80px; // Increased gap for an elegant, spacious feel
+//         grid-template-columns: 1fr 1.2fr; /* Give text slightly more room */
+//         gap: 80px;
 //         align-items: center;
 //     }
 
@@ -25,16 +33,15 @@
 //         justify-content: center;
 
 //         img {
-//             max-width: 400px; 
+//             max-width: 380px; 
 //             width: 100%;
 //             height: auto;
 //             border-radius: 20px; 
-//             // Soft shadow with purple tint for depth
-//             box-shadow: 20px 20px 0px rgba(124, 77, 255, 0.05); 
+//             box-shadow: 25px 25px 0px rgba(204, 85, 0, 0.08); /* Orange tint shadow */
 //             transition: transform 0.5s ease;
 
 //             &:hover {
-//                 transform: scale(1.03) rotate(-1deg);
+//                 transform: scale(1.02);
 //             }
 //         }
 //     }
@@ -42,100 +49,104 @@
 //     .reader-text {
 //         text-align: left;
 
+//         /* MAIN TITLE (Big) */
+//         .section-title {
+//             font-family: 'Bebas Neue', sans-serif;
+//             font-size: 5rem; 
+//             line-height: 0.9;
+//             margin: 0 0 15px 0; 
+//             color: var(--text-primary);
+//             text-transform: uppercase;
+//             letter-spacing: -1px;
+//         }
+
+//         /* SUBTITLE (Smaller) */
 //         .section-subtitle {
 //             font-family: 'Abel', sans-serif;
 //             text-transform: uppercase;
-//             letter-spacing: 4px;
-//             font-size: 0.9rem; 
-//             color: var(--accent-color); // Primary Purple accent
-//             margin-bottom: 12px;
-//             display: block;
-//         }
-
-//         .section-title {
-//             font-family: 'Bebas Neue', sans-serif;
-//             font-size: 3.5rem; 
-//             line-height: 1;
-//             margin-bottom: 30px; 
-//             color: var(--text-primary); // Deep purple-black
-//             text-transform: uppercase;
+//             letter-spacing: 3px;
+//             font-size: 1.1rem; 
+//             color: var(--accent-color); /* Orange */
+//             margin: 0 0 40px 0;
+//             font-weight: 600;
 //         }
 //     }
 
+//     /* ALIGNMENT FIX */
 //     .reader-features {
 //         list-style: none;
 //         padding: 0;
-//         margin-bottom: 35px;
+//         margin-bottom: 40px;
 
 //         li {
 //             display: flex;
-//             align-items: flex-start;
-//             margin-bottom: 20px;
+//             align-items: center; /* Vertically center the number and text */
+//             margin-bottom: 25px;
 //             padding-bottom: 15px;
-//             border-bottom: 1px solid rgba(124, 77, 255, 0.1); 
+//             border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
 
-//             .feature-icon {
+//             .feature-num {
 //                 font-family: 'Bebas Neue', sans-serif;
-//                 font-size: 1.4rem; 
+//                 font-size: 1.8rem; 
 //                 color: var(--accent-color); 
-//                 margin-right: 20px;
+//                 margin-right: 25px;
 //                 line-height: 1;
+//                 min-width: 30px; /* Ensures numbers line up evenly */
 //             }
 
 //             p {
 //                 font-family: 'Abel', sans-serif;
-//                 font-size: 1.1rem; 
+//                 font-size: 1.25rem; 
 //                 color: var(--text-primary);
 //                 font-weight: 500;
 //                 margin: 0;
+//                 line-height: 1.2;
 //             }
 //         }
 //     }
 
 //     .reader-description {
-//         margin-bottom: 40px;
+//         margin-bottom: 45px;
 
 //         p {
 //             font-family: 'Abel', sans-serif;
-//             font-size: 1.1rem;
+//             font-size: 1.15rem;
 //             line-height: 1.7;
 //             color: var(--text-secondary); 
 //             margin-bottom: 20px;
 //         }
 
 //         .emphasis-text {
-//             font-family: 'Abel', sans-serif;
-//             font-size: 1.3rem;
+//             font-size: 1.2rem;
 //             font-style: italic;
 //             color: var(--text-primary);
-//             border-left: 3px solid var(--accent-color);
+//             border-left: 4px solid var(--accent-color);
 //             padding-left: 20px;
 //         }
 //     }
 
-//     /* DOWNLOAD BADGES STYLES */
 //     .reader-download-badges {
 //         display: flex;
 //         gap: 15px;
 //         align-items: center;
 
 //         .badge-link {
-//             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+//             transition: transform 0.2s ease;
             
 //             img {
-//                 height: 42px; 
+//                 height: 48px; 
 //                 width: auto;
 //                 display: block;
 //             }
 
 //             &:hover {
-//                 transform: translateY(-3px);
+//                 transform: translateY(-4px);
 //             }
 //         }
 //     }
 // }
 
-// /* Mobile Responsiveness */
+// /* RESPONSIVE */
 // @media (max-width: 992px) {
 //     .reader-section {
 //         padding: 60px 0;
@@ -147,33 +158,38 @@
             
 //             .reader-text {
 //                 text-align: center;
+//                 order: 1;
 //             }
 
+//             .reader-image {
+//                 order: 2; 
+//                 img { max-width: 320px; }
+//             }
+
+//             /* Center list items on mobile */
 //             .reader-features li {
+//                 flex-direction: column;
 //                 justify-content: center;
-//                 text-align: left;
+//                 text-align: center;
+//                 gap: 10px;
+                
+//                 .feature-num { margin-right: 0; }
 //             }
 
 //             .reader-download-badges {
 //                 justify-content: center;
 //             }
-            
-//             .reader-image {
-//                 order: 2; 
-//                 img {
-//                     max-width: 300px;
-//                 }
-//             }
 
 //             .reader-description .emphasis-text {
 //                 border-left: none;
-//                 border-top: 1px solid var(--accent-color);
+//                 border-top: 3px solid var(--accent-color);
 //                 padding-left: 0;
 //                 padding-top: 15px;
 //             }
 //         }
 //     }
 // }
+
 
 
 
@@ -206,12 +222,12 @@
 
     .container {
         width: 90%;
-        max-width: 1200px; /* Slightly wider container */
+        max-width: 1200px; 
     }
 
     .reader-grid {
         display: grid;
-        grid-template-columns: 1fr 1.2fr; /* Give text slightly more room */
+        grid-template-columns: 1fr 1.2fr; 
         gap: 80px;
         align-items: center;
     }
@@ -225,7 +241,7 @@
             width: 100%;
             height: auto;
             border-radius: 20px; 
-            box-shadow: 25px 25px 0px rgba(204, 85, 0, 0.08); /* Orange tint shadow */
+            box-shadow: 25px 25px 0px rgba(204, 85, 0, 0.08); 
             transition: transform 0.5s ease;
 
             &:hover {
@@ -237,7 +253,7 @@
     .reader-text {
         text-align: left;
 
-        /* MAIN TITLE (Big) */
+        /* MAIN TITLE */
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 5rem; 
@@ -248,19 +264,19 @@
             letter-spacing: -1px;
         }
 
-        /* SUBTITLE (Smaller) */
+        /* SUBTITLE */
         .section-subtitle {
             font-family: 'Abel', sans-serif;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 1.1rem; 
-            color: var(--accent-color); /* Orange */
+            color: var(--accent-color); 
             margin: 0 0 40px 0;
             font-weight: 600;
         }
     }
 
-    /* ALIGNMENT FIX */
+    /* FEATURES LIST */
     .reader-features {
         list-style: none;
         padding: 0;
@@ -268,7 +284,7 @@
 
         li {
             display: flex;
-            align-items: center; /* Vertically center the number and text */
+            align-items: center; 
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
@@ -279,7 +295,7 @@
                 color: var(--accent-color); 
                 margin-right: 25px;
                 line-height: 1;
-                min-width: 30px; /* Ensures numbers line up evenly */
+                min-width: 30px; 
             }
 
             p {
@@ -334,45 +350,80 @@
     }
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
+
+
+/* === RESPONSIVE (PHONE & TABLET) === */
+@media (max-width: 780px) {
     .reader-section {
         padding: 60px 0;
         
         .reader-grid {
             grid-template-columns: 1fr;
-            text-align: center;
-            gap: 50px;
+            gap: 0; 
             
+            .reader-image {
+                display: none; 
+            }
+
             .reader-text {
                 text-align: center;
-                order: 1;
-            }
+                width: 100%;
+                max-width: 500px; 
+                margin: 0 auto;
 
-            .reader-image {
-                order: 2; 
-                img { max-width: 320px; }
-            }
+                .section-title {
+                    font-size: 3.5rem;
+                }
 
-            /* Center list items on mobile */
-            .reader-features li {
-                flex-direction: column;
-                justify-content: center;
-                text-align: center;
-                gap: 10px;
-                
-                .feature-num { margin-right: 0; }
-            }
+                .section-subtitle {
+                    font-size: 1rem;
+                    margin-bottom: 30px;
+                    line-height: 1.5;
+                }
 
-            .reader-download-badges {
-                justify-content: center;
-            }
+                /* --- FIXED LIST STYLING --- */
+                .reader-features {
+                    padding: 0 10px; 
+                    
+                    li {
+                        flex-direction: row; 
+                        
+                        /* 1. CHANGED: Align to start instead of center */
+                        justify-content: flex-start; 
+                        
+                        align-items: center; 
+                        text-align: left; 
+                        gap: 15px; 
+                        border-bottom: 1px solid rgba(0,0,0,0.08); 
+                        
+                        .feature-num {
+                            margin-right: 0; 
+                            margin-bottom: 0; 
+                            font-size: 1.6rem;
+                            min-width: 30px; 
+                        }
+                        
+                        p {
+                            font-size: 1.1rem;
+                            margin: 0;
+                            flex: 1; /* Allow text to take up remaining space */
+                        }
+                    }
+                }
 
-            .reader-description .emphasis-text {
-                border-left: none;
-                border-top: 3px solid var(--accent-color);
-                padding-left: 0;
-                padding-top: 15px;
+                .reader-download-badges {
+                    justify-content: center;
+                    margin-top: 40px;
+                }
+
+                /* 2. CHANGED: Removed borders for emphasis text */
+                .reader-description .emphasis-text {
+                    border: none; /* Removes left, top, and bottom borders */
+                    padding: 0;
+                    margin-top: 25px;
+                    display: block;
+                    font-size: 1.1rem; /* Optional: adjust size if needed */
+                }
             }
         }
     }

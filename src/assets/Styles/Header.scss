@@ -3,58 +3,72 @@
 
 // .main-header {
 //     display: flex;
-//     justify-content: space-between;
+//     justify-content: space-between; // Separates logo and button
 //     align-items: center;
-//     height: 70px;
-//     padding: 0 7%; 
-//     background-color: var(--white);
+//     height: 70px; 
+//     padding: 0 7%;
+//     position: relative; 
 //     top: 0;
 //     z-index: 1000;
-//     border-bottom: 1px solid rgba(0,0,0,0.05);
+//     background-color: #fdfaf3; 
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 //     width: 100%;
 //     box-sizing: border-box;
 
-//     .logo {
-//         font-family: 'Bebas Neue', sans-serif;
-//         font-weight: 400; 
-//         font-size: 2rem;
-//         letter-spacing: 2px;
-//         color: #001a33;
-//         text-transform: uppercase;
-//         cursor: pointer;
+//     .logo-container {
 //         display: flex;
-//         align-items: center;
-//         line-height: 1; 
-//         margin: 0; 
-//         transition: color 0.3s ease;
+//         flex-direction: column;
+//         cursor: pointer;
 
-//         &:hover {
-//             color: #7c4dff; 
+//         .logo-title {
+//             font-family: 'Bebas Neue', sans-serif;
+//             font-size: 2.1rem;
+//             letter-spacing: 1.5px;
+//             color: #001a33; 
+//             margin: 0;
+//             line-height: 0.8;
+//         }
+
+//         .logo-slogan {
+//             font-family: 'Inter', sans-serif;
+//             font-size: 0.65rem;
+//             font-weight: 600;
+//             color: #ffa500; 
+//             letter-spacing: 0.5px;
+//             text-transform: uppercase;
+//             margin-top: 4px;
 //         }
 //     }
 
-//     .navbar {
-//         display: flex;
-//         gap: 30px; 
-//         align-items: center; 
-//         height: 100%;
-
-//         a {
-//             text-decoration: none;
-//             font-family: 'Bebas Neue', sans-serif;
-//             font-size: 1.2rem; 
-//             font-weight: 400;
-//             text-transform: uppercase;
-//             letter-spacing: 1.5px;
-//             color: rgba(0, 26, 51, 0.7); 
-//             transition: all 0.3s ease;
-//             line-height: 1;
-//             display: flex;
-//             align-items: center;
+//     .header-actions {
+//         .btn-author {
+//             // Colors & Shape
+//             background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+//             color: #ffffff;
+//             border: none;
+//             padding: 10px 24px;
+//             border-radius: 50px; // Makes it fully rounded/pill-shaped
+            
+//             // Typography
+//             font-family: 'Inter', sans-serif;
+//             font-weight: 700;
+//             font-size: 0.85rem;
+//             text-transform: none; // Keeps it professional
+//             white-space: nowrap;
+            
+//             // Interaction
+//             cursor: pointer;
+//             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+//             box-shadow: 0 4px 10px rgba(211, 84, 0, 0.2);
 
 //             &:hover {
-//                 color: #7c4dff; 
 //                 transform: translateY(-2px);
+//                 box-shadow: 0 6px 15px rgba(211, 84, 0, 0.3);
+//                 background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+//             }
+
+//             &:active {
+//                 transform: translateY(0);
 //             }
 //         }
 //     }
@@ -62,23 +76,17 @@
 
 // @media (max-width: 768px) {
 //     .main-header {
+//         height: 65px;
 //         padding: 0 5%;
-//         height: 60px;
         
-//         .logo {
-//             font-size: 1.6rem;
-//         }
-
-//         .navbar {
-//             gap: 15px;
-//             a {
-//                 font-size: 1rem;
-//                 letter-spacing: 1px;
-//             }
+//         .logo-title { font-size: 1.8rem; }
+        
+//         .btn-author {
+//             padding: 8px 18px;
+//             font-size: 0.75rem;
 //         }
 //     }
 // }
-
 
 
 
@@ -93,29 +101,16 @@
 
 .main-header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between; // Ensures logo left, button right
     align-items: center;
-    
-    // 1. HEIGHT FIXED TO 70PX
-    height: 70px; 
+    height: 70px;
     padding: 0 7%;
-    
-    // 2. REMOVED STICKY (Using relative so it stays at the top of the page)
-    position: relative; 
-    top: 0;
-    z-index: 1000;
-    
-    // 3. COHESIVE COLOR & VISIBILITY
-    background-color: #fdfaf3; // Matches your hero background
-    
-    // 4. DEPTH SHADOW
-    // Since it's no longer sticky, this shadow will help distinguish 
-    // it from the hero content immediately below.
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
+    background-color: #fdfaf3;
+    position: relative;
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
 
     .logo-container {
         display: flex;
@@ -124,33 +119,74 @@
 
         .logo-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-weight: 400; 
-            font-size: 2.1rem; // Scaled down slightly to fit 70px height
-            letter-spacing: 1.5px;
-            color: #001a33; 
+            font-size: 2.1rem;
+            color: #001a33;
+            line-height: 0.8;
             margin: 0;
-            line-height: 0.8; // Tightened for the smaller header height
         }
 
         .logo-slogan {
             font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 600;
-            // color: #7c4dff; 
-            color: #ffa500; 
-            letter-spacing: 0.5px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #ffa500;
             text-transform: uppercase;
-            margin-top: 2px; // Reduced gap to keep everything within 70px
+            margin-top: 4px;
+        }
+    }
+
+    .btn-author {
+        background: #d35400; // Solid burnt orange to match image
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 50px; // Pill shape
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(211, 84, 0, 0.2);
+        white-space: nowrap; // Prevents text wrapping
+
+        &:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.3);
         }
     }
 }
 
+// MOBILE CORRECTIONS
 @media (max-width: 768px) {
     .main-header {
-        height: 60px; // Slightly smaller for mobile
-        padding: 0 5%;
-        
-        .logo-title { font-size: 1.7rem; }
-        .logo-slogan { font-size: 0.55rem; }
+        height: 65px; // Reduced height
+        padding: 0 4%;
+
+        .logo-container {
+            .logo-title {
+                font-size: 1.6rem; // Smaller logo for mobile
+            }
+            .logo-slogan {
+                font-size: 0.5rem;
+            }
+        }
+
+        .btn-author {
+            // Significant reduction for mobile scaling
+            padding: 7px 14px; 
+            font-size: 0.7rem; 
+            box-shadow: 0 2px 8px rgba(211, 84, 0, 0.2);
+        }
+    }
+}
+
+// FOR VERY SMALL SCREENS
+@media (max-width: 380px) {
+    .main-header {
+        .btn-author {
+            padding: 6px 10px;
+            font-size: 0.65rem;
+        }
     }
 }

@@ -1,122 +1,24 @@
 
 
-// .genres-section {
-//     padding: 60px 0; // Increased padding for more breathing room
-//     background-color: var(--bg-genres);
-//     width: 100%;
-//     overflow: hidden; // Vital to hide the icons outside the viewport
-//     border-bottom: 1px solid var(--border-color);
 
-//     .genres-slider {
-//         display: flex;
-//         width: 100%;
-//     }
-
-//     .genres-track {
-//         display: flex;
-//         align-items: center;
-//         gap: 60px; // Increased space between icons
-//         padding: 10px 0;
-//         /* The animation duration (40s) controls the speed. 
-//            Lower = Faster. 
-//         */
-//         animation: scroll-infinite 40s linear infinite;
-        
-//         // Pause on hover so users can click/read
-//         &:hover {
-//             animation-play-state: paused;
-//         }
-//     }
-
-//     .genre-item {
-//         text-align: center;
-//         flex-shrink: 0; // Prevents items from squishing
-//         min-width: 150px; // Ensures consistent spacing
-//         cursor: pointer;
-
-//         .icon-wrapper {
-//             margin-bottom: 15px; 
-//             display: flex;
-//             justify-content: center;
-
-//             .genre-icon-img {
-//                 width: 64px;  // Increased size from 45px
-//                 height: 64px; // Increased size from 45px
-//                 object-fit: contain;
-//                 filter: grayscale(100%) opacity(0.6); 
-//                 transition: all 0.3s ease;
-//             }
-//         }
-
-//         &:hover {
-//             .genre-icon-img {
-//                 filter: grayscale(0%) opacity(1);
-//                 transform: scale(1.15); 
-//             }
-//             h4 { color: var(--accent-color); }
-//         }
-
-//         h4 {
-//             font-size: 0.94rem; // Slightly larger text
-//             text-transform: uppercase;
-//             letter-spacing: 1.5px;
-//             margin-bottom: 4px;
-//             color: var(--text-primary);
-//         }
-
-//         .genre-desc {
-//             font-size: 0.8rem; 
-//             color: var(--text-secondary);
-//         }
-//     }
-// }
-
-// // The magic for the infinite look
-// @keyframes scroll-infinite {
-//     0% {
-//         transform: translateX(0);
-//     }
-//     100% {
-//         /* Moves half of the track (the first set of icons) */
-//         transform: translateX(calc(-50% - 30px)); 
-//     }
-// }
-
-// // On mobile, we can keep it scrolling but maybe faster or smaller gap
-// @media (max-width: 768px) {
-//     .genres-track {
-//         gap: 40px;
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Define local variables for the Orange Theme
 // :root {
-//     --orange-primary: #cc5500;       /* Burnt Orange */
-//     --orange-light: #fffaf5;         /* Very faint orange background */
-//     --text-dark-brown: #2d1b0e;      /* Dark Brownish-Black for contrast */
-//     --text-muted-orange: #8c6b5d;    /* Muted earth tone for descriptions */
+//   /* NEW PALETTE: Richer & Higher Contrast */
+//   --orange-vibrant: #ff6b00;      /* Bright, energetic orange */
+//   --orange-deep: #cc4400;         /* Darker burnt orange for text */
+//   --bg-warm-white: #fffcf9;       /* Very subtle warm white, cleaner than beige */
+//   --text-dark: #1a1a1a;           /* Sharp black/grey for main titles */
+//   --text-muted: #8c7368;          /* Warm brownish-grey for subtitles */
+//   --icon-inactive: #4a4a4a;       /* Dark grey for inactive icons (better visibility) */
 // }
 
 // .genres-section {
-//     padding: 60px 0;
-//     background-color: var(--orange-light); /* changed to light orange tint */
+//     padding: 70px 0;
+//     background-color: var(--bg-warm-white);
 //     width: 100%;
 //     overflow: hidden;
-//     border-bottom: 1px solid rgba(204, 85, 0, 0.1); /* Subtle orange border */
+//     /* Optional: Subtle top/bottom borders to frame the section */
+//     border-top: 1px solid rgba(0,0,0,0.03); 
+//     border-bottom: 1px solid rgba(0,0,0,0.03);
 
 //     .genres-slider {
 //         display: flex;
@@ -126,9 +28,9 @@
 //     .genres-track {
 //         display: flex;
 //         align-items: center;
-//         gap: 60px;
-//         padding: 10px 0;
-//         animation: scroll-infinite 40s linear infinite;
+//         gap: 80px; /* More space for a cleaner look */
+//         padding: 20px 0;
+//         animation: scroll-infinite 45s linear infinite;
         
 //         &:hover {
 //             animation-play-state: paused;
@@ -138,69 +40,79 @@
 //     .genre-item {
 //         text-align: center;
 //         flex-shrink: 0;
-//         min-width: 150px;
+//         min-width: 160px;
 //         cursor: pointer;
-//         transition: transform 0.3s ease;
+//         transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 //         .icon-wrapper {
-//             margin-bottom: 15px; 
+//             margin-bottom: 18px; 
 //             display: flex;
 //             justify-content: center;
+//             /* Added a subtle transition for the icon wrapper itself */
+//             transition: transform 0.3s ease; 
 
 //             .genre-icon-img {
-//                 width: 64px;
-//                 height: 64px;
+//                 width: 68px;
+//                 height: 68px;
 //                 object-fit: contain;
-//                 /* Default: Grayscale with a slight warm tint */
-//                 filter: grayscale(100%) opacity(0.7) sepia(0.2); 
-//                 transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//                 /* Default: Dark Grey (High visibility but neutral) */
+//                 filter: grayscale(100%) brightness(0.3) opacity(0.8); 
+//                 transition: all 0.4s ease;
 //             }
 //         }
 
-//         /* --- HOVER EFFECTS (ORANGE) --- */
+//         /* --- HOVER EFFECTS --- */
 //         &:hover {
-//             transform: translateY(-5px); /* Slight lift */
+//             transform: translateY(-8px); /* Clear lift effect */
 
 //             .genre-icon-img {
-//                 /* Reveal color + Orange Glow */
-//                 filter: grayscale(0%) opacity(1);
+//                 /* Color Reveal + Bright Orange Tint */
+//                 filter: grayscale(0%) brightness(1) opacity(1) drop-shadow(0 10px 15px rgba(255, 107, 0, 0.4));
 //                 transform: scale(1.15);
-//                 drop-shadow: 0 8px 12px rgba(204, 85, 0, 0.3); 
 //             }
 
 //             h4 {
-//                 color: var(--orange-primary); /* Turns Burnt Orange */
+//                 color: var(--orange-deep);
+//             }
+            
+//             .genre-desc {
+//                 color: var(--orange-vibrant); /* Subtitle lights up too */
 //             }
 //         }
 
 //         h4 {
-//             font-size: 0.94rem;
+//             font-family: 'Bebas Neue', sans-serif; /* Assuming you use this font, else remove */
+//             font-size: 1.1rem;
 //             text-transform: uppercase;
-//             letter-spacing: 1.5px;
-//             margin-bottom: 4px;
-//             color: var(--text-dark-brown); /* Darker contrast */
+//             letter-spacing: 1px;
+//             margin-bottom: 6px;
+//             color: var(--text-dark); /* Sharp dark text */
 //             transition: color 0.3s ease;
 //         }
 
 //         .genre-desc {
-//             font-size: 0.8rem;
-//             color: var(--text-muted-orange); /* Softer earthy tone */
+//             font-family: 'Abel', sans-serif;
+//             font-size: 0.85rem;
+//             color: var(--text-muted); /* Warm earthy tone */
+//             font-weight: 500;
+//             transition: color 0.3s ease;
 //         }
 //     }
 // }
 
-// // Infinite Scroll Animation
 // @keyframes scroll-infinite {
 //     0% { transform: translateX(0); }
-//     100% { transform: translateX(calc(-50% - 30px)); } // Adjust based on gap/items
+//     100% { transform: translateX(calc(-50% - 40px)); } 
 // }
 
 // @media (max-width: 768px) {
 //     .genres-section .genres-track {
-//         gap: 40px;
+//         gap: 50px;
+//     }
+//     .genres-section .genre-item h4 {
+//         font-size: 1rem;
 //     }
 // }
-
 
 
 
@@ -213,23 +125,26 @@
 
 
 :root {
-  /* NEW PALETTE: Richer & Higher Contrast */
-  --orange-vibrant: #ff6b00;      /* Bright, energetic orange */
-  --orange-deep: #cc4400;         /* Darker burnt orange for text */
-  --bg-warm-white: #fffcf9;       /* Very subtle warm white, cleaner than beige */
-  --text-dark: #1a1a1a;           /* Sharp black/grey for main titles */
-  --text-muted: #8c7368;          /* Warm brownish-grey for subtitles */
-  --icon-inactive: #4a4a4a;       /* Dark grey for inactive icons (better visibility) */
+  /* Updated Palette */
+  --orange-vibrant: #ff6b00;      
+  --orange-deep: #cc4400;        
+  
+  /* CHANGED: A distinct soft orange tint instead of warm white */
+  --bg-soft-orange: #fff5ec;       
+  
+  --text-dark: #1a1a1a;          
+  --text-muted: #8c7368;          
+  --icon-inactive: #4a4a4a;       
 }
 
 .genres-section {
     padding: 70px 0;
-    background-color: var(--bg-warm-white);
+    /* Apply the new orange-tinted background */
+    background-color: var(--bg-soft-orange); 
     width: 100%;
     overflow: hidden;
-    /* Optional: Subtle top/bottom borders to frame the section */
-    border-top: 1px solid rgba(0,0,0,0.03); 
-    border-bottom: 1px solid rgba(0,0,0,0.03);
+    border-top: 1px solid rgba(255, 107, 0, 0.05); 
+    border-bottom: 1px solid rgba(255, 107, 0, 0.05);
 
     .genres-slider {
         display: flex;
@@ -239,8 +154,9 @@
     .genres-track {
         display: flex;
         align-items: center;
-        gap: 80px; /* More space for a cleaner look */
+        gap: 80px; 
         padding: 20px 0;
+        /* Infinite scrolling animation */
         animation: scroll-infinite 45s linear infinite;
         
         &:hover {
@@ -259,14 +175,12 @@
             margin-bottom: 18px; 
             display: flex;
             justify-content: center;
-            /* Added a subtle transition for the icon wrapper itself */
             transition: transform 0.3s ease; 
 
             .genre-icon-img {
                 width: 68px;
                 height: 68px;
                 object-fit: contain;
-                /* Default: Dark Grey (High visibility but neutral) */
                 filter: grayscale(100%) brightness(0.3) opacity(0.8); 
                 transition: all 0.4s ease;
             }
@@ -274,10 +188,9 @@
 
         /* --- HOVER EFFECTS --- */
         &:hover {
-            transform: translateY(-8px); /* Clear lift effect */
+            transform: translateY(-8px); 
 
             .genre-icon-img {
-                /* Color Reveal + Bright Orange Tint */
                 filter: grayscale(0%) brightness(1) opacity(1) drop-shadow(0 10px 15px rgba(255, 107, 0, 0.4));
                 transform: scale(1.15);
             }
@@ -287,24 +200,24 @@
             }
             
             .genre-desc {
-                color: var(--orange-vibrant); /* Subtitle lights up too */
+                color: var(--orange-vibrant); 
             }
         }
 
         h4 {
-            font-family: 'Bebas Neue', sans-serif; /* Assuming you use this font, else remove */
+            font-family: 'Bebas Neue', sans-serif; 
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 6px;
-            color: var(--text-dark); /* Sharp dark text */
+            color: var(--text-dark); 
             transition: color 0.3s ease;
         }
 
         .genre-desc {
-            font-family: 'Abel', sans-serif;
+            font-family: 'Abel', sans-serif; 
             font-size: 0.85rem;
-            color: var(--text-muted); /* Warm earthy tone */
+            color: var(--text-muted); 
             font-weight: 500;
             transition: color 0.3s ease;
         }
@@ -316,11 +229,36 @@
     100% { transform: translateX(calc(-50% - 40px)); } 
 }
 
+/* === RESPONSIVENESS (UPDATED) === */
 @media (max-width: 768px) {
-    .genres-section .genres-track {
-        gap: 50px;
-    }
-    .genres-section .genre-item h4 {
-        font-size: 1rem;
+    .genres-section {
+        /* Reduced padding for mobile */
+        padding: 10px 0; 
+        
+        .genres-track {
+            gap: 40px; /* Tighter gap */
+        }
+
+        .genre-item {
+            min-width: 100px; /* Smaller item width */
+
+            .icon-wrapper {
+                margin-bottom: 12px;
+                
+                .genre-icon-img {
+                    /* Smaller icons for mobile */
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            h4 {
+                font-size: 0.95rem; /* Slightly smaller text */
+            }
+
+            .genre-desc {
+                font-size: 0.75rem; /* Smaller description */
+            }
+        }
     }
 }

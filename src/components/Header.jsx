@@ -1,6 +1,7 @@
 
 
 // import React from 'react';
+// // import './Header.scss'; 
 
 // const Header = () => {
 //   const handleScroll = (e, targetId) => {
@@ -21,23 +22,19 @@
 
 //   return (
 //     <header className="main-header">
-//       <div className="logo" onClick={(e) => handleScroll(e, 'home')}>SHELFIE</div>
-//       <nav className="navbar">
-//         {/* The href is a fallback, the onClick handles the smooth scroll */}
-//         <a href="#home" onClick={(e) => handleScroll(e, 'home')}>Home</a>
-//         <a href="#about" onClick={(e) => handleScroll(e, 'about')}>About</a>
-//         <a href="#readers" onClick={(e) => handleScroll(e, 'readers')}>Readers</a>
-//         <a href="#writers" onClick={(e) => handleScroll(e, 'writers')}>Writers</a>
-//         <a href="#download" onClick={(e) => handleScroll(e, 'download')}>App</a>
-//       </nav>
+//       <div className="logo-container" onClick={(e) => handleScroll(e, 'home')}>
+//         <h1 className="logo-title">SHELFIE</h1>
+//         <span className="logo-slogan">Your Shelf. Your Story.</span>
+//       </div>
+//       {/* Navbar removed as requested */}
+//       <div>
+//         <button>Get started as author</button>
+//       </div>
 //     </header>
 //   );
 // };
 
 // export default Header;
-
-
-
 
 
 
@@ -55,7 +52,8 @@ const Header = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-      const headerOffset = 60; 
+      // Offset slightly less for mobile (60) vs desktop (70)
+      const headerOffset = window.innerWidth < 768 ? 60 : 70;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -72,7 +70,13 @@ const Header = () => {
         <h1 className="logo-title">SHELFIE</h1>
         <span className="logo-slogan">Your Shelf. Your Story.</span>
       </div>
-      {/* Navbar removed as requested */}
+
+      <button 
+        className="btn-author" 
+        onClick={(e) => handleScroll(e, 'register')}
+      >
+        Get started as author
+      </button>
     </header>
   );
 };
