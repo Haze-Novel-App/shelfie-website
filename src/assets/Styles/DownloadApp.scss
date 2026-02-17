@@ -2,9 +2,11 @@
 
 
 
+
+
 // .reg-section {
 //     padding: 100px 0; 
-//     background-color: var(--bg-primary); 
+//     background-color: #fffaf7; 
 //     width: 100%;
 //     display: flex;
 //     justify-content: center;
@@ -19,23 +21,67 @@
 //         gap: 80px;
 //     }
 
- 
+//     /* Left Image Frame with Sliding Logic */
 //     .mobile-frame {
-//         flex: 0 1 280px; 
+//         flex: 0 0 300px; 
 //         background: white;
 //         padding: 12px;
-//         border-radius: 40px;
+//         border-radius: 45px;
 //         box-shadow: 0 20px 50px rgba(124, 77, 255, 0.15);
 //         border: 1px solid rgba(124, 77, 255, 0.1);
+//         position: relative;
 
 //         .screen-container {
-//             border-radius: 30px;
-//             overflow: hidden;
-//             img { width: 100%; height: auto; display: block; }
+//             border-radius: 35px;
+//             overflow: hidden; // Critical: clips the images sitting outside the frame
+//             position: relative;
+//             width: 100%;
+//             height: 580px; // Maintain a consistent height for the mockup
+
+//             .slider-track {
+//                 display: flex; // Positions images in a horizontal row
+//                 height: 100%;
+//                 width: 100%;
+//                 transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); // Smooth slide
+//                 will-change: transform;
+//             }
+
+//             .app-screen-img { 
+//                 width: 100%; 
+//                 height: 100%;
+//                 flex-shrink: 0; // Prevents images from collapsing width
+//                 object-fit: cover; 
+//                 display: block; 
+//             }
+//         }
+
+//         /* Decorative Pagination Dots inside the phone */
+//         .slider-dots {
+//             position: absolute;
+//             bottom: 20px;
+//             left: 50%;
+//             transform: translateX(-50%);
+//             display: flex;
+//             gap: 8px;
+//             z-index: 10;
+
+//             .dot {
+//                 width: 8px;
+//                 height: 8px;
+//                 border-radius: 50%;
+//                 background: rgba(255, 255, 255, 0.5);
+//                 transition: all 0.3s ease;
+                
+//                 &.active {
+//                     background: #fff;
+//                     width: 20px;
+//                     border-radius: 10px;
+//                 }
+//             }
 //         }
 //     }
 
-
+//     /* Form Column */
 //     .reg-content {
 //         flex: 1;
 //         max-width: 500px;
@@ -62,7 +108,6 @@
 
 //             .input-group {
 //                 width: 100%;
-                
 //                 input {
 //                     width: 100%;
 //                     padding: 16px 20px;
@@ -81,15 +126,12 @@
 //                 }
 //             }
 
-          
 //             .location-input {
 //                 position: relative;
 //                 display: flex;
 //                 align-items: center;
 
-//                 input {
-//                     padding-right: 50px !important; 
-//                 }
+//                 input { padding-right: 50px !important; }
 
 //                 .location-action-btn {
 //                     position: absolute;
@@ -98,32 +140,17 @@
 //                     transform: translateY(-50%);
 //                     background: transparent;
 //                     border: none;
-//                     padding: 5px;
 //                     cursor: pointer;
 //                     display: flex;
 //                     align-items: center;
-//                     justify-content: center;
-//                     transition: transform 0.2s ease;
-
+                    
 //                     .small-loc-icon {
 //                         width: 22px;  
 //                         height: 22px; 
-//                         object-fit: contain;
 //                         opacity: 0.7;
-//                         transition: opacity 0.3s ease;
 //                     }
 
-//                     &:hover:not(:disabled) {
-//                         transform: translateY(-50%) scale(1.1);
-//                         .small-loc-icon {
-//                             opacity: 1;
-//                         }
-//                     }
-
-//                     &:disabled {
-//                         cursor: wait;
-//                         opacity: 0.5;
-//                     }
+//                     &:hover:not(:disabled) .small-loc-icon { opacity: 1; }
 //                 }
 //             }
 
@@ -156,32 +183,7 @@
 //     font-weight: bold;
 // }
 
-
-// .screen-container {
-//     position: relative;
-//     border-radius: 30px;
-//     overflow: hidden;
-//     height: 580px; 
-//     width: 100%;
-
-//     .app-screen-img { 
-//         position: absolute; 
-//         top: 0;
-//         left: 0;
-//         width: 100%; 
-//         height: 100%; 
-//         object-fit: cover;
-//         display: block; 
-//         opacity: 0; 
-//         transition: opacity 0.8s ease-in-out; 
-
-//         &.active {
-//             opacity: 1; 
-//             z-index: 1;
-//         }
-//     }
-// }
-
+// /* Responsive Adjustments */
 // @media (max-width: 992px) {
 //     .reg-section {
 //         .reg-container {
@@ -190,7 +192,7 @@
 //             gap: 50px;
 //         }
 //         .reg-content { width: 100%; }
-//         .location-input { justify-content: center; }
+//         .mobile-frame { flex: 0 0 auto; width: 280px; }
 //     }
 // }
 
@@ -209,14 +211,20 @@
 
 
 
-
-
-
-
+:root {
+  /* PURPLE PALETTE */
+  --btn-purple: #341539;        
+  --btn-purple-hover: #4a1f50;  
+  --input-focus: #341539;       
+  
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --bg-secondary: #fffaf7;      
+}
 
 .reg-section {
     padding: 100px 0; 
-    background-color: #fffaf7; 
+    background-color:  #fdf9f0; 
     width: 100%;
     display: flex;
     justify-content: center;
@@ -237,35 +245,34 @@
         background: white;
         padding: 12px;
         border-radius: 45px;
-        box-shadow: 0 20px 50px rgba(124, 77, 255, 0.15);
-        border: 1px solid rgba(124, 77, 255, 0.1);
+        box-shadow: 0 20px 50px rgba(52, 21, 57, 0.15);
+        border: 1px solid rgba(52, 21, 57, 0.1);
         position: relative;
 
         .screen-container {
             border-radius: 35px;
-            overflow: hidden; // Critical: clips the images sitting outside the frame
+            overflow: hidden; 
             position: relative;
             width: 100%;
-            height: 580px; // Maintain a consistent height for the mockup
+            height: 580px; 
 
             .slider-track {
-                display: flex; // Positions images in a horizontal row
+                display: flex; 
                 height: 100%;
                 width: 100%;
-                transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); // Smooth slide
+                transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); 
                 will-change: transform;
             }
 
             .app-screen-img { 
                 width: 100%; 
                 height: 100%;
-                flex-shrink: 0; // Prevents images from collapsing width
+                flex-shrink: 0; 
                 object-fit: cover; 
                 display: block; 
             }
         }
 
-        /* Decorative Pagination Dots inside the phone */
         .slider-dots {
             position: absolute;
             bottom: 20px;
@@ -327,11 +334,12 @@
                     font-family: 'Abel', sans-serif;
                     font-size: 1rem;
                     transition: all 0.3s ease;
+                    box-sizing: border-box;
 
                     &:focus {
                         outline: none;
-                        border-color: var(--accent-color);
-                        box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.1);
+                        border-color: var(--input-focus);
+                        box-shadow: 0 0 0 4px rgba(52, 21, 57, 0.1);
                     }
                 }
             }
@@ -357,17 +365,28 @@
                     .small-loc-icon {
                         width: 22px;  
                         height: 22px; 
-                        opacity: 0.7;
+                        opacity: 0.6;
+                        filter: sepia(100%) hue-rotate(240deg) saturate(200%) brightness(0.4);
                     }
 
-                    &:hover:not(:disabled) .small-loc-icon { opacity: 1; }
+                    &:hover:not(:disabled) .small-loc-icon { 
+                        opacity: 1; 
+                        transform: scale(1.1);
+                    }
                 }
             }
 
+            /* --- CENTERED BUTTON STYLE --- */
             .submit-btn {
                 margin-top: 10px;
-                padding: 18px;
-                background: var(--accent-color);
+                width: fit-content; 
+                
+                /* This centers the button in the flex column */
+                align-self: center; 
+                
+                padding: 14px 45px; /* Increased padding for better look */
+                
+                background: var(--btn-purple); 
                 color: white;
                 border: none;
                 border-radius: 50px;
@@ -378,9 +397,13 @@
                 transition: all 0.3s ease;
 
                 &:hover {
-                    background: var(--accent-hover);
+                    background: var(--btn-purple-hover);
                     transform: translateY(-2px);
-                    box-shadow: 0 10px 20px rgba(124, 77, 255, 0.2);
+                    box-shadow: 0 10px 20px rgba(52, 21, 57, 0.25);
+                }
+                
+                &:active {
+                    transform: translateY(0);
                 }
             }
         }
@@ -389,7 +412,7 @@
 
 .loader-dots {
     font-size: 0.8rem;
-    color: var(--accent-color);
+    color: var(--btn-purple);
     font-weight: bold;
 }
 
@@ -403,5 +426,10 @@
         }
         .reg-content { width: 100%; }
         .mobile-frame { flex: 0 0 auto; width: 280px; }
+        
+        .reg-form {
+            text-align: left;
+            /* Button maintains 'align-self: center' from above, so it stays centered */
+        }
     }
 }

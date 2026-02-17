@@ -128,41 +128,36 @@
 
 
 
-
-
 :root {
-  --orange-accent: #d76c1f; /* Burnt Orange */
-  --text-white: #ffffff;
-  --text-grey: #bfbfbf;    
+  --orange-accent: #BE5103; 
+  --footer-bg: #fdf9f0;     
+  --brand-purple: #341539;  
+  /* Using a slightly darker grey for text on the light BG for better contrast */
+  --text-dark-grey: #555555; 
 }
 
 .main-footer {
     position: relative;
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 30px;
     width: 100%;
-    color: var(--text-white);
     box-sizing: border-box;
     overflow: hidden;
-
-    background: 
-        linear-gradient(rgba(79, 40, 18, 0.82), rgba(70, 34, 14, 0.82)), 
-        url('../imgs/footer-banner.png'); // Ensure path is correct
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #1f0e05; 
+    background-color: var(--footer-bg); 
 
     .footer-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 5%;
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
+        /* CHANGED: Grid updated for only 2 columns. 
+           Brand gets more space (3fr), links get less (1fr) */
+        grid-template-columns: 3fr 1fr; 
         gap: 60px;
         align-items: flex-start;
         position: relative;
         z-index: 2; 
+        margin-bottom: 60px;
     }
 
     /* BRAND COLUMN */
@@ -174,22 +169,21 @@
             font-size: 3.5rem;
             font-weight: 400;
             letter-spacing: 2px;
-            margin: 0 0 20px 0; /* Added bottom margin */
-            color: var(--text-white);
-            line-height: 0.9; /* Tighten line height so slogan sits closer */
+            margin: 0 0 20px 0; 
+            color: var(--brand-purple); 
+            line-height: 0.9; 
             
             .dot {
                 color: var(--orange-accent);
             }
 
-            /* --- NEW SLOGAN STYLING --- */
             .slogan {
-                display: block; /* Forces it to the next line */
-                font-family: 'Abel', sans-serif; /* Clean sans-serif font */
-                font-size: 1rem; /* Small size */
-                letter-spacing: 3px; /* Wide spacing looks elegant */
-                color: var(--orange-accent); /* Make it Orange */
-                margin-top: 5px; /* Space between SHELFIE and Slogan */
+                display: block; 
+                font-family: 'Abel', sans-serif; 
+                font-size: 1rem; 
+                letter-spacing: 3px; 
+                color: var(--orange-accent);
+                margin-top: 5px; 
                 text-transform: uppercase;
                 font-weight: 600;
             }
@@ -199,15 +193,22 @@
             font-family: 'Abel', sans-serif;
             font-size: 1.05rem;
             line-height: 1.6;
-            max-width: 360px;
+            max-width: 400px; /* Increased slightly since there's more room now */
             margin: 0;
-            color: var(--text-grey);
-            font-weight: 300;
+            color: var(--text-dark-grey); 
+            font-weight: 400;
         }
     }
 
-    /* LINKS COLUMNS */
+    /* LINKS COLUMN */
     .footer-col {
+        /* Ensure links align right on desktop for balance */
+        &.links-col {
+            text-align: right;
+             /* Optional: Pushes the links all the way to the right edge */
+            justify-self: end;
+        }
+
         h4 {
             font-family: 'Bebas Neue', cursive;
             font-size: 1.3rem;
@@ -222,15 +223,40 @@
             font-family: 'Abel', sans-serif;
             display: block;
             text-decoration: none;
-            font-size: 1rem;
-            margin-bottom: 12px;
-            color: var(--text-grey);
+            font-size: 1.1rem; /* Slightly larger for cleaner look */
+            margin-bottom: 15px; /* More spacing between links */
+            color: var(--text-dark-grey);
             transition: all 0.3s ease;
             letter-spacing: 0.5px;
+            font-weight: 500; /* Slightly thicker font */
             
             &:hover {
                 color: var(--orange-accent);
-                transform: translateX(5px); 
+                /* Move left on hover since they are right aligned */
+                transform: translateX(-5px); 
+            }
+        }
+    }
+
+    /* FOOTER BOTTOM STYLE */
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 25px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08); 
+        text-align: center;
+        
+        .jac-link {
+            font-family: 'Abel', sans-serif;
+            font-size: 0.9rem;
+            color: #888888;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: var(--brand-purple);
+                text-decoration: underline;
             }
         }
     }
@@ -239,22 +265,36 @@
 /* RESPONSIVE */
 @media (max-width: 992px) {
     .main-footer .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
+        /* Adjust ratios for tablet */
+        grid-template-columns: 2fr 1fr; 
+        gap: 40px;
     }
 }
 
 @media (max-width: 600px) {
     .main-footer {
-        padding: 60px 0;
+        padding: 60px 0 30px 0;
+        
         .footer-container {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* Stack on mobile */
             text-align: left;
             gap: 40px;
+            margin-bottom: 40px;
             
-            .footer-brand .description {
-                max-width: 100%;
+            /* Reset text alignment for mobile */
+            .footer-col.links-col {
+                text-align: left;
+                justify-self: start;
+
+                a:hover {
+                     /* Reset hover direction for left align */
+                    transform: translateX(5px);
+                }
             }
+        }
+
+        .footer-bottom {
+            padding: 20px 5%;
         }
     }
 }

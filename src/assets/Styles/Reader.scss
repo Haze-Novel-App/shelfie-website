@@ -208,12 +208,13 @@
   --accent-color: #cc5500; /* Burnt Orange */
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
-  --bg-secondary: #fffaf7;
+//   --bg-secondary: #fffaf7;
+  --bg-secondary:  #fdf9f0;
 }
 
 .reader-section {
     padding: 100px 0; 
-    background-color: var(--bg-secondary);
+    background-color:  #fdf9f0;
     display: flex;
     justify-content: center;
     width: 100%;

@@ -2,16 +2,245 @@
 
 
 
+// :root {
+//   --accent-color: #cc5500; /* Burnt Orange */
+//   --text-primary: #1a1a1a;
+//   --text-secondary: #555555;
+//   --bg-white: #ffffff;
+// }
+
+// .author-section {
+//     padding: 100px 0;
+//     background-color: var(--bg-white);
+//     display: flex;
+//     justify-content: center;
+//     width: 100%;
+//     box-sizing: border-box;
+//     overflow: hidden;
+
+//     .container {
+//         width: 90%;
+//         max-width: 1200px; 
+//     }
+
+//     .author-grid {
+//         display: grid;
+//         grid-template-columns: 1.2fr 1fr; /* Text gets slightly more space */
+//         gap: 80px;
+//         align-items: center;
+//     }
+
+//     .author-text {
+//         text-align: left;
+
+//         /* MAIN TITLE (Big) */
+//         .section-title {
+//             font-family: 'Bebas Neue', sans-serif;
+//             font-size: 5rem; 
+//             line-height: 0.9;
+//             margin: 0 0 15px 0; 
+//             color: var(--text-primary);
+//             text-transform: uppercase;
+//             letter-spacing: -1px;
+//         }
+
+//         /* SUBTITLE (Smaller & Orange) */
+//         .section-subtitle {
+//             font-family: 'Abel', sans-serif;
+//             text-transform: uppercase;
+//             letter-spacing: 3px;
+//             font-size: 1.1rem;
+//             color: var(--accent-color);
+//             margin: 0 0 40px 0;
+//             font-weight: 600;
+//         }
+
+//         .author-description {
+//             margin-bottom: 40px;
+            
+//             .highlight-text {
+//                 font-family: 'Abel', sans-serif;
+//                 font-size: 1.25rem; 
+//                 font-weight: 600;
+//                 color: var(--text-primary);
+//                 margin-bottom: 15px;
+//             }
+
+//             p {
+//                 font-family: 'Abel', sans-serif;
+//                 font-size: 1.1rem;
+//                 line-height: 1.7;
+//                 color: var(--text-secondary);
+//             }
+//         }
+//     }
+
+//     /* --- CARDS FOR BENEFITS (ORANGE THEME) --- */
+//     .author-benefits {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         gap: 25px;
+//         margin-bottom: 45px;
+
+//         .benefit-card {
+//             /* Warm, very light orange background */
+//             background: #fff8f2; 
+//             padding: 25px;
+//             border-radius: 18px;
+//             transition: all 0.3s ease;
+//             /* Subtle border */
+//             border: 1px solid rgba(204, 85, 0, 0.08);
+
+//             h4 {
+//                 font-family: 'Bebas Neue', sans-serif;
+//                 font-size: 1.6rem;
+//                 margin-bottom: 10px;
+//                 color: var(--text-primary);
+//                 letter-spacing: 0.5px;
+//             }
+//             p {
+//                 font-family: 'Abel', sans-serif;
+//                 font-size: 1rem;
+//                 color: var(--text-secondary);
+//                 line-height: 1.5;
+//                 margin: 0;
+//             }
+
+//             &:hover {
+//                 background: var(--bg-white);
+//                 /* Orange Glow Shadow */
+//                 box-shadow: 0 10px 30px rgba(204, 85, 0, 0.15);
+//                 transform: translateY(-5px);
+//                 border-color: var(--accent-color);
+//             }
+//         }
+//     }
+
+//     .author-download-badges {
+//         display: flex;
+//         gap: 15px;
+//         align-items: center;
+
+//         .badge-link {
+//             transition: transform 0.2s ease;
+            
+//             img {
+//                 height: 48px;
+//                 width: auto;
+//                 display: block;
+//             }
+
+//             &:hover {
+//                 transform: translateY(-4px);
+//             }
+//         }
+//     }
+
+//     .author-image {
+//         display: flex;
+//         justify-content: center;
+        
+//         img {
+//             max-width: 380px; 
+//             width: 100%;
+//             height: auto;
+//             border-radius: 20px; 
+//             /* Shadow on the left side to balance Reader section */
+//             box-shadow: -25px 25px 0px rgba(204, 85, 0, 0.08); 
+//             transition: transform 0.5s ease;
+
+//             &:hover {
+//                 transform: scale(1.02);
+//             }
+//         }
+//     }
+// }
+
+
+
+// /* === RESPONSIVE (PHONE & TABLET) === */
+// @media (max-width: 780px) {
+//     .author-section {
+//         padding: 60px 0;
+        
+//         .author-grid {
+//             /* Switch to single column */
+//             grid-template-columns: 1fr;
+//             gap: 0; 
+            
+//             /* 1. HIDE THE IMAGE COMPLETELY */
+//             .author-image { 
+//                 display: none; 
+//             }
+
+//             /* 2. CENTER THE TEXT CONTENT */
+//             .author-text { 
+//                 text-align: center;
+//                 width: 100%;
+//                 max-width: 600px; /* Prevent text from being too wide */
+//                 margin: 0 auto;
+                
+//                 .section-title {
+//                     font-size: 3.5rem; /* Smaller title for mobile */
+//                 }
+
+//                 .section-subtitle {
+//                     font-size: 1rem;
+//                     margin-bottom: 30px;
+//                     line-height: 1.5;
+//                 }
+
+//                 .author-description {
+//                     margin-bottom: 30px;
+//                     p { font-size: 1.05rem; }
+//                 }
+
+//                 /* stack benefits cards vertically */
+//                 .author-benefits {
+//                     grid-template-columns: 1fr; 
+//                     gap: 15px;
+//                     margin-bottom: 35px;
+
+//                     .benefit-card { 
+//                         text-align: center; 
+//                         padding: 20px;
+                        
+//                         h4 { font-size: 1.4rem; }
+//                     }
+//                 }
+
+//                 /* Center download buttons */
+//                 .author-download-badges {
+//                     justify-content: center;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
 :root {
-  --accent-color: #cc5500; /* Burnt Orange */
+  /* PURPLE PALETTE for Authors */
+  --purple-accent: #341539;         /* Main Dark Purple */
+  --purple-tint-bg: #f5f3ff;        /* Very light purple for cards */
+  --purple-shadow: rgba(52, 21, 57, 0.15);
+  
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
-  --bg-white: #ffffff;
+//   --bg-white: #ffffff;
+  --bg-white:  #fdf9f0;
 }
 
 .author-section {
     padding: 100px 0;
-    background-color: var(--bg-white);
+    background-color: var(--bg-white); 
     display: flex;
     justify-content: center;
     width: 100%;
@@ -25,7 +254,7 @@
 
     .author-grid {
         display: grid;
-        grid-template-columns: 1.2fr 1fr; /* Text gets slightly more space */
+        grid-template-columns: 1.2fr 1fr;
         gap: 80px;
         align-items: center;
     }
@@ -33,7 +262,7 @@
     .author-text {
         text-align: left;
 
-        /* MAIN TITLE (Big) */
+        /* MAIN TITLE */
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 5rem; 
@@ -44,13 +273,13 @@
             letter-spacing: -1px;
         }
 
-        /* SUBTITLE (Smaller & Orange) */
+        /* SUBTITLE */
         .section-subtitle {
             font-family: 'Abel', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 1px; /* Tighter spacing as requested */
             font-size: 1.1rem;
-            color: var(--accent-color);
+            color: var(--purple-accent); 
             margin: 0 0 40px 0;
             font-weight: 600;
         }
@@ -75,7 +304,7 @@
         }
     }
 
-    /* --- CARDS FOR BENEFITS (ORANGE THEME) --- */
+    /* --- BENEFIT CARDS --- */
     .author-benefits {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -83,13 +312,11 @@
         margin-bottom: 45px;
 
         .benefit-card {
-            /* Warm, very light orange background */
-            background: #fff8f2; 
+            background: var(--purple-tint-bg); 
             padding: 25px;
             border-radius: 18px;
             transition: all 0.3s ease;
-            /* Subtle border */
-            border: 1px solid rgba(204, 85, 0, 0.08);
+            border: 1px solid rgba(52, 21, 57, 0.08);
 
             h4 {
                 font-family: 'Bebas Neue', sans-serif;
@@ -108,14 +335,14 @@
 
             &:hover {
                 background: var(--bg-white);
-                /* Orange Glow Shadow */
-                box-shadow: 0 10px 30px rgba(204, 85, 0, 0.15);
+                box-shadow: 0 10px 30px var(--purple-shadow);
                 transform: translateY(-5px);
-                border-color: var(--accent-color);
+                border-color: var(--purple-accent);
             }
         }
     }
 
+    /* --- DOWNLOAD BADGES (Reverted to clean look) --- */
     .author-download-badges {
         display: flex;
         gap: 15px;
@@ -132,10 +359,13 @@
 
             &:hover {
                 transform: translateY(-4px);
+                /* Optional: Slight purple shadow on hover only */
+                filter: drop-shadow(0 4px 6px rgba(52, 21, 57, 0.2));
             }
         }
     }
 
+    /* --- IMAGE (Purple Shadow) --- */
     .author-image {
         display: flex;
         justify-content: center;
@@ -145,8 +375,9 @@
             width: 100%;
             height: auto;
             border-radius: 20px; 
-            /* Shadow on the left side to balance Reader section */
-            box-shadow: -25px 25px 0px rgba(204, 85, 0, 0.08); 
+            /* Distinct Purple Shadow */
+            // box-shadow: -25px 25px 0px rgba(52, 21, 57, 0.15); 
+            box-shadow: -25px 25px 0px rgba(229, 164, 239, 0.24); 
             transition: transform 0.5s ease;
 
             &:hover {
@@ -156,38 +387,32 @@
     }
 }
 
-
-
 /* === RESPONSIVE (PHONE & TABLET) === */
-@media (max-width: 780px) {
+@media (max-width: 992px) {
     .author-section {
         padding: 60px 0;
         
         .author-grid {
-            /* Switch to single column */
             grid-template-columns: 1fr;
             gap: 0; 
             
-            /* 1. HIDE THE IMAGE COMPLETELY */
             .author-image { 
                 display: none; 
             }
 
-            /* 2. CENTER THE TEXT CONTENT */
             .author-text { 
                 text-align: center;
                 width: 100%;
-                max-width: 600px; /* Prevent text from being too wide */
+                max-width: 600px; 
                 margin: 0 auto;
                 
-                .section-title {
-                    font-size: 3.5rem; /* Smaller title for mobile */
-                }
+                .section-title { font-size: 3.5rem; }
 
                 .section-subtitle {
                     font-size: 1rem;
                     margin-bottom: 30px;
                     line-height: 1.5;
+                    letter-spacing: 1px;
                 }
 
                 .author-description {
@@ -195,7 +420,6 @@
                     p { font-size: 1.05rem; }
                 }
 
-                /* stack benefits cards vertically */
                 .author-benefits {
                     grid-template-columns: 1fr; 
                     gap: 15px;
@@ -204,12 +428,10 @@
                     .benefit-card { 
                         text-align: center; 
                         padding: 20px;
-                        
                         h4 { font-size: 1.4rem; }
                     }
                 }
 
-                /* Center download buttons */
                 .author-download-badges {
                     justify-content: center;
                 }
