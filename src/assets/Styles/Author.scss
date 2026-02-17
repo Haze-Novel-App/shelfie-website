@@ -297,7 +297,8 @@
 
             p {
                 font-family: 'Abel', sans-serif;
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                // font-weight: 600;
                 line-height: 1.7;
                 color: var(--text-secondary);
             }
@@ -312,7 +313,8 @@
         margin-bottom: 45px;
 
         .benefit-card {
-            background: var(--purple-tint-bg); 
+            // background: var(--purple-tint-bg); 
+            background: var(--purple-accent); 
             padding: 25px;
             border-radius: 18px;
             transition: all 0.3s ease;
@@ -322,13 +324,13 @@
                 font-family: 'Bebas Neue', sans-serif;
                 font-size: 1.6rem;
                 margin-bottom: 10px;
-                color: var(--text-primary);
+                color: #fff;
                 letter-spacing: 0.5px;
             }
             p {
                 font-family: 'Abel', sans-serif;
                 font-size: 1rem;
-                color: var(--text-secondary);
+                color: #fff;
                 line-height: 1.5;
                 margin: 0;
             }

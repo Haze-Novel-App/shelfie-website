@@ -56,9 +56,8 @@
 
 
 
-
 import React from "react";
-// import './Footer.scss'; // Ensure this is imported
+// import './Footer.scss'; 
 
 const Footer = () => {
   return (
@@ -85,8 +84,6 @@ const Footer = () => {
           <a href="#careers">Careers</a>
         </div>
 
-        {/* Discover and My Account sections removed */}
-
       </div>
 
       {/* FOOTER BOTTOM SECTION */}
@@ -97,7 +94,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="jac-link"
         >
-          A product built by JAC Magnus Private Limited
+          A product built by <span className="brand-highlight">JAC Magnus Private Limited</span>
         </a>
       </div>
     </footer>

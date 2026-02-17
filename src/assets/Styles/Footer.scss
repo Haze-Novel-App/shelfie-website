@@ -126,14 +126,13 @@
 
 
 
-
-
 :root {
   --orange-accent: #BE5103; 
   --footer-bg: #fdf9f0;     
   --brand-purple: #341539;  
-  /* Using a slightly darker grey for text on the light BG for better contrast */
   --text-dark-grey: #555555; 
+  --text-muted-grey: #667085; /* Neutral grey for footer bottom text */
+  --gold-highlight: #b07c08;  /* Gold/Bronze color for JAC Magnus */
 }
 
 .main-footer {
@@ -150,8 +149,6 @@
         margin: 0 auto;
         padding: 0 5%;
         display: grid;
-        /* CHANGED: Grid updated for only 2 columns. 
-           Brand gets more space (3fr), links get less (1fr) */
         grid-template-columns: 3fr 1fr; 
         gap: 60px;
         align-items: flex-start;
@@ -193,7 +190,7 @@
             font-family: 'Abel', sans-serif;
             font-size: 1.05rem;
             line-height: 1.6;
-            max-width: 400px; /* Increased slightly since there's more room now */
+            max-width: 400px; 
             margin: 0;
             color: var(--text-dark-grey); 
             font-weight: 400;
@@ -202,10 +199,8 @@
 
     /* LINKS COLUMN */
     .footer-col {
-        /* Ensure links align right on desktop for balance */
         &.links-col {
             text-align: right;
-             /* Optional: Pushes the links all the way to the right edge */
             justify-self: end;
         }
 
@@ -223,22 +218,21 @@
             font-family: 'Abel', sans-serif;
             display: block;
             text-decoration: none;
-            font-size: 1.1rem; /* Slightly larger for cleaner look */
-            margin-bottom: 15px; /* More spacing between links */
+            font-size: 1.1rem; 
+            margin-bottom: 15px; 
             color: var(--text-dark-grey);
             transition: all 0.3s ease;
             letter-spacing: 0.5px;
-            font-weight: 500; /* Slightly thicker font */
+            font-weight: 500; 
             
             &:hover {
                 color: var(--orange-accent);
-                /* Move left on hover since they are right aligned */
                 transform: translateX(-5px); 
             }
         }
     }
 
-    /* FOOTER BOTTOM STYLE */
+    /* --- FOOTER BOTTOM STYLE (MATCHING IMAGE) --- */
     .footer-bottom {
         max-width: 1200px;
         margin: 0 auto;
@@ -248,15 +242,22 @@
         
         .jac-link {
             font-family: 'Abel', sans-serif;
-            font-size: 0.9rem;
-            color: #888888;
+            font-size: 0.95rem;
+            /* Color for "A product built by" */
+            color: var(--text-muted-grey); 
             text-decoration: none;
             letter-spacing: 0.5px;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
+
+            /* Styling specifically for the company name */
+            .brand-highlight {
+                color: var(--gold-highlight); /* Gold/Bronze color */
+                font-weight: 600; /* Slightly bolder */
+                margin-left: 3px;
+            }
 
             &:hover {
-                color: var(--brand-purple);
-                text-decoration: underline;
+                opacity: 0.8;
             }
         }
     }
@@ -265,7 +266,6 @@
 /* RESPONSIVE */
 @media (max-width: 992px) {
     .main-footer .footer-container {
-        /* Adjust ratios for tablet */
         grid-template-columns: 2fr 1fr; 
         gap: 40px;
     }
@@ -276,18 +276,16 @@
         padding: 60px 0 30px 0;
         
         .footer-container {
-            grid-template-columns: 1fr; /* Stack on mobile */
+            grid-template-columns: 1fr; 
             text-align: left;
             gap: 40px;
             margin-bottom: 40px;
             
-            /* Reset text alignment for mobile */
             .footer-col.links-col {
                 text-align: left;
                 justify-self: start;
 
                 a:hover {
-                     /* Reset hover direction for left align */
                     transform: translateX(5px);
                 }
             }
