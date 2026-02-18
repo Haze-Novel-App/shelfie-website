@@ -22,8 +22,9 @@ const ReaderSection = () => {
           {/* TEXT SIDE */}
           <div className="reader-text">
             {/* SWAPPED: Main Title is now "FOR READERS" */}
-            <h2 className="section-title">For Readers</h2>
-            <h3 className="section-subtitle">For those passionate readers who want to</h3>
+            {/* <h2 className="section-title">For Readers</h2>
+            <h3 className="section-subtitle">For those passionate readers who want to</h3> */}
+            <h2 className="section-title">For those passionate readers who want to</h2>
             
             <ul className="reader-features">
               <li>

@@ -143,6 +143,8 @@
     box-sizing: border-box;
     overflow: hidden;
     background-color: var(--footer-bg); 
+    border-top: solid 4px var(--orange-accent);
+    border-radius: 26px;
 
     .footer-container {
         max-width: 1200px;
@@ -259,6 +261,35 @@
             &:hover {
                 opacity: 0.8;
             }
+        }
+    }
+}
+
+
+/* Add this inside .footer-brand in your SCSS */
+.footer-contact {
+    margin-top: 20px;
+
+    .email-link {
+        font-family: 'Abel', sans-serif;
+        text-decoration: none;
+        color: var(--text-dark-grey);
+        font-size: 1.05rem;
+        display: inline-block; /* Required for transform to work smoothly */
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Added a slight 'bounce' for the zoom
+
+        .email-highlight {
+            color: var(--orange-accent);
+            font-weight: 600;
+        }
+
+        &:hover {
+            color: var(--brand-purple);
+            transform: scale(1.08); /* This creates the 'zoom' effect */
+        }
+        
+        &:active {
+            transform: scale(0.95); /* Slight shrink when clicked for feedback */
         }
     }
 }

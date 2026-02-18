@@ -13,8 +13,9 @@ const AuthorSection = () => {
           {/* TEXT SIDE (Left) */}
           <div className="author-text">
             {/* SWAPPED: Main Title is now "FOR WRITERS" */}
-            <h2 className="section-title">For Writers</h2>
-            <h3 className="section-subtitle">For writers who want real reader engagement</h3>
+            {/* <h2 className="section-title">For Writers</h2>
+            <h3 className="section-subtitle">For writers who want real reader engagement</h3> */}
+            <h2 className="section-title">For writers who want real reader engagement</h2>
             
             <div className="author-description">
               <p className="highlight-text">

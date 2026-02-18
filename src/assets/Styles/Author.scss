@@ -1,232 +1,6 @@
 
 
 
-// :root {
-//   /* PURPLE PALETTE for Authors */
-//   --purple-accent: #341539;         /* Main Dark Purple */
-//   --purple-tint-bg: #f5f3ff;        /* Very light purple for cards */
-//   --purple-shadow: rgba(52, 21, 57, 0.15);
-  
-//   --text-primary: #1a1a1a;
-//   --text-secondary: #555555;
-// //   --bg-white: #ffffff;
-//   --bg-white:  #fdf9f0;
-// }
-
-// .author-section {
-//     padding: 100px 0;
-//     background-color: var(--bg-white); 
-//     display: flex;
-//     justify-content: center;
-//     width: 100%;
-//     box-sizing: border-box;
-//     overflow: hidden;
-
-//     .container {
-//         width: 90%;
-//         max-width: 1200px; 
-//     }
-
-//     .author-grid {
-//         display: grid;
-//         grid-template-columns: 1.2fr 1fr;
-//         gap: 80px;
-//         align-items: center;
-//     }
-
-//     .author-text {
-//         text-align: left;
-
-//         /* MAIN TITLE */
-//         .section-title {
-//             font-family: 'Bebas Neue', sans-serif;
-//             font-size: 5rem; 
-//             line-height: 0.9;
-//             margin: 0 0 15px 0; 
-//             color: var(--text-primary);
-//             text-transform: uppercase;
-//             letter-spacing: -1px;
-//         }
-
-//         /* SUBTITLE */
-//         .section-subtitle {
-//             font-family: 'Abel', sans-serif;
-//             text-transform: uppercase;
-//             letter-spacing: 1px; /* Tighter spacing as requested */
-//             font-size: 1.1rem;
-//             color: var(--purple-accent); 
-//             margin: 0 0 40px 0;
-//             font-weight: 600;
-//         }
-
-//         .author-description {
-//             margin-bottom: 40px;
-            
-//             .highlight-text {
-//                 font-family: 'Abel', sans-serif;
-//                 font-size: 1.25rem; 
-//                 font-weight: 600;
-//                 color: var(--text-primary);
-//                 margin-bottom: 15px;
-//             }
-
-//             p {
-//                 font-family: 'Abel', sans-serif;
-//                 font-size: 1.2rem;
-//                 // font-weight: 600;
-//                 line-height: 1.7;
-//                 color: var(--text-secondary);
-//             }
-//         }
-//     }
-
-//     /* --- BENEFIT CARDS --- */
-//     .author-benefits {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         gap: 25px;
-//         margin-bottom: 45px;
-
-//         .benefit-card {
-//             // background: var(--purple-tint-bg); 
-//             background: var(--purple-accent); 
-//             padding: 25px;
-//             border-radius: 18px;
-//             transition: all 0.3s ease;
-//             border: 1px solid rgba(52, 21, 57, 0.08);
-
-//             h4 {
-//                 font-family: 'Bebas Neue', sans-serif;
-//                 font-size: 1.6rem;
-//                 margin-bottom: 10px;
-//                 color: #fff;
-//                 letter-spacing: 0.5px;
-//             }
-//             p {
-//                 font-family: 'Abel', sans-serif;
-//                 font-size: 1rem;
-//                 color: #fff;
-//                 line-height: 1.5;
-//                 margin: 0;
-//             }
-
-//             &:hover {
-//                 background: var(--bg-white);
-//                 box-shadow: 0 10px 30px var(--purple-shadow);
-//                 transform: translateY(-5px);
-//                 border-color: var(--purple-accent);
-//             }
-//         }
-//     }
-
-//     /* --- DOWNLOAD BADGES (Reverted to clean look) --- */
-//     .author-download-badges {
-//         display: flex;
-//         gap: 15px;
-//         align-items: center;
-
-//         .badge-link {
-//             transition: transform 0.2s ease;
-            
-//             img {
-//                 height: 48px;
-//                 width: auto;
-//                 display: block;
-//             }
-
-//             &:hover {
-//                 transform: translateY(-4px);
-//                 /* Optional: Slight purple shadow on hover only */
-//                 filter: drop-shadow(0 4px 6px rgba(52, 21, 57, 0.2));
-//             }
-//         }
-//     }
-
-//     /* --- IMAGE (Purple Shadow) --- */
-//     .author-image {
-//         display: flex;
-//         justify-content: center;
-        
-//         img {
-//             max-width: 380px; 
-//             width: 100%;
-//             height: auto;
-//             border-radius: 20px; 
-//             /* Distinct Purple Shadow */
-//             // box-shadow: -25px 25px 0px rgba(52, 21, 57, 0.15); 
-//             box-shadow: -25px 25px 0px rgba(229, 164, 239, 0.24); 
-//             transition: transform 0.5s ease;
-
-//             &:hover {
-//                 transform: scale(1.02);
-//             }
-//         }
-//     }
-// }
-
-// /* === RESPONSIVE (PHONE & TABLET) === */
-// @media (max-width: 992px) {
-//     .author-section {
-//         padding: 60px 0;
-        
-//         .author-grid {
-//             grid-template-columns: 1fr;
-//             gap: 0; 
-            
-//             .author-image { 
-//                 display: none; 
-//             }
-
-//             .author-text { 
-//                 text-align: center;
-//                 width: 100%;
-//                 max-width: 600px; 
-//                 margin: 0 auto;
-                
-//                 .section-title { font-size: 3.5rem; }
-
-//                 .section-subtitle {
-//                     font-size: 1rem;
-//                     margin-bottom: 30px;
-//                     line-height: 1.5;
-//                     letter-spacing: 1px;
-//                 }
-
-//                 .author-description {
-//                     margin-bottom: 30px;
-//                     p { font-size: 1.05rem; }
-//                 }
-
-//                 .author-benefits {
-//                     grid-template-columns: 1fr; 
-//                     gap: 15px;
-//                     margin-bottom: 35px;
-
-//                     .benefit-card { 
-//                         text-align: center; 
-//                         padding: 20px;
-//                         h4 { font-size: 1.4rem; }
-//                     }
-//                 }
-
-//                 .author-download-badges {
-//                     justify-content: center;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
 
 :root {
   /* PURPLE PALETTE for Authors */
@@ -255,8 +29,8 @@
 
     .author-grid {
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 80px;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 60px;
         align-items: center;
     }
 
@@ -444,6 +218,56 @@
 
                 .author-download-badges {
                     justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+
+/* === FIX FOR SMALL DEVICES (Under 365px) === */
+@media (max-width: 365px) {
+    .author-section {
+        padding: 40px 0; /* Reduce top/bottom padding */
+
+        .container {
+            width: 95%; /* Give a bit more horizontal space */
+        }
+
+        .author-text {
+            .section-title {
+                font-size: 2.2rem; /* Scaled down significantly to prevent overflow */
+                line-height: 1.1;
+                word-wrap: break-word; /* Force long words to break if necessary */
+            }
+
+            .author-description {
+                .highlight-text {
+                    font-size: 1.1rem;
+                }
+                p {
+                    font-size: 0.95rem;
+                }
+            }
+
+            .author-benefits {
+                .benefit-card {
+                    padding: 15px; /* Smaller padding inside cards */
+                    h4 {
+                        font-size: 1.2rem;
+                    }
+                    p {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+
+            .author-download-badges {
+                flex-direction: column; /* Stack badges vertically to save width */
+                gap: 10px;
+                
+                .badge-link img {
+                    height: 40px; /* Make badges slightly smaller */
                 }
             }
         }

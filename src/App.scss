@@ -18,8 +18,6 @@
 
 
 
-
-
 @use './assets/Styles/_variables.scss';
 @use './assets/Styles/_base.scss';
 @use './assets/Styles/FeaturedBooks';
@@ -35,3 +33,63 @@
 @use './assets/Styles/LatestArticles';
 @use './assets/Styles/ContactUs';
 @use './assets/Styles/AnimatedBook.scss';
+
+
+.not-found-section {
+    height: 70vh; /* Keeps it within view between Header and Footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fdf9f0; // Matches your --bg-white
+
+    .not-found-content {
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 8rem;
+            color: #BE5103; // Orange accent
+            margin: 0;
+            line-height: 1;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: #341539; // Brand purple
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-family: 'Abel', sans-serif;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .back-home-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #BE5103;
+            color: white;
+            text-decoration: none;
+            font-family: 'Abel', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+
+            &:hover {
+                background-color: #341539;
+                transform: scale(1.05); // Using that zoom effect you like!
+            }
+        }
+    }
+}
+
+/* Mobile Fix */
+@media (max-width: 480px) {
+    .not-found-section .not-found-content h1 {
+        font-size: 5rem;
+    }
+}
+
+
