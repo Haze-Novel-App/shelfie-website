@@ -18,7 +18,7 @@ const LatestArticles = () => {
       image: article2
     },
     {
-      date: '14 feb, 2021',
+      date: '14 feb, 2026',
       title: 'Reading Books Always Makes The Moments Happy',
       category: 'Inspiration',
       image: article3
