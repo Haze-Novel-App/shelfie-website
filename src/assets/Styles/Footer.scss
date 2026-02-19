@@ -16,10 +16,6 @@
 //     overflow: hidden;
 //     background-color: var(--footer-bg);
 //     border-top: solid 4px var(--orange-accent);
-
-//     /* FIX: We only round the top corners. 
-//        Rounding the bottom corners on a full-width footer 
-//        often causes the white background of the body to show through. */
 //     border-radius: 26px 26px 0 0;
 //     margin-top: auto;
 
@@ -28,54 +24,40 @@
 //         margin: 0 auto;
 //         padding: 0 5%;
 //         display: grid;
-//         grid-template-columns: 1.5fr 1fr; // Changed for better newsletter space
+//         grid-template-columns: 1.5fr 1fr;
 //         gap: 60px;
-//         align-items: flex-start;
-//         position: relative;
-//         z-index: 2;
+//         align-items: center;
 //         margin-bottom: 60px;
 //     }
 
 //     /* BRAND COLUMN */
 //     .footer-brand {
-//         padding-right: 20px;
 
+//         /* Updated .slogan block inside .footer-brand */
 //         .footer-logo {
 //             font-family: 'Bebas Neue', cursive;
 //             font-size: 3.5rem;
-//             font-weight: 400;
-//             letter-spacing: 2px;
-//             margin: 0 0 20px 0;
 //             color: var(--brand-purple);
 //             line-height: 0.9;
-
-//             .dot {
-//                 color: var(--orange-accent);
-//             }
+//             margin: 0;
 
 //             .slogan {
 //                 display: block;
 //                 font-family: 'Abel', sans-serif;
-//                 font-size: 1rem;
-//                 letter-spacing: 3px;
-//                 color: var(--brand-purple);
-//                 margin-top: 5px;
-//                 text-transform: uppercase;
-//                 font-weight: 500;
+//                 font-size: 0.8rem; // Match Header
+//                 letter-spacing: 2px;
+//                 color: var(--brand-purple); // Brand Purple
+//                 margin-top: 6px;
+//                 margin-bottom: 16px;
+
+//                 /* Removed text-transform: lowercase */
+//                 /* This allows the React text to stay as "Your Shelf. Your Story." */
+//                 text-transform: none;
+
+//                 font-weight: 600; // Less bold
 //             }
 //         }
 
-//         .description {
-//             font-family: 'Abel', sans-serif;
-//             font-size: 1.05rem;
-//             line-height: 1.6;
-//             max-width: 400px;
-//             margin: 0;
-//             color: var(--text-dark-grey);
-//             font-weight: 400;
-//         }
-
-//         /* EMAIL SECTION WITH ZOOM ANIMATION */
 //         .footer-contact {
 //             margin-top: 25px;
 
@@ -84,8 +66,8 @@
 //                 text-decoration: none;
 //                 color: var(--text-dark-grey);
 //                 font-size: 1.05rem;
+//                 transition: transform 0.3s ease;
 //                 display: inline-block;
-//                 transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 //                 .email-highlight {
 //                     color: var(--orange-accent);
@@ -93,14 +75,11 @@
 //                 }
 
 //                 &:hover {
-//                     color: var(--brand-purple);
-//                     transform: scale(1.08);
-//                     /* Zoom effect */
+//                     transform: scale(1.05);
 //                 }
 //             }
 //         }
 
-//         /* SOCIAL MEDIA SECTION */
 //         .footer-social {
 //             margin-top: 25px;
 //             display: flex;
@@ -114,280 +93,135 @@
 //                 width: 42px;
 //                 height: 42px;
 //                 background: rgba(52, 21, 57, 0.05);
-//                 /* Very light purple circle */
 //                 border-radius: 50%;
-//                 text-decoration: none;
 //                 transition: all 0.3s ease;
 
 //                 &:hover {
 //                     background: var(--orange-accent);
 //                     color: #ffffff;
-//                     transform: translateY(-5px) scale(1.1);
-//                     box-shadow: 0 5px 15px rgba(190, 81, 3, 0.3);
-//                 }
-
-//                 svg {
-//                     fill: currentColor;
+//                     transform: translateY(-5px);
 //                 }
 //             }
 //         }
 //     }
 
-//     /* LINKS COLUMN */
-//     .footer-col {
-//         &.links-col {
-//             text-align: right;
-//             justify-self: end;
-//         }
+//     /* NEWSLETTER CARD */
+//     .footer-newsletter {
+//         background-color: #fffbf5;
+//         border: 1px solid rgba(0, 0, 0, 0.05);
+//         border-radius: 20px;
+//         padding: 35px;
+//         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+//         width: 100%;
 
 //         h4 {
 //             font-family: 'Bebas Neue', cursive;
-//             font-size: 1.3rem;
-//             text-transform: uppercase;
-//             letter-spacing: 1.5px;
-//             margin: 0 0 25px 0;
-//             font-weight: 400;
+//             font-size: 1.6rem;
 //             color: var(--orange-accent);
-//         }
-
-//         a {
-//             font-family: 'Abel', sans-serif;
-//             display: block;
-//             text-decoration: none;
-//             font-size: 1.1rem;
-//             margin-bottom: 15px;
-//             color: var(--text-dark-grey);
-//             transition: all 0.3s ease;
-//             letter-spacing: 0.5px;
-//             font-weight: 500;
-
-//             &:hover {
-//                 color: var(--orange-accent);
-//                 transform: translateX(-5px);
-//             }
-//         }
-//     }
-
-//     /* FOOTER BOTTOM SECTION */
-//     .footer-bottom {
-//         max-width: 1200px;
-//         margin: 0 auto;
-//         padding-top: 25px;
-//         border-top: 1px solid rgba(0, 0, 0, 0.08);
-//         text-align: center;
-
-//         .jac-link {
-//             font-family: 'Abel', sans-serif;
-//             font-size: 0.95rem;
-//             color: var(--text-muted-grey);
-//             text-decoration: none;
-//             letter-spacing: 0.5px;
-//             transition: opacity 0.3s ease;
-
-//             .brand-highlight {
-//                 color: var(--gold-highlight);
-//                 font-weight: 600;
-//                 margin-left: 3px;
-//             }
-
-//             &:hover {
-//                 opacity: 0.8;
-//             }
-//         }
-//     }
-// }
-
-// /* RESPONSIVE DESIGN */
-// @media (max-width: 992px) {
-//     .main-footer .footer-container {
-//         grid-template-columns: 2fr 1fr;
-//         gap: 40px;
-//     }
-// }
-
-// @media (max-width: 600px) {
-//     .main-footer {
-//         padding: 60px 0 30px 0;
-//         border-radius: 20px 20px 0 0;
-
-//         .footer-container {
-//             grid-template-columns: 1fr;
-//             text-align: center; // Center all text
-//             gap: 40px;
-//             margin-bottom: 40px;
-
-//             .footer-col.links-col {
-//                 text-align: center; // Center align on mobile
-//                 justify-self: center;
-//                 width: 100%;
-//             }
-//         }
-
-//         .footer-social {
-//             justify-content: center; // Center social icons
-//         }
-
-//         .footer-bottom {
-//             padding: 20px 5%;
-//         }
-//     }
-// }
-
-// .footer-container {
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     padding: 0 5%;
-//     display: grid;
-//     grid-template-columns: 1.5fr 1fr;
-//     gap: 60px;
-//     align-items: center;
-//     position: relative;
-//     z-index: 2;
-//     margin-bottom: 60px;
-// }
-
-// /* LINKS COLUMN (Containing Newsletter) */
-// .footer-col {
-//     &.links-col {
-//         text-align: right;
-//         justify-self: end;
-//         width: 100%;
-//     }
-
-//     h4 {
-//         font-family: 'Bebas Neue', cursive;
-//         font-size: 1.3rem;
-//         text-transform: uppercase;
-//         letter-spacing: 1.5px;
-//         margin: 0 0 25px 0;
-//         font-weight: 400;
-//         color: var(--orange-accent);
-//     }
-
-//     a {
-//         font-family: 'Abel', sans-serif;
-//         display: block;
-//         text-decoration: none;
-//         font-size: 1.1rem;
-//         margin-bottom: 15px;
-//         color: var(--text-dark-grey);
-//         transition: all 0.3s ease;
-//         letter-spacing: 0.5px;
-//         font-weight: 500;
-
-//         &:hover {
-//             color: var(--orange-accent);
-//             transform: translateX(-5px);
-//         }
-//     }
-// }
-
-// // Newsletter Styles
-// .footer-newsletter {
-//     background-color: #fffbf5; // Light beige matching the image
-//     border: 1px solid rgba(0, 0, 0, 0.05);
-//     border-radius: 20px;
-//     padding: 35px; // Increased padding
-//     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); // softer, larger shadow
-//     max-width: 100%; // Allow it to fill the column
-//     width: 100%;
-//     margin-left: auto; // Align to right in desktop view since it's in the right column
-//     box-sizing: border-box;
-
-//     h4 {
-//         font-family: 'Bebas Neue', cursive; // Reverted to Bebas for "SUBSCRIBE TO OUR NEWSLETTER" style match
-//         font-size: 1.8rem; // Larger title
-//         line-height: 1;
-//         color: #BE5103; // Burnt orange for title
-//         margin-bottom: 25px;
-//         letter-spacing: 1px;
-//         text-transform: uppercase;
-//         text-align: left; // Keep title left aligned within the card
-//     }
-
-//     .newsletter-form {
-//         display: flex;
-//         align-items: center;
-//         gap: 15px;
-//         width: 100%;
-//         position: relative; // For positioning if needed
-
-//         input {
-//             flex-grow: 1;
-//             padding: 16px 24px;
-//             border-radius: 50px; // Pill shape
-//             border: 1px solid #e0e0e0; // Light border
-//             background-color: #ffffff; // White background for input
-//             font-family: 'Abel', sans-serif;
-//             font-size: 1rem;
-//             color: var(--text-dark-grey);
-//             outline: none;
-//             transition: all 0.3s ease;
-//             width: 0; // Fix flexbox overflow issue
-//             min-width: 0;
-
-//             &::placeholder {
-//                 color: #b0b0b0;
-//             }
-
-//             &:focus {
-//                 border-color: var(--brand-purple);
-//                 box-shadow: 0 0 0 3px rgba(52, 21, 57, 0.1);
-//             }
-//         }
-
-//         button {
-//             flex-shrink: 0;
-//             width: 54px;
-//             height: 54px;
-//             border-radius: 50%; // Circle
-//             background-color: #341539; // Brand purple
-//             color: white;
-//             border: none;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             cursor: pointer;
-//             transition: transform 0.3s ease, background-color 0.3s ease;
-//             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-//             svg {
-//                 width: 24px;
-//                 height: 24px;
-//             }
-
-//             &:hover {
-//                 transform: scale(1.05);
-//                 background-color: var(--orange-accent);
-//             }
-//         }
-//     }
-// }
-
-// // Mobile adjustment
-// @media (max-width: 600px) {
-//     .footer-newsletter {
-//         padding: 25px;
-
-//         h4 {
-//             text-align: center;
-//             font-size: 1.5rem;
+//             margin-bottom: 20px;
+//             text-align: left;
 //         }
 
 //         .newsletter-form {
-//             flex-direction: column; // Stack on mobile if too narrow
+//             display: flex;
+//             gap: 15px;
 
 //             input {
-//                 width: 100%;
-//                 min-width: 100%;
+//                 flex-grow: 1;
+//                 padding: 14px 20px;
+//                 border-radius: 50px;
+//                 border: 1px solid #e0e0e0;
+//                 font-family: 'Abel', sans-serif;
+//                 outline: none;
 //             }
 
 //             button {
 //                 width: 50px;
+//                 height: 50px;
+//                 border-radius: 50%;
+//                 background-color: var(--brand-purple);
+//                 color: white;
+//                 border: none;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 cursor: pointer;
+//                 transition: 0.3s;
+
+//                 &:hover {
+//                     background-color: var(--orange-accent);
+//                 }
+//             }
+//         }
+//     }
+
+//     .footer-bottom {
+//         border-top: 1px solid rgba(0, 0, 0, 0.08);
+//         padding-top: 25px;
+//         text-align: center;
+
+//         .jac-link {
+//             font-family: 'Abel', sans-serif;
+//             font-size: 0.9rem;
+//             color: var(--text-muted-grey);
+//             text-decoration: none;
+
+//             .brand-highlight {
+//                 color: var(--gold-highlight);
+//                 font-weight: 600;
 //             }
 //         }
 //     }
 // }
+
+// /* RESPONSIVE: CENTER ALIGN EVERYTHING */
+// @media (max-width: 768px) {
+//     .main-footer {
+//         padding-top: 60px;
+
+//         .footer-container {
+//             grid-template-columns: 1fr;
+//             text-align: center;
+//             gap: 50px;
+//         }
+
+//         .footer-brand {
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//         }
+
+//         .footer-social {
+//             justify-content: center;
+//         }
+
+//         .footer-newsletter {
+//             h4 {
+//                 text-align: center;
+//             }
+
+//             .newsletter-form {
+//                 flex-direction: column;
+
+//                 input {
+//                     width: 100%;
+//                 }
+
+//                 button {
+//                     margin: 0 auto;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
 
 
 
@@ -417,6 +251,10 @@
     overflow: hidden;
     background-color: var(--footer-bg);
     border-top: solid 4px var(--orange-accent);
+
+    /* FIX: We only round the top corners. 
+       Rounding the bottom corners on a full-width footer 
+       often causes the white background of the body to show through. */
     border-radius: 26px 26px 0 0;
     margin-top: auto;
 
@@ -425,40 +263,54 @@
         margin: 0 auto;
         padding: 0 5%;
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
+        grid-template-columns: 1.5fr 1fr; // Changed for better newsletter space
         gap: 60px;
-        align-items: center;
+        align-items: flex-start;
+        position: relative;
+        z-index: 2;
         margin-bottom: 60px;
     }
 
     /* BRAND COLUMN */
     .footer-brand {
+        padding-right: 20px;
 
-        /* Updated .slogan block inside .footer-brand */
         .footer-logo {
             font-family: 'Bebas Neue', cursive;
             font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin: 0 0 20px 0;
             color: var(--brand-purple);
             line-height: 0.9;
-            margin: 0;
+
+            .dot {
+                color: var(--orange-accent);
+            }
 
             .slogan {
                 display: block;
                 font-family: 'Abel', sans-serif;
-                font-size: 0.8rem; // Match Header
-                letter-spacing: 2px;
-                color: var(--brand-purple); // Brand Purple
-                margin-top: 6px;
-                margin-bottom: 16px;
-
-                /* Removed text-transform: lowercase */
-                /* This allows the React text to stay as "Your Shelf. Your Story." */
-                text-transform: none;
-
-                font-weight: 600; // Less bold
+                font-size: 0.9rem;
+                letter-spacing: 2px; // Slightly reduced to accommodate mixed case
+                color: var(--brand-purple);
+                margin-top: 5px;
+                text-transform: capitalize;
+                font-weight: 500;
             }
         }
 
+        .description {
+            font-family: 'Abel', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0;
+            color: var(--text-dark-grey);
+            font-weight: 400;
+        }
+
+        /* EMAIL SECTION WITH ZOOM ANIMATION */
         .footer-contact {
             margin-top: 25px;
 
@@ -467,8 +319,8 @@
                 text-decoration: none;
                 color: var(--text-dark-grey);
                 font-size: 1.05rem;
-                transition: transform 0.3s ease;
                 display: inline-block;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
                 .email-highlight {
                     color: var(--orange-accent);
@@ -476,11 +328,14 @@
                 }
 
                 &:hover {
-                    transform: scale(1.05);
+                    color: var(--brand-purple);
+                    transform: scale(1.08);
+                    /* Zoom effect */
                 }
             }
         }
 
+        /* SOCIAL MEDIA SECTION */
         .footer-social {
             margin-top: 25px;
             display: flex;
@@ -494,123 +349,276 @@
                 width: 42px;
                 height: 42px;
                 background: rgba(52, 21, 57, 0.05);
+                /* Very light purple circle */
                 border-radius: 50%;
+                text-decoration: none;
                 transition: all 0.3s ease;
 
                 &:hover {
                     background: var(--orange-accent);
                     color: #ffffff;
-                    transform: translateY(-5px);
+                    transform: translateY(-5px) scale(1.1);
+                    box-shadow: 0 5px 15px rgba(190, 81, 3, 0.3);
+                }
+
+                svg {
+                    fill: currentColor;
                 }
             }
         }
     }
 
-    /* NEWSLETTER CARD */
-    .footer-newsletter {
-        background-color: #fffbf5;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        border-radius: 20px;
-        padding: 35px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        width: 100%;
+    /* LINKS COLUMN */
+    .footer-col {
+        &.links-col {
+            text-align: right;
+            justify-self: end;
+        }
 
         h4 {
             font-family: 'Bebas Neue', cursive;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 25px 0;
+            font-weight: 400;
             color: var(--orange-accent);
-            margin-bottom: 20px;
-            text-align: left;
         }
 
-        .newsletter-form {
-            display: flex;
-            gap: 15px;
+        a {
+            font-family: 'Abel', sans-serif;
+            display: block;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-dark-grey);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-weight: 500;
 
-            input {
-                flex-grow: 1;
-                padding: 14px 20px;
-                border-radius: 50px;
-                border: 1px solid #e0e0e0;
-                font-family: 'Abel', sans-serif;
-                outline: none;
-            }
-
-            button {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background-color: var(--brand-purple);
-                color: white;
-                border: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: 0.3s;
-
-                &:hover {
-                    background-color: var(--orange-accent);
-                }
+            &:hover {
+                color: var(--orange-accent);
+                transform: translateX(-5px);
             }
         }
     }
 
+    /* FOOTER BOTTOM SECTION */
     .footer-bottom {
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        max-width: 1200px;
+        margin: 0 auto;
         padding-top: 25px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
         text-align: center;
 
         .jac-link {
             font-family: 'Abel', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted-grey);
             text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
 
             .brand-highlight {
                 color: var(--gold-highlight);
                 font-weight: 600;
+                margin-left: 3px;
+            }
+
+            &:hover {
+                opacity: 0.8;
             }
         }
     }
 }
 
-/* RESPONSIVE: CENTER ALIGN EVERYTHING */
-@media (max-width: 768px) {
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .main-footer .footer-container {
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
     .main-footer {
-        padding-top: 60px;
+        padding: 60px 0 30px 0;
+        border-radius: 20px 20px 0 0;
 
         .footer-container {
             grid-template-columns: 1fr;
-            text-align: center;
-            gap: 50px;
-        }
+            text-align: center; // Center all text
+            gap: 40px;
+            margin-bottom: 40px;
 
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            .footer-col.links-col {
+                text-align: center; // Center align on mobile
+                justify-self: center;
+                width: 100%;
+            }
         }
 
         .footer-social {
-            justify-content: center;
+            justify-content: center; // Center social icons
         }
 
-        .footer-newsletter {
-            h4 {
-                text-align: center;
+        .footer-bottom {
+            padding: 20px 5%;
+        }
+    }
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 60px;
+}
+
+/* LINKS COLUMN (Containing Newsletter) */
+.footer-col {
+    &.links-col {
+        text-align: right;
+        justify-self: end;
+        width: 100%;
+    }
+
+    h4 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 0 0 25px 0;
+        font-weight: 400;
+        color: var(--orange-accent);
+    }
+
+    a {
+        font-family: 'Abel', sans-serif;
+        display: block;
+        text-decoration: none;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: var(--text-dark-grey);
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        font-weight: 500;
+
+        &:hover {
+            color: var(--orange-accent);
+            transform: translateX(-5px);
+        }
+    }
+}
+
+// Newsletter Styles
+.footer-newsletter {
+    background-color: #fffbf5; // Light beige matching the image
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 35px; // Increased padding
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); // softer, larger shadow
+    max-width: 100%; // Allow it to fill the column
+    width: 100%;
+    margin-left: auto; // Align to right in desktop view since it's in the right column
+    box-sizing: border-box;
+
+    h4 {
+        font-family: 'Bebas Neue', cursive; // Reverted to Bebas for "SUBSCRIBE TO OUR NEWSLETTER" style match
+        font-size: 1.8rem; // Larger title
+        line-height: 1;
+        color: #BE5103; // Burnt orange for title
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: left; // Keep title left aligned within the card
+    }
+
+    .newsletter-form {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        position: relative; // For positioning if needed
+
+        input {
+            flex-grow: 1;
+            padding: 16px 24px;
+            border-radius: 50px; // Pill shape
+            border: 1px solid #e0e0e0; // Light border
+            background-color: #ffffff; // White background for input
+            font-family: 'Abel', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark-grey);
+            outline: none;
+            transition: all 0.3s ease;
+            width: 0; // Fix flexbox overflow issue
+            min-width: 0;
+
+            &::placeholder {
+                color: #b0b0b0;
             }
 
-            .newsletter-form {
-                flex-direction: column;
+            &:focus {
+                border-color: var(--brand-purple);
+                box-shadow: 0 0 0 3px rgba(52, 21, 57, 0.1);
+            }
+        }
 
-                input {
-                    width: 100%;
-                }
+        button {
+            flex-shrink: 0;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%; // Circle
+            background-color: #341539; // Brand purple
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-                button {
-                    margin: 0 auto;
-                }
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+                background-color: var(--orange-accent);
+            }
+        }
+    }
+}
+
+// Mobile adjustment
+@media (max-width: 600px) {
+    .footer-newsletter {
+        padding: 25px;
+
+        h4 {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .newsletter-form {
+            flex-direction: column; // Stack on mobile if too narrow
+
+            input {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            button {
+                width: 50px;
             }
         }
     }
