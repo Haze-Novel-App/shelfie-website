@@ -1,24 +1,27 @@
 
 
-
 // :root {
-//   /* NEW PALETTE: Richer & Higher Contrast */
-//   --orange-vibrant: #ff6b00;      /* Bright, energetic orange */
-//   --orange-deep: #cc4400;         /* Darker burnt orange for text */
-//   --bg-warm-white: #fffcf9;       /* Very subtle warm white, cleaner than beige */
-//   --text-dark: #1a1a1a;           /* Sharp black/grey for main titles */
-//   --text-muted: #8c7368;          /* Warm brownish-grey for subtitles */
-//   --icon-inactive: #4a4a4a;       /* Dark grey for inactive icons (better visibility) */
+//   /* Updated Palette */
+//   --orange-vibrant: #ff6b00;      
+//   --orange-deep: #cc4400;        
+  
+//   /* CHANGED: A distinct soft orange tint instead of warm white */
+// //   --bg-soft-orange: #fff5ec;       
+//   --bg-soft-orange:  #fdf9f0;       
+  
+//   --text-dark: #1a1a1a;          
+//   --text-muted: #8c7368;          
+//   --icon-inactive: #4a4a4a;       
 // }
 
 // .genres-section {
 //     padding: 70px 0;
-//     background-color: var(--bg-warm-white);
+//     /* Apply the new orange-tinted background */
+//     background-color: var(--bg-soft-orange); 
 //     width: 100%;
 //     overflow: hidden;
-//     /* Optional: Subtle top/bottom borders to frame the section */
-//     border-top: 1px solid rgba(0,0,0,0.03); 
-//     border-bottom: 1px solid rgba(0,0,0,0.03);
+//     border-top: 1px solid rgba(255, 107, 0, 0.05); 
+//     border-bottom: 1px solid rgba(255, 107, 0, 0.05);
 
 //     .genres-slider {
 //         display: flex;
@@ -28,8 +31,9 @@
 //     .genres-track {
 //         display: flex;
 //         align-items: center;
-//         gap: 80px; /* More space for a cleaner look */
+//         gap: 80px; 
 //         padding: 20px 0;
+//         /* Infinite scrolling animation */
 //         animation: scroll-infinite 45s linear infinite;
         
 //         &:hover {
@@ -48,14 +52,12 @@
 //             margin-bottom: 18px; 
 //             display: flex;
 //             justify-content: center;
-//             /* Added a subtle transition for the icon wrapper itself */
 //             transition: transform 0.3s ease; 
 
 //             .genre-icon-img {
 //                 width: 68px;
 //                 height: 68px;
 //                 object-fit: contain;
-//                 /* Default: Dark Grey (High visibility but neutral) */
 //                 filter: grayscale(100%) brightness(0.3) opacity(0.8); 
 //                 transition: all 0.4s ease;
 //             }
@@ -63,10 +65,9 @@
 
 //         /* --- HOVER EFFECTS --- */
 //         &:hover {
-//             transform: translateY(-8px); /* Clear lift effect */
+//             transform: translateY(-8px); 
 
 //             .genre-icon-img {
-//                 /* Color Reveal + Bright Orange Tint */
 //                 filter: grayscale(0%) brightness(1) opacity(1) drop-shadow(0 10px 15px rgba(255, 107, 0, 0.4));
 //                 transform: scale(1.15);
 //             }
@@ -76,24 +77,24 @@
 //             }
             
 //             .genre-desc {
-//                 color: var(--orange-vibrant); /* Subtitle lights up too */
+//                 color: var(--orange-vibrant); 
 //             }
 //         }
 
 //         h4 {
-//             font-family: 'Bebas Neue', sans-serif; /* Assuming you use this font, else remove */
+//             font-family: 'Bebas Neue', sans-serif; 
 //             font-size: 1.1rem;
 //             text-transform: uppercase;
 //             letter-spacing: 1px;
 //             margin-bottom: 6px;
-//             color: var(--text-dark); /* Sharp dark text */
+//             color: var(--text-dark); 
 //             transition: color 0.3s ease;
 //         }
 
 //         .genre-desc {
-//             font-family: 'Abel', sans-serif;
+//             font-family: 'Abel', sans-serif; 
 //             font-size: 0.85rem;
-//             color: var(--text-muted); /* Warm earthy tone */
+//             color: var(--text-muted); 
 //             font-weight: 500;
 //             transition: color 0.3s ease;
 //         }
@@ -105,12 +106,37 @@
 //     100% { transform: translateX(calc(-50% - 40px)); } 
 // }
 
+// /* === RESPONSIVENESS (UPDATED) === */
 // @media (max-width: 768px) {
-//     .genres-section .genres-track {
-//         gap: 50px;
-//     }
-//     .genres-section .genre-item h4 {
-//         font-size: 1rem;
+//     .genres-section {
+//         /* Reduced padding for mobile */
+//         padding: 10px 0; 
+        
+//         .genres-track {
+//             gap: 40px; /* Tighter gap */
+//         }
+
+//         .genre-item {
+//             min-width: 100px; /* Smaller item width */
+
+//             .icon-wrapper {
+//                 margin-bottom: 12px;
+                
+//                 .genre-icon-img {
+//                     /* Smaller icons for mobile */
+//                     width: 50px;
+//                     height: 50px;
+//                 }
+//             }
+
+//             h4 {
+//                 font-size: 0.95rem; /* Slightly smaller text */
+//             }
+
+//             .genre-desc {
+//                 font-size: 0.75rem; /* Smaller description */
+//             }
+//         }
 //     }
 // }
 
@@ -125,141 +151,129 @@
 
 
 :root {
-  /* Updated Palette */
-  --orange-vibrant: #ff6b00;      
-  --orange-deep: #cc4400;        
-  
-  /* CHANGED: A distinct soft orange tint instead of warm white */
-//   --bg-soft-orange: #fff5ec;       
-  --bg-soft-orange:  #fdf9f0;       
-  
-  --text-dark: #1a1a1a;          
-  --text-muted: #8c7368;          
-  --icon-inactive: #4a4a4a;       
+  --orange-vibrant: #ff6b00;
+  --orange-deep: #cc4400;
+  --brand-purple: #341539; 
+  --bg-soft-orange: #fdf9f0; // This is the section background
 }
 
 .genres-section {
-    padding: 70px 0;
-    /* Apply the new orange-tinted background */
-    background-color: var(--bg-soft-orange); 
-    width: 100%;
-    overflow: hidden;
-    border-top: 1px solid rgba(255, 107, 0, 0.05); 
-    border-bottom: 1px solid rgba(255, 107, 0, 0.05);
+  padding: 30px 0;
+  background-color: var(--bg-soft-orange);
+  width: 100%;
+  overflow: hidden;
 
-    .genres-slider {
-        display: flex;
-        width: 100%;
+  .genres-track {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 0;
+    animation: scroll-infinite 45s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .genre-item {
+    text-align: center;
+    flex-shrink: 0;
+    min-width: 170px;
+    padding: 25px 15px;
+    cursor: pointer;
+    border-radius: 24px;
+    
+    /* REMOVED white bg - made it transparent to show section color */
+    background: transparent; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+
+    .icon-wrapper {
+      margin-bottom: 15px;
+      .genre-icon-img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+        transition: all 0.4s ease;
+      }
     }
 
-    .genres-track {
-        display: flex;
-        align-items: center;
-        gap: 80px; 
-        padding: 20px 0;
-        /* Infinite scrolling animation */
-        animation: scroll-infinite 45s linear infinite;
-        
-        &:hover {
-            animation-play-state: paused;
-        }
+    h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
     }
 
-    .genre-item {
-        text-align: center;
-        flex-shrink: 0;
-        min-width: 160px;
-        cursor: pointer;
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        .icon-wrapper {
-            margin-bottom: 18px; 
-            display: flex;
-            justify-content: center;
-            transition: transform 0.3s ease; 
-
-            .genre-icon-img {
-                width: 68px;
-                height: 68px;
-                object-fit: contain;
-                filter: grayscale(100%) brightness(0.3) opacity(0.8); 
-                transition: all 0.4s ease;
-            }
-        }
-
-        /* --- HOVER EFFECTS --- */
-        &:hover {
-            transform: translateY(-8px); 
-
-            .genre-icon-img {
-                filter: grayscale(0%) brightness(1) opacity(1) drop-shadow(0 10px 15px rgba(255, 107, 0, 0.4));
-                transform: scale(1.15);
-            }
-
-            h4 {
-                color: var(--orange-deep);
-            }
-            
-            .genre-desc {
-                color: var(--orange-vibrant); 
-            }
-        }
-
-        h4 {
-            font-family: 'Bebas Neue', sans-serif; 
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-            color: var(--text-dark); 
-            transition: color 0.3s ease;
-        }
-
-        .genre-desc {
-            font-family: 'Abel', sans-serif; 
-            font-size: 0.85rem;
-            color: var(--text-muted); 
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    .genre-desc {
+      font-family: 'Abel', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
+
+    /* --- ALTERNATING THEMES WITH VISIBLE BORDERS --- */
+
+    // ORANGE THEME
+    &:nth-child(odd) {
+      /* Clearly visible colored border */
+      border: 2.5px solid var(--orange-deep); 
+      
+      h4, .genre-desc { color: var(--orange-deep); }
+      
+      /* Inactive icon tint */
+      .genre-icon-img { 
+        filter: sepia(1) saturate(5) hue-rotate(-15deg) brightness(0.8); 
+      }
+
+      &:hover {
+        background: rgba(204, 68, 0, 0.05); // Very light orange glow
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(204, 68, 0, 0.15);
+        .genre-icon-img { filter: none; transform: scale(1.1); }
+      }
+    }
+
+    // PURPLE THEME
+    &:nth-child(even) {
+      /* Clearly visible colored border */
+      border: 2.5px solid var(--brand-purple);
+      
+      h4, .genre-desc { color: var(--brand-purple); }
+      
+      /* Inactive icon tint */
+      .genre-icon-img { 
+        filter: sepia(1) saturate(2) hue-rotate(240deg) brightness(0.5); 
+      }
+
+      &:hover {
+        background: rgba(52, 21, 57, 0.05); // Very light purple glow
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(52, 21, 57, 0.15);
+        .genre-icon-img { filter: none; transform: scale(1.1); }
+      }
+    }
+  }
 }
 
 @keyframes scroll-infinite {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 40px)); } 
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 15px)); }
 }
 
-/* === RESPONSIVENESS (UPDATED) === */
+/* Mobile Fixes */
 @media (max-width: 768px) {
-    .genres-section {
-        /* Reduced padding for mobile */
-        padding: 10px 0; 
-        
-        .genres-track {
-            gap: 40px; /* Tighter gap */
-        }
-
-        .genre-item {
-            min-width: 100px; /* Smaller item width */
-
-            .icon-wrapper {
-                margin-bottom: 12px;
-                
-                .genre-icon-img {
-                    /* Smaller icons for mobile */
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-
-            h4 {
-                font-size: 0.95rem; /* Slightly smaller text */
-            }
-
-            .genre-desc {
-                font-size: 0.75rem; /* Smaller description */
-            }
-        }
-    }
+  .genre-item {
+    min-width: 130px;
+    padding: 15px 10px;
+    border-width: 2px; // Thinner border on mobile
+    
+    h4 { font-size: 1.1rem; }
+    .genre-desc { font-size: 0.75rem; }
+    .icon-wrapper .genre-icon-img { width: 40px; height: 40px; }
+  }
 }

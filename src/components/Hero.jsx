@@ -2,138 +2,6 @@
 
 
 
-
-// import React, { useState, useEffect } from 'react';
-// import horrorBook from '../assets/imgs/bookCover/romantic.png';
-// import mystery1 from '../assets/imgs/bookCover/mystery1.png';
-// import adventure from '../assets/imgs/bookCover/adventure1.png';
-
-// const SLIDES = [
-//   { title: "Stories were never meant to be one-way", image: horrorBook },
-//   { title: "Reading that actually listens back", image: mystery1 },
-//   { title: "Where authors and readers connect", image: adventure }
-// ];
-
-// const Hero = () => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const [isPopupOpen, setIsPopupOpen] = useState(false);
-//   const [popupStep, setPopupStep] = useState(1);
-//   const [selectedRole, setSelectedRole] = useState('');
-
-//   const togglePopup = () => {
-//     setIsPopupOpen(!isPopupOpen);
-//     setPopupStep(1);
-//   };
-
-//   const handleRoleSelect = (role) => {
-//     setSelectedRole(role);
-//     setPopupStep(2);
-//   };
-
-//   useEffect(() => {
-//     // Increased speed to 1500ms (1.5 seconds)
-//     const interval = setInterval(() => {
-//       setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
-//     }, 1400); 
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   return (
-//     <section className="hero">
-//       <div className="hero-wrapper">
-
-//         {/* TEXT SECTION */}
-//         <div className="hero-text-content">
-//           <div className="title-area">
-//             {/* The title now updates every 1.5s alongside the image */}
-//             <h1 className="hero-title">{SLIDES[currentIndex].title}</h1>
-//           </div>
-//           <p className="hero-desc">
-//             On <spane>Shelfie </spane> , reading is just the beginning. Discover writers, explore their stories,
-//             and interact directly with authors through conversations that continue beyond the page.
-//           </p>
-//           <button className="btn">Get Started on Shelfie</button>
-//         </div>
-
-//         {/* IMAGE SLIDER */}
-//         <div className="hero-image-slider">
-//           {SLIDES.map((slide, index) => {
-//             let position = "nextSlide";
-//             if (index === currentIndex) position = "activeSlide";
-//             if (index === currentIndex - 1 || (currentIndex === 0 && index === SLIDES.length - 1)) {
-//               position = "lastSlide";
-//             }
-
-//             return (
-//               <div className={`slide-item ${position}`} key={index}>
-//                 <img src={slide.image} alt="Book Cover" className="hero-img" />
-//               </div>
-//             );
-//           })}
-
-//            {isPopupOpen && (
-//         <div className="popup-overlay" onClick={togglePopup}>
-//           <div className="popup-card" onClick={(e) => e.stopPropagation()}>
-//             <button onClick={togglePopup} className="close-x">&times;</button>
-
-//             {popupStep === 1 ? (
-//               <div className="step-content">
-//                 <h2 className="popup-h2">How do you want to use Shelfie?</h2>
-//                 <p className="popup-p">Choose your role to get the right app experience.</p>
-
-//                 <div className="role-selection">
-//                   <div className="choice-box" onClick={() => handleRoleSelect('Reader')}>
-//                     <h3>Reader</h3>
-//                     <p>For book lovers & explorers.</p>
-//                     <span className="select-text">Select Reader</span>
-//                   </div>
-
-//                   <div className="choice-box" onClick={() => handleRoleSelect('Author')}>
-//                     <h3>Author</h3>
-//                     <p>For writers & storytellers.</p>
-//                     <span className="select-text">Select Author</span>
-//                   </div>
-//                 </div>
-//               </div>
-//             ) : (
-//               <div className="step-content">
-//                 <h2 className="popup-h2">Download {selectedRole} App</h2>
-//                 <p className="popup-p">Get started with your {selectedRole.toLowerCase()} account.</p>
-
-//                 <div className="download-badges">
-//                   <a href="#store"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" /></a>
-//                   <a href="#store"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" /></a>
-//                 </div>
-
-//                 <button className="btn-back" onClick={() => setPopupStep(1)}>
-//                   <i className="fas fa-arrow-left"></i> Change Role
-//                 </button>
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       )}
-
-          
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Hero;
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import horrorBook from '../assets/imgs/bookCover/romantic.png';
 import mystery1 from '../assets/imgs/bookCover/mystery1.png';
@@ -210,7 +78,7 @@ const Hero = () => {
                   </div>
                   <div className="download-badges">
                     <a href="#store"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" /></a>
-                    <a href="#store"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.jac.readerapp"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" /></a>
                   </div>
                 </div>
 
@@ -222,7 +90,7 @@ const Hero = () => {
                   </div>
                   <div className="download-badges">
                     <a href="#store"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" /></a>
-                    <a href="#store"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.jac.authorapp"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" /></a>
                   </div>
                 </div>
               </div>

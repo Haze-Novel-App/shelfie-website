@@ -1,7 +1,5 @@
 
 
-
-
 import React from 'react';
 import fantasy from '../assets/imgs/bookCover/fantasy.png';
 
@@ -56,7 +54,7 @@ const ReaderSection = () => {
               <a href="#store" className="badge-link">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" />
               </a>
-              <a href="#store" className="badge-link">
+              <a href="https://play.google.com/store/apps/details?id=com.jac.readerapp" className="badge-link">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
               </a>
             </div>

@@ -95,14 +95,14 @@ const Header = () => {
           onClick={(e) => handleScroll(e, 'readers')}
         >
           <span className="text-desktop">Read Great books!</span>
-          <span className="text-mobile">Read</span>
+          <span className="text-mobile">Reader</span>
         </button>
         <button
           className="btn-author"
           onClick={(e) => handleScroll(e, 'register')}
         >
           <span className="text-desktop">Get started as author</span>
-          <span className="text-mobile">Join</span>
+          <span className="text-mobile">Author</span>
         </button>
       </div>
     </header>
