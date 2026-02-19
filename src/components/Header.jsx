@@ -8,7 +8,7 @@
 //   const handleScroll = (e, targetId) => {
 //     e.preventDefault();
 //     const element = document.getElementById(targetId);
-    
+
 //     if (element) {
 //       // Offset slightly less for mobile (60) vs desktop (70)
 //       const headerOffset = window.innerWidth < 768 ? 60 : 70;
@@ -61,7 +61,7 @@ const Header = () => {
     e.preventDefault();
     setMenuOpen(false); // Close menu when a link is clicked
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const headerOffset = window.innerWidth < 768 ? 60 : 70;
       const elementPosition = element.getBoundingClientRect().top;
@@ -88,20 +88,20 @@ const Header = () => {
         <span className="bar"></span>
       </div>
 
-      {/* Nav Buttons */}
-      <div className={`nav-buttons ${menuOpen ? 'open' : ''}`}>
-        <button 
-          className="btn-nav btn-reader" 
-          onClick={(e) => handleScroll(e, 'reader-section')}
+      <div className="header-actions">
+        <button
+          className="btn-reader"
+          onClick={(e) => handleScroll(e, 'readers')}
         >
-          Join as Reader
+          <span className="text-desktop">Read Great books!</span>
+          <span className="text-mobile">Read</span>
         </button>
-
-        <button 
-          className="btn-nav btn-author" 
+        <button
+          className="btn-author"
           onClick={(e) => handleScroll(e, 'register')}
         >
-          Join as Author
+          <span className="text-desktop">Get started as author</span>
+          <span className="text-mobile">Join</span>
         </button>
       </div>
     </header>

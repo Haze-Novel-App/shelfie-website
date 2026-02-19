@@ -193,6 +193,7 @@ import writer from '../assets/imgs/writer.png';
 
 const AuthorRegistration = () => {
   const carouselImages = [appMockup, reader, writer];
+
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
@@ -205,7 +206,7 @@ const AuthorRegistration = () => {
   // Carousel logic
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImgIndex((prevIndex) => 
+      setCurrentImgIndex((prevIndex) =>
         prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
       );
     }, 4000);
@@ -222,9 +223,9 @@ const AuthorRegistration = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        setFormData({ 
-          ...formData, 
-          location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` 
+        setFormData({
+          ...formData,
+          location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`
         });
         setIsLocating(false);
       },
@@ -242,23 +243,25 @@ const AuthorRegistration = () => {
         {/* Left Section: Carousel */}
         <div className="mobile-frame">
           <div className="screen-container">
-            <div 
-              className="slider-track" 
+            <div
+              className="slider-track"
               style={{ transform: `translateX(-${currentImgIndex * 100}%)` }}
             >
               {carouselImages.map((img, index) => (
-                <img 
+                <img
                   key={index}
-                  src={img} 
-                  alt={`Shelfie Slide ${index}`} 
-                  className="app-screen-img" 
+                  src={img}
+                  alt={`Shelfie Slide ${index}`}
+                  className="app-screen-img"
                 />
               ))}
             </div>
+
+            {/* Optional: Visual Pagination Dots */}
             <div className="slider-dots">
               {carouselImages.map((_, index) => (
-                <span 
-                  key={index} 
+                <span
+                  key={index}
                   className={`dot ${index === currentImgIndex ? 'active' : ''}`}
                 />
               ))}
@@ -282,8 +285,7 @@ const AuthorRegistration = () => {
             <div className="input-group">
               <input
                 type="text"
-                name="name" // Required by Formspark
-                placeholder="Full Name"
+                placeholder="Full Name (Required)"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -294,8 +296,7 @@ const AuthorRegistration = () => {
             <div className="input-group">
               <input
                 type="email"
-                name="email" // Required by Formspark
-                placeholder="Email Address"
+                placeholder="Email Address (Required)"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -306,8 +307,7 @@ const AuthorRegistration = () => {
             <div className="input-group">
               <input
                 type="tel"
-                name="phone_number" // Renamed for clarity in Formspark dashboard
-                placeholder="Phone Number"
+                placeholder="Phone Number (Required)"
                 value={formData.number}
                 onChange={(e) => setFormData({ ...formData, number: e.target.value })}
               />

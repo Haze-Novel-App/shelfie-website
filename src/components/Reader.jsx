@@ -10,12 +10,12 @@ const ReaderSection = () => {
     <section className="reader-section" id='readers'>
       <div className="container">
         <div className="reader-grid">
-          
+
           {/* IMAGE SIDE */}
           <div className="reader-image">
-            <img 
-              src={fantasy} 
-              alt="Shelfie Reader App" 
+            <img
+              src={fantasy}
+              alt="Shelfie Reader App"
             />
           </div>
 
@@ -24,8 +24,8 @@ const ReaderSection = () => {
             {/* SWAPPED: Main Title is now "FOR READERS" */}
             {/* <h2 className="section-title">For Readers</h2>
             <h3 className="section-subtitle">For those passionate readers who want to</h3> */}
-            <h2 className="section-title">For those passionate readers who want to</h2>
-            
+            <h2 className="section-title" style={{ color: '#BE5103' }}>For those passionate readers who want to</h2>
+
             <ul className="reader-features">
               <li>
                 <span className="feature-num">01</span>
@@ -43,7 +43,7 @@ const ReaderSection = () => {
 
             <div className="reader-description">
               <p>
-                Shelfie allows readers to ask questions, share perspectives, and 
+                Shelfie allows readers to ask questions, share perspectives, and
                 interact with authors without expensive paywalls or exclusivity.
               </p>
               <p className="emphasis-text">
@@ -53,12 +53,12 @@ const ReaderSection = () => {
 
             {/* DOWNLOAD BADGES */}
             <div className="reader-download-badges">
-               <a href="#store" className="badge-link">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" />
-               </a>
-               <a href="#store" className="badge-link">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
-               </a>
+              <a href="#store" className="badge-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" />
+              </a>
+              <a href="#store" className="badge-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+              </a>
             </div>
           </div>
 
