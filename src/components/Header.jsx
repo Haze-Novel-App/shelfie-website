@@ -78,7 +78,7 @@ const Header = () => {
     <header className="main-header">
       <div className="logo-container" onClick={(e) => handleScroll(e, 'home')}>
         <h1 className="logo-title">SHELFIE</h1>
-        <span className="logo-slogan">your shelf. your story.</span>
+        <span className="logo-slogan">Your Shelf. Your Story.</span>
       </div>
 
       {/* Hamburger Icon */}
