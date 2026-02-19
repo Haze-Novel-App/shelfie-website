@@ -1,16 +1,255 @@
 
 
+// :root {
+//   --accent-color: #cc5500; /* Burnt Orange */
+//   --text-primary: #1a1a1a;
+//   --text-secondary: #555555;
+// //   --bg-secondary: #fffaf7;
+//   --bg-secondary:  #fdf9f0;
+// }
+
+// .reader-section {
+//     padding: 100px 0; 
+//     background-color:  #fdf9f0;
+//     display: flex;
+//     justify-content: center;
+//     width: 100%;
+//     box-sizing: border-box;
+//     overflow: hidden;
+
+//     .container {
+//         width: 90%;
+//         max-width: 1200px; 
+//     }
+
+//     .reader-grid {
+//         display: grid;
+//         grid-template-columns: 1fr 1.2fr; 
+//         gap: 80px;
+//         align-items: center;
+//     }
+
+//     .reader-image {
+//         display: flex;
+//         justify-content: center;
+
+//         img {
+//             max-width: 380px; 
+//             width: 100%;
+//             height: auto;
+//             border-radius: 20px; 
+//             box-shadow: 25px 25px 0px rgba(204, 85, 0, 0.08); 
+//             transition: transform 0.5s ease;
+
+//             &:hover {
+//                 transform: scale(1.02);
+//             }
+//         }
+//     }
+
+//     .reader-text {
+//         text-align: left;
+
+//         /* MAIN TITLE */
+//         .section-title {
+//             font-family: 'Bebas Neue', sans-serif;
+//             font-size: 5rem; 
+//             line-height: 0.9;
+//             margin: 0 0 15px 0; 
+//             color: var(--text-primary);
+//             text-transform: uppercase;
+//             letter-spacing: -1px;
+//         }
+
+//         /* SUBTITLE */
+//         .section-subtitle {
+//             font-family: 'Abel', sans-serif;
+//             text-transform: uppercase;
+//             letter-spacing: 3px;
+//             font-size: 1.1rem; 
+//             color: var(--accent-color); 
+//             margin: 0 0 40px 0;
+//             font-weight: 600;
+//         }
+//     }
+
+//     /* FEATURES LIST */
+//     .reader-features {
+//         list-style: none;
+//         padding: 0;
+//         margin-bottom: 40px;
+
+//         li {
+//             display: flex;
+//             align-items: center; 
+//             margin-bottom: 25px;
+//             padding-bottom: 15px;
+//             border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+
+//             .feature-num {
+//                 font-family: 'Bebas Neue', sans-serif;
+//                 font-size: 1.8rem; 
+//                 color: var(--accent-color); 
+//                 margin-right: 25px;
+//                 line-height: 1;
+//                 min-width: 30px; 
+//             }
+
+//             p {
+//                 font-family: 'Abel', sans-serif;
+//                 font-size: 1.25rem; 
+//                 color: var(--text-primary);
+//                 font-weight: 500;
+//                 margin: 0;
+//                 line-height: 1.2;
+//             }
+//         }
+//     }
+
+//     .reader-description {
+//         margin-bottom: 45px;
+
+//         p {
+//             font-family: 'Abel', sans-serif;
+//             font-size: 1.15rem;
+//             line-height: 1.7;
+//             color: var(--text-secondary); 
+//             margin-bottom: 20px;
+//         }
+
+//         .emphasis-text {
+//             font-size: 1.2rem;
+//             font-style: italic;
+//             color: var(--text-primary);
+//             border-left: 4px solid var(--accent-color);
+//             padding-left: 20px;
+//         }
+//     }
+
+//     .reader-download-badges {
+//         display: flex;
+//         gap: 15px;
+//         align-items: center;
+
+//         .badge-link {
+//             transition: transform 0.2s ease;
+            
+//             img {
+//                 height: 48px; 
+//                 width: auto;
+//                 display: block;
+//             }
+
+//             &:hover {
+//                 transform: translateY(-4px);
+//             }
+//         }
+//     }
+// }
+
+
+
+// /* === RESPONSIVE (PHONE & TABLET) === */
+// @media (max-width: 780px) {
+//     .reader-section {
+//         padding: 60px 0;
+        
+//         .reader-grid {
+//             grid-template-columns: 1fr;
+//             gap: 0; 
+            
+//             .reader-image {
+//                 display: none; 
+//             }
+
+//             .reader-text {
+//                 text-align: center;
+//                 width: 100%;
+//                 max-width: 500px; 
+//                 margin: 0 auto;
+
+//                 .section-title {
+//                     font-size: 3.5rem;
+//                 }
+
+//                 .section-subtitle {
+//                     font-size: 1rem;
+//                     margin-bottom: 30px;
+//                     line-height: 1.5;
+//                 }
+
+//                 /* --- FIXED LIST STYLING --- */
+//                 .reader-features {
+//                     padding: 0 10px; 
+                    
+//                     li {
+//                         flex-direction: row; 
+                        
+//                         /* 1. CHANGED: Align to start instead of center */
+//                         justify-content: flex-start; 
+                        
+//                         align-items: center; 
+//                         text-align: left; 
+//                         gap: 15px; 
+//                         border-bottom: 1px solid rgba(0,0,0,0.08); 
+                        
+//                         .feature-num {
+//                             margin-right: 0; 
+//                             margin-bottom: 0; 
+//                             font-size: 1.6rem;
+//                             min-width: 30px; 
+//                         }
+                        
+//                         p {
+//                             font-size: 1.1rem;
+//                             margin: 0;
+//                             flex: 1; /* Allow text to take up remaining space */
+//                         }
+//                     }
+//                 }
+
+//                 .reader-download-badges {
+//                     justify-content: center;
+//                     margin-top: 40px;
+//                 }
+
+//                 /* 2. CHANGED: Removed borders for emphasis text */
+//                 .reader-description .emphasis-text {
+//                     border: none; /* Removes left, top, and bottom borders */
+//                     padding: 0;
+//                     margin-top: 25px;
+//                     display: block;
+//                     font-size: 1.1rem; /* Optional: adjust size if needed */
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :root {
   --accent-color: #cc5500; /* Burnt Orange */
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
-//   --bg-secondary: #fffaf7;
   --bg-secondary:  #fdf9f0;
 }
 
 .reader-section {
     padding: 100px 0; 
-    background-color:  #fdf9f0;
+    background-color: var(--bg-secondary);
     display: flex;
     justify-content: center;
     width: 100%;
@@ -59,6 +298,9 @@
             color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: -1px;
+            /* Prevents long words from breaking the layout on small screens */
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
         }
 
         /* SUBTITLE */
@@ -130,6 +372,7 @@
         display: flex;
         gap: 15px;
         align-items: center;
+        flex-wrap: wrap; /* Allows badges to drop to a new line if needed */
 
         .badge-link {
             transition: transform 0.2s ease;
@@ -137,6 +380,7 @@
             img {
                 height: 48px; 
                 width: auto;
+                max-width: 100%; /* Ensures images never exceed their container */
                 display: block;
             }
 
@@ -147,9 +391,7 @@
     }
 }
 
-
-
-/* === RESPONSIVE (PHONE & TABLET) === */
+/* === RESPONSIVE (TABLET & LARGE PHONES) === */
 @media (max-width: 780px) {
     .reader-section {
         padding: 60px 0;
@@ -178,16 +420,13 @@
                     line-height: 1.5;
                 }
 
-                /* --- FIXED LIST STYLING --- */
+                /* FIXED LIST STYLING */
                 .reader-features {
                     padding: 0 10px; 
                     
                     li {
                         flex-direction: row; 
-                        
-                        /* 1. CHANGED: Align to start instead of center */
                         justify-content: flex-start; 
-                        
                         align-items: center; 
                         text-align: left; 
                         gap: 15px; 
@@ -203,7 +442,7 @@
                         p {
                             font-size: 1.1rem;
                             margin: 0;
-                            flex: 1; /* Allow text to take up remaining space */
+                            flex: 1; 
                         }
                     }
                 }
@@ -213,13 +452,47 @@
                     margin-top: 40px;
                 }
 
-                /* 2. CHANGED: Removed borders for emphasis text */
                 .reader-description .emphasis-text {
-                    border: none; /* Removes left, top, and bottom borders */
+                    border: none; 
                     padding: 0;
                     margin-top: 25px;
                     display: block;
-                    font-size: 1.1rem; /* Optional: adjust size if needed */
+                    font-size: 1.1rem; 
+                }
+            }
+        }
+    }
+}
+
+/* === ULTRA SMALL SCREENS (Phones below 400px) === */
+@media (max-width: 400px) {
+    .reader-section {
+        .reader-grid {
+            .reader-text {
+                .section-title {
+                    /* Shrink title to prevent text overflow */
+                    font-size: 3.5rem; 
+                }
+
+                .reader-features li {
+                    p {
+                        /* Keep list text legible but compact */
+                        font-size: 1rem; 
+                    }
+                    .feature-num {
+                        font-size: 1.4rem;
+                        min-width: 25px;
+                    }
+                }
+
+                .reader-download-badges {
+                    /* Stack badges vertically on tiny screens so they don't get cut off */
+                    flex-direction: column; 
+                    gap: 12px;
+                    
+                    .badge-link img {
+                        height: 44px; /* Slightly smaller height */
+                    }
                 }
             }
         }

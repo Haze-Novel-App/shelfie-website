@@ -1,10 +1,8 @@
 
 
-
-
 // .about-elegant {
-//   padding: 140px 0;
-//   background-color:  #fdf9f0;
+//   padding: 40px 0;
+//   background-color: #fdf9f0;
 //   display: flex;
 //   justify-content: center;
 //   overflow: hidden;
@@ -106,13 +104,34 @@
 // // Mobile Responsive
 // @media (max-width: 992px) {
 //   .about-elegant {
-//     padding: 80px 0;
+//     padding: 20px 0;
+
 //     .editorial-grid {
 //       grid-template-columns: 1fr;
 //       gap: 50px;
-//       text-align: left;
+//       // 1. Center text alignment for the whole grid
+//       text-align: center;
 //     }
-//     .main-title { font-size: 4rem; }
+
+//     .header-column {
+//       // 2. Center the Accent Bar using auto margins
+//       .accent-bar {
+//         margin: 0 auto 25px auto;
+//       }
+
+//       .main-title {
+//         font-size: 4rem;
+//       }
+//     }
+
+//     .content-column {
+//       // 3. Center the minimalist SVG line
+//       .minimal-art {
+//         display: flex;
+//         justify-content: center;
+//         margin-top: 20px;
+//       }
+//     }
 //   }
 // }
 
@@ -120,9 +139,26 @@
 
 
 
+
+
+
+
+
+
+
+
+/* Color Variables - Integrated from your Branding */
+:root {
+    --accent-color: #BE5103;    /* Burnt Orange */
+    --brand-purple: #341539;    /* Purple */
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --bg-light: #fdf9f0;
+}
+
 .about-elegant {
-  padding: 40px 0;
-  background-color: #fdf9f0;
+  padding: 80px 0;
+  background-color: var(--bg-light);
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -134,11 +170,12 @@
 
   .editorial-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; // Asymmetrical for elegance
+    grid-template-columns: 1fr 1.2fr; // Asymmetrical editorial layout
     gap: 100px;
     align-items: start;
   }
 
+  /* LEFT COLUMN: BRANDING & TITLE */
   .header-column {
     .accent-bar {
       width: 40px;
@@ -149,11 +186,12 @@
 
     .main-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 5rem; // Bold but clean
+      font-size: 5rem;
       line-height: 1;
-      color: var(--text-primary);
+      color: var(--brand-purple);
       margin: 0 0 15px 0;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .subtitle {
@@ -162,10 +200,12 @@
       text-transform: uppercase;
       letter-spacing: 4px;
       color: var(--accent-color);
-      font-weight: 600;
+      font-weight: 600; // Left side subtitle remains bold for hierarchy
+      padding-left: 5px;
     }
   }
 
+  /* RIGHT COLUMN: CONTENT (Unified Abel & No Boldness) */
   .content-column {
     padding-top: 20px;
 
@@ -175,6 +215,7 @@
       line-height: 1.4;
       color: var(--text-primary);
       margin-bottom: 35px;
+      font-weight: 400; // Explicitly removed boldness
     }
 
     .main-description {
@@ -183,12 +224,14 @@
       line-height: 1.8;
       color: var(--text-secondary);
       margin-bottom: 40px;
+      font-weight: 500; // Explicitly removed boldness
     }
 
-    // Interactive Highlight Logic
+    /* Interactive Highlight Logic - Styled for Abel & Normal Weight */
     .interactive-highlight {
       position: relative;
-      font-weight: 600;
+      font-family: 'Abel', sans-serif;
+      font-weight: 400; // Removed Boldness
       color: var(--text-primary);
       cursor: default;
       transition: color 0.3s ease;
@@ -199,17 +242,17 @@
         bottom: 2px;
         left: 0;
         width: 100%;
-        height: 6px;
+        height: 4px; // Thinner underline for a cleaner look without bold text
         background-color: var(--accent-color);
-        opacity: 0.1;
+        opacity: 0.15;
         transition: opacity 0.3s ease, height 0.3s ease;
         z-index: -1;
       }
 
       &:hover {
         &::after {
-          opacity: 0.25;
-          height: 10px;
+          opacity: 0.3;
+          height: 8px;
         }
       }
     }
@@ -221,31 +264,39 @@
   }
 }
 
-// Mobile Responsive
+/* MOBILE RESPONSIVE LOGIC: CENTRE ALIGNMENT */
 @media (max-width: 992px) {
   .about-elegant {
-    padding: 20px 0;
+    padding: 60px 0;
 
     .editorial-grid {
       grid-template-columns: 1fr;
-      gap: 50px;
-      // 1. Center text alignment for the whole grid
-      text-align: center;
+      gap: 40px;
+      text-align: center; // Center align text in grid
     }
 
     .header-column {
-      // 2. Center the Accent Bar using auto margins
       .accent-bar {
-        margin: 0 auto 25px auto;
+        margin: 0 auto 25px auto; // Center accent bar
       }
 
       .main-title {
-        font-size: 4rem;
+        font-size: 3.5rem;
+      }
+      
+      .subtitle {
+          letter-spacing: 2px;
+          font-size: 1rem;
       }
     }
 
     .content-column {
-      // 3. Center the minimalist SVG line
+      padding-top: 0;
+
+      .lead-paragraph {
+        font-size: 1.5rem;
+      }
+
       .minimal-art {
         display: flex;
         justify-content: center;

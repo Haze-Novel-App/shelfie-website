@@ -1,115 +1,137 @@
 
 
 
+
 // import React, { useState, useEffect } from 'react';
 // import appMockup from '../assets/imgs/shelfie.png';
 // import locationIcon from '../assets/imgs/location.png';
 // import reader from '../assets/imgs/reader.png';
 // import writer from '../assets/imgs/writer.png';
 
+
 // const AuthorRegistration = () => {
-//   // Carousel images array
 //   const carouselImages = [appMockup, reader, writer];
-  
 //   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+//   const [isLocating, setIsLocating] = useState(false);
+  
 //   const [formData, setFormData] = useState({
 //     name: '',
 //     email: '',
 //     number: '',
 //     location: ''
 //   });
-//   const [isLocating, setIsLocating] = useState(false);
+  
+//   const [submitted, setSubmitted] = useState(false);
+//   const [isSubmitting, setIsSubmitting] = useState(false);
 
-//   // Auto-slide logic: every 4 seconds
+//   // Carousel logic
 //   useEffect(() => {
 //     const interval = setInterval(() => {
-//       setCurrentImgIndex((prevIndex) => 
+//       setCurrentImgIndex((prevIndex) =>
 //         prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
 //       );
 //     }, 4000);
-
 //     return () => clearInterval(interval);
 //   }, [carouselImages.length]);
 
+//   // Geolocation logic
 //   const handleGetLocation = () => {
-//     if (!navigator.geolocation) {
-//       alert("Geolocation is not supported by your browser");
-//       return;
-//     }
-
+//     if (!navigator.geolocation) return;
 //     setIsLocating(true);
 //     navigator.geolocation.getCurrentPosition(
 //       (position) => {
 //         const { latitude, longitude } = position.coords;
-//         setFormData({ 
-//           ...formData, 
-//           location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` 
+//         setFormData({
+//           ...formData,
+//           location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`
 //         });
 //         setIsLocating(false);
 //       },
-//       () => {
-//         alert("Unable to retrieve your location");
-//         setIsLocating(false);
-//       }
+//       () => setIsLocating(false)
 //     );
 //   };
 
-//   // Note: We remove e.preventDefault() if you want a direct redirect to Formspark's thank you page.
-//   // If you want to use AJAX/Fetch instead to stay on page, let me know.
-//   const handleSubmit = (e) => {
-//     // console.log("Form Submitting to Formspark...", formData);
+ 
+//   // AJAX Form Submission
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setIsSubmitting(true);
+
+//     const formsparkUrl = "https://submit-form.com/ETevEIdE2";
+
+//     try {
+//       await fetch(formsparkUrl, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Accept: "application/json",
+//         },
+//         body: JSON.stringify(formData),
+//       });
+      
+//       // 1. Show the success popup
+//       setSubmitted(true);
+      
+//       // 2. THIS CLEARS ALL THE FIELDS:
+//       setFormData({ name: '', email: '', number: '', location: '' });
+      
+//       // 3. Hide popup after 4 seconds
+//       setTimeout(() => {
+//         setSubmitted(false);
+//       }, 4000);
+
+//     } catch (error) {
+//       console.error("Submission error:", error);
+//       alert("There was an error submitting the form. Please try again.");
+//     } finally {
+//       setIsSubmitting(false);
+//     }
 //   };
 
 //   return (
 //     <section className="reg-section" id="register">
-//       <div className="reg-container">
+      
+//       {/* POPUP TOAST NOTIFICATION */}
+//       {submitted && (
+//         <div className="toast-popup">
+//           <svg viewBox="0 0 24 24" className="toast-icon">
+//             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+//           </svg>
+//           <span>Thank you! Registration successful.</span>
+//         </div>
+//       )}
 
-//         {/* Left Section: App Mockup Sliding Carousel */}
+//       <div className="reg-container">
+//         {/* Left Section: Carousel */}
 //         <div className="mobile-frame">
 //           <div className="screen-container">
-//             <div 
-//               className="slider-track" 
+//             <div
+//               className="slider-track"
 //               style={{ transform: `translateX(-${currentImgIndex * 100}%)` }}
 //             >
 //               {carouselImages.map((img, index) => (
-//                 <img 
-//                   key={index}
-//                   src={img} 
-//                   alt={`Shelfie Slide ${index}`} 
-//                   className="app-screen-img" 
-//                 />
+//                 <img key={index} src={img} alt="Slide" className="app-screen-img" />
 //               ))}
 //             </div>
-            
 //             <div className="slider-dots">
 //               {carouselImages.map((_, index) => (
-//                 <span 
-//                   key={index} 
-//                   className={`dot ${index === currentImgIndex ? 'active' : ''}`}
-//                 />
+//                 <span key={index} className={`dot ${index === currentImgIndex ? 'active' : ''}`} />
 //               ))}
 //             </div>
 //           </div>
 //         </div>
 
-//         {/* Right Section: Registration Form */}
+//         {/* Right Section: Form ALWAYS visible */}
 //         <div className="reg-content">
 //           <div className="form-header">
 //             <h2 className="section-title">Join as an Author</h2>
 //             <p className="section-desc">Start your storytelling journey with Shelfie today.</p>
 //           </div>
 
-//           {/* 1. Added Action and Method for Formspark */}
-//           <form 
-//             className="reg-form" 
-//             action="https://submit-form.com/ETevEIdE2" 
-//             method="POST"
-//             onSubmit={handleSubmit}
-//           >
+//           <form className="reg-form" onSubmit={handleSubmit}>
 //             <div className="input-group">
 //               <input
 //                 type="text"
-//                 name="name" /* 2. Name attribute added/confirmed */
 //                 placeholder="Full Name"
 //                 required
 //                 value={formData.name}
@@ -120,7 +142,6 @@
 //             <div className="input-group">
 //               <input
 //                 type="email"
-//                 name="email" /* 2. Name attribute added/confirmed */
 //                 placeholder="Email Address"
 //                 required
 //                 value={formData.email}
@@ -131,7 +152,6 @@
 //             <div className="input-group">
 //               <input
 //                 type="tel"
-//                 name="number" /* 2. Name attribute added/confirmed */
 //                 placeholder="Phone Number"
 //                 value={formData.number}
 //                 onChange={(e) => setFormData({ ...formData, number: e.target.value })}
@@ -141,7 +161,6 @@
 //             <div className="input-group location-input">
 //               <input
 //                 type="text"
-//                 name="location" /* 2. Name attribute added/confirmed */
 //                 placeholder="Location"
 //                 value={formData.location}
 //                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
@@ -151,23 +170,16 @@
 //                 className="location-action-btn"
 //                 onClick={handleGetLocation}
 //                 disabled={isLocating}
-//                 title="Get current location"
 //               >
-//                 {isLocating ? (
-//                   <span className="loader-dots">...</span>
-//                 ) : (
-//                   <img src={locationIcon} alt="Locate" className="small-loc-icon" />
-//                 )}
+//                 {isLocating ? "..." : <img src={locationIcon} alt="Locate" className="small-loc-icon" />}
 //               </button>
 //             </div>
 
-//             {/* 3. Type is set to "submit" */}
-//             <button type="submit" className="submit-btn">
-//               Create Author Account
+//             <button type="submit" className="submit-btn" disabled={isSubmitting}>
+//               {isSubmitting ? "Processing..." : "Create Author Account"}
 //             </button>
 //           </form>
 //         </div>
-
 //       </div>
 //     </section>
 //   );
@@ -185,23 +197,27 @@
 
 
 
+
+
 import React, { useState, useEffect } from 'react';
-import appMockup from '../assets/imgs/shelfie.png';
 import locationIcon from '../assets/imgs/location.png';
-import reader from '../assets/imgs/reader.png';
-import writer from '../assets/imgs/writer.png';
+import wireframe from '../assets/imgs/wireframe1.png';
+import wireframe2 from '../assets/imgs/wireframe2.png';
 
 const AuthorRegistration = () => {
-  const carouselImages = [appMockup, reader, writer];
-
+  const carouselImages = [wireframe, wireframe2];
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const [isLocating, setIsLocating] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     number: '',
     location: ''
   });
-  const [isLocating, setIsLocating] = useState(false);
+  
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Carousel logic
   useEffect(() => {
@@ -215,10 +231,7 @@ const AuthorRegistration = () => {
 
   // Geolocation logic
   const handleGetLocation = () => {
-    if (!navigator.geolocation) {
-      alert("Geolocation is not supported by your browser");
-      return;
-    }
+    if (!navigator.geolocation) return;
     setIsLocating(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -229,121 +242,102 @@ const AuthorRegistration = () => {
         });
         setIsLocating(false);
       },
-      () => {
-        alert("Unable to retrieve your location");
-        setIsLocating(false);
-      }
+      () => setIsLocating(false)
     );
+  };
+
+  // AJAX Form Submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formsparkUrl = "https://submit-form.com/ETevEIdE2";
+
+    try {
+      await fetch(formsparkUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+      
+      setSubmitted(true);
+      setFormData({ name: '', email: '', number: '', location: '' });
+      setTimeout(() => setSubmitted(false), 4000);
+
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("There was an error submitting the form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section className="reg-section" id="register">
-      <div className="reg-container">
+      {/* POPUP TOAST NOTIFICATION */}
+      {submitted && (
+        <div className="toast-popup">
+          <svg viewBox="0 0 24 24" className="toast-icon">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+          <span>Thank you! Registration successful.</span>
+        </div>
+      )}
 
+      <div className="reg-container">
         {/* Left Section: Carousel */}
         <div className="mobile-frame">
           <div className="screen-container">
-            <div
-              className="slider-track"
-              style={{ transform: `translateX(-${currentImgIndex * 100}%)` }}
-            >
-              {carouselImages.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`Shelfie Slide ${index}`}
-                  className="app-screen-img"
-                />
-              ))}
-            </div>
-
-            {/* Optional: Visual Pagination Dots */}
+            {/* REMOVED slider-track div 
+              Images are now stacked on top of each other
+            */}
+            {carouselImages.map((img, index) => (
+              <img 
+                key={index} 
+                src={img} 
+                alt="Slide" 
+                // Toggle active class for zoom/fade effect
+                className={`app-screen-img ${index === currentImgIndex ? 'active' : ''}`} 
+              />
+            ))}
+            
             <div className="slider-dots">
               {carouselImages.map((_, index) => (
-                <span
-                  key={index}
-                  className={`dot ${index === currentImgIndex ? 'active' : ''}`}
-                />
+                <span key={index} className={`dot ${index === currentImgIndex ? 'active' : ''}`} />
               ))}
             </div>
           </div>
         </div>
 
-        {/* Right Section: Formspark Integrated Form */}
+        {/* Right Section: Form ALWAYS visible */}
         <div className="reg-content">
           <div className="form-header">
             <h2 className="section-title">Join as an Author</h2>
             <p className="section-desc">Start your storytelling journey with Shelfie today.</p>
           </div>
 
-          <form 
-            className="reg-form" 
-            action="https://submit-form.com/ETevEIdE2"
-            method="POST"
-          >
-            {/* 1. Name Field */}
+          <form className="reg-form" onSubmit={handleSubmit}>
+             {/* ... (Keep your inputs exactly as they were) ... */}
             <div className="input-group">
-              <input
-                type="text"
-                placeholder="Full Name (Required)"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
+              <input type="text" placeholder="Full Name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
             </div>
-
-            {/* 2. Email Field */}
             <div className="input-group">
-              <input
-                type="email"
-                placeholder="Email Address (Required)"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
+              <input type="email" placeholder="Email Address" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
             </div>
-
-            {/* 3. Phone Field */}
             <div className="input-group">
-              <input
-                type="tel"
-                placeholder="Phone Number (Required)"
-                value={formData.number}
-                onChange={(e) => setFormData({ ...formData, number: e.target.value })}
-              />
+              <input type="tel" placeholder="Phone Number" value={formData.number} onChange={(e) => setFormData({ ...formData, number: e.target.value })} />
             </div>
-
-            {/* 4. Location Field */}
             <div className="input-group location-input">
-              <input
-                type="text"
-                name="location" // Required by Formspark
-                placeholder="Location"
-                value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-              />
-              <button
-                type="button" // Important: MUST be type="button" so it doesn't submit the form
-                className="location-action-btn"
-                onClick={handleGetLocation}
-                disabled={isLocating}
-              >
+              <input type="text" placeholder="Location" value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} />
+              <button type="button" className="location-action-btn" onClick={handleGetLocation} disabled={isLocating}>
                 {isLocating ? "..." : <img src={locationIcon} alt="Locate" className="small-loc-icon" />}
               </button>
             </div>
-
-            {/* Optional: Honeypot to prevent spam */}
-            <input type="checkbox" name="_honeypot" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
-
-            {/* Redirect back home after submission */}
-            <input type="hidden" name="_redirect" value={window.location.origin} />
-
-            <button type="submit" className="submit-btn">
-              Create Author Account
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? "Processing..." : "Create Author Account"}
             </button>
           </form>
         </div>
-
       </div>
     </section>
   );

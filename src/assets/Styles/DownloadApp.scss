@@ -2,11 +2,21 @@
 
 
 
-
+// :root {
+//   /* PURPLE PALETTE */
+//   --btn-purple: #341539;        
+//   --btn-purple-hover: #4a1f50;  
+//   --input-focus: #341539;       
+  
+//   --text-primary: #1a1a1a;
+//   --text-secondary: #555555;
+//   --bg-secondary: #fffaf7;      
+//   --success-green: #2d8a39;
+// }
 
 // .reg-section {
-//     padding: 100px 0; 
-//     background-color: #fffaf7; 
+//     padding: 80px 0; 
+//     background-color: #fdf9f0; 
 //     width: 100%;
 //     display: flex;
 //     justify-content: center;
@@ -23,39 +33,36 @@
 
 //     /* Left Image Frame with Sliding Logic */
 //     .mobile-frame {
-//         flex: 0 0 300px; 
-//         background: white;
-//         padding: 12px;
-//         border-radius: 45px;
-//         box-shadow: 0 20px 50px rgba(124, 77, 255, 0.15);
-//         border: 1px solid rgba(124, 77, 255, 0.1);
+//         flex: 0 0 300px;
 //         position: relative;
+//         /* REMOVED: padding, background, border, and specific border-radius 
+//            so the images with existing frames display correctly. */
+//         box-shadow: 0 20px 50px rgba(52, 21, 57, 0.15); // Kept shadow for depth
 
 //         .screen-container {
-//             border-radius: 35px;
-//             overflow: hidden; // Critical: clips the images sitting outside the frame
+//             /* REMOVED: border-radius so it doesn't clip the new images */
+//             overflow: hidden; 
 //             position: relative;
 //             width: 100%;
-//             height: 580px; // Maintain a consistent height for the mockup
+//             height: 580px; 
 
 //             .slider-track {
-//                 display: flex; // Positions images in a horizontal row
+//                 display: flex; 
 //                 height: 100%;
 //                 width: 100%;
-//                 transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); // Smooth slide
+//                 transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); 
 //                 will-change: transform;
 //             }
 
 //             .app-screen-img { 
 //                 width: 100%; 
 //                 height: 100%;
-//                 flex-shrink: 0; // Prevents images from collapsing width
-//                 object-fit: cover; 
+//                 flex-shrink: 0; 
+//                 object-fit: cover; /* Ensure images fill the area */
 //                 display: block; 
 //             }
 //         }
 
-//         /* Decorative Pagination Dots inside the phone */
 //         .slider-dots {
 //             position: absolute;
 //             bottom: 20px;
@@ -69,11 +76,11 @@
 //                 width: 8px;
 //                 height: 8px;
 //                 border-radius: 50%;
-//                 background: rgba(255, 255, 255, 0.5);
+//                 background: rgba(52, 21, 57, 0.3); // Darker dots for better contrast on white frames
 //                 transition: all 0.3s ease;
                 
 //                 &.active {
-//                     background: #fff;
+//                     background: var(--btn-purple);
 //                     width: 20px;
 //                     border-radius: 10px;
 //                 }
@@ -81,10 +88,18 @@
 //         }
 //     }
 
-//     /* Form Column */
+//     /* Form & Content Column */
 //     .reg-content {
 //         flex: 1;
 //         max-width: 500px;
+
+//         /* Center the Header */
+//         .form-header {
+//             text-align: center; 
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//         }
 
 //         .section-title {
 //             font-family: 'Bebas Neue', sans-serif;
@@ -117,11 +132,12 @@
 //                     font-family: 'Abel', sans-serif;
 //                     font-size: 1rem;
 //                     transition: all 0.3s ease;
+//                     box-sizing: border-box;
 
 //                     &:focus {
 //                         outline: none;
-//                         border-color: var(--accent-color);
-//                         box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.1);
+//                         border-color: var(--input-focus);
+//                         box-shadow: 0 0 0 4px rgba(52, 21, 57, 0.1);
 //                     }
 //                 }
 //             }
@@ -147,17 +163,23 @@
 //                     .small-loc-icon {
 //                         width: 22px;  
 //                         height: 22px; 
-//                         opacity: 0.7;
+//                         opacity: 0.6;
+//                         transition: all 0.2s ease;
 //                     }
 
-//                     &:hover:not(:disabled) .small-loc-icon { opacity: 1; }
+//                     &:hover:not(:disabled) .small-loc-icon { 
+//                         opacity: 1; 
+//                         transform: scale(1.1);
+//                     }
 //                 }
 //             }
 
 //             .submit-btn {
 //                 margin-top: 10px;
-//                 padding: 18px;
-//                 background: var(--accent-color);
+//                 width: fit-content; 
+//                 align-self: center; 
+//                 padding: 14px 45px;
+//                 background: var(--btn-purple); 
 //                 color: white;
 //                 border: none;
 //                 border-radius: 50px;
@@ -167,36 +189,90 @@
 //                 cursor: pointer;
 //                 transition: all 0.3s ease;
 
-//                 &:hover {
-//                     background: var(--accent-hover);
+//                 &:hover:not(:disabled) {
+//                     background: var(--btn-purple-hover);
 //                     transform: translateY(-2px);
-//                     box-shadow: 0 10px 20px rgba(124, 77, 255, 0.2);
+//                     box-shadow: 0 10px 20px rgba(52, 21, 57, 0.25);
+//                 }
+                
+//                 &:active:not(:disabled) {
+//                     transform: translateY(0);
+//                 }
+
+//                 &:disabled {
+//                     opacity: 0.7;
+//                     cursor: not-allowed;
 //                 }
 //             }
 //         }
 //     }
 // }
 
-// .loader-dots {
-//     font-size: 0.8rem;
-//     color: var(--accent-color);
-//     font-weight: bold;
+// /* --- TOAST POPUP NOTIFICATION --- */
+// .toast-popup {
+//     position: fixed;
+//     top: 40px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     background-color: var(--success-green, #2d8a39);
+//     color: white;
+//     padding: 14px 28px;
+//     border-radius: 50px;
+//     display: flex;
+//     align-items: center;
+//     gap: 12px;
+//     box-shadow: 0 10px 30px rgba(45, 138, 57, 0.4);
+//     z-index: 9999;
+//     font-family: 'Abel', sans-serif;
+//     font-weight: 600;
+//     font-size: 1.1rem;
+//     letter-spacing: 0.5px;
+    
+//     animation: slideDownToast 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, 
+//                fadeOutToast 0.5s ease-out 3.5s forwards;
+
+//     .toast-icon {
+//         width: 24px;
+//         height: 24px;
+//         fill: white;
+//     }
+// }
+
+// @keyframes slideDownToast {
+//     from { top: -100px; opacity: 0; }
+//     to { top: 40px; opacity: 1; }
+// }
+
+// @keyframes fadeOutToast {
+//     from { top: 40px; opacity: 1; }
+//     to { top: -50px; opacity: 0; }
 // }
 
 // /* Responsive Adjustments */
-// @media (max-width: 992px) {
+// @media (max-width: 792px) {
 //     .reg-section {
+//         padding: 60px 0;
 //         .reg-container {
 //             flex-direction: column;
 //             text-align: center;
 //             gap: 50px;
 //         }
-//         .reg-content { width: 100%; }
-//         .mobile-frame { flex: 0 0 auto; width: 280px; }
+//         .reg-content { 
+//           width: 100%; 
+//           display: flex;
+//           flex-direction: column;
+//           align-items: center;
+//         }
+//         .mobile-frame { flex: 0 0 auto; width: 280px; height: auto; }
+//         .screen-container { height: 540px; } /* Slightly smaller on mobile */
+        
+//         .reg-form {
+//             width: 100%;
+//             max-width: 400px;
+//             text-align: left;
+//         }
 //     }
 // }
-
-
 
 
 
@@ -220,11 +296,12 @@
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
   --bg-secondary: #fffaf7;      
+  --success-green: #2d8a39;
 }
 
 .reg-section {
-    padding: 60px 0; 
-    background-color:  #fdf9f0; 
+    padding: 80px 0; 
+    background-color: #fdf9f0; 
     width: 100%;
     display: flex;
     justify-content: center;
@@ -239,43 +316,41 @@
         gap: 80px;
     }
 
-    /* Left Image Frame with Sliding Logic */
+  
     .mobile-frame {
-        flex: 0 0 300px; 
-        background: white;
-        padding: 12px;
-        border-radius: 45px;
-        box-shadow: 0 20px 50px rgba(52, 21, 57, 0.15);
-        border: 1px solid rgba(52, 21, 57, 0.1);
+        flex: 0 0 300px;
         position: relative;
-
+        
         .screen-container {
-            border-radius: 35px;
-            overflow: hidden; 
             position: relative;
-            width: 100%;
-            height: 580px; 
-
-            .slider-track {
-                display: flex; 
-                height: 100%;
-                width: 100%;
-                transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); 
-                will-change: transform;
-            }
+            width: 90%;
+            /* Set a fixed aspect ratio or height here so absolute images don't collapse */
+            height: 550px; 
+            margin: 0 auto; // Center the container
+            overflow: hidden;
 
             .app-screen-img { 
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%; 
-                height: 100%;
-                flex-shrink: 0; 
-                object-fit: cover; 
-                display: block; 
+                height: 100%; 
+                object-fit: contain; 
+                opacity: 0; /* Hidden by default */
+                transform: scale(0.9); /* Start slightly zoomed out */
+                transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+                
+                &.active {
+                    opacity: 1;
+                    transform: scale(1); /* Smoothly zooms in to normal size */
+                    z-index: 2;
+                }
             }
         }
 
         .slider-dots {
             position: absolute;
-            bottom: 20px;
+            bottom: -10px; /* Adjusted to sit nicely below the image */
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -286,11 +361,11 @@
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
-                background: rgba(255, 255, 255, 0.5);
+                background: rgba(52, 21, 57, 0.3);
                 transition: all 0.3s ease;
                 
                 &.active {
-                    background: #fff;
+                    background: var(--btn-purple);
                     width: 20px;
                     border-radius: 10px;
                 }
@@ -298,10 +373,17 @@
         }
     }
 
-    /* Form Column */
+    /* Form & Content Column */
     .reg-content {
         flex: 1;
         max-width: 500px;
+
+        .form-header, .success-message {
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
@@ -316,6 +398,17 @@
             font-size: 1.2rem; 
             color: var(--text-secondary); 
             margin-bottom: 35px;
+        }
+
+        /* --- FIXED: Success Message Zoom Animation --- */
+        .success-message {
+            padding: 40px 0;
+            /* Applies the new zoom effect */
+            animation: zoomPopup 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+
+            .section-title {
+                color: var(--success-green);
+            }
         }
 
         .reg-form {
@@ -366,7 +459,7 @@
                         width: 22px;  
                         height: 22px; 
                         opacity: 0.6;
-                        filter: sepia(100%) hue-rotate(240deg) saturate(200%) brightness(0.4);
+                        transition: all 0.2s ease;
                     }
 
                     &:hover:not(:disabled) .small-loc-icon { 
@@ -376,16 +469,11 @@
                 }
             }
 
-            /* --- CENTERED BUTTON STYLE --- */
             .submit-btn {
                 margin-top: 10px;
                 width: fit-content; 
-                
-                /* This centers the button in the flex column */
                 align-self: center; 
-                
-                padding: 14px 45px; /* Increased padding for better look */
-                
+                padding: 14px 45px;
                 background: var(--btn-purple); 
                 color: white;
                 border: none;
@@ -396,40 +484,114 @@
                 cursor: pointer;
                 transition: all 0.3s ease;
 
-                &:hover {
+                &:hover:not(:disabled) {
                     background: var(--btn-purple-hover);
                     transform: translateY(-2px);
                     box-shadow: 0 10px 20px rgba(52, 21, 57, 0.25);
                 }
                 
-                &:active {
+                &:active:not(:disabled) {
                     transform: translateY(0);
+                }
+
+                &:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
                 }
             }
         }
     }
 }
 
-.loader-dots {
-    font-size: 0.8rem;
-    color: var(--btn-purple);
-    font-weight: bold;
+/* --- TOAST POPUP NOTIFICATION (If you are still using it) --- */
+.toast-popup {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.5); /* Start zoomed out */
+    background-color: var(--success-green, #2d8a39);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(45, 138, 57, 0.4);
+    z-index: 9999;
+    font-family: 'Abel', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    opacity: 0;
+    
+    /* Zoom in, stay, then fade out */
+    animation: zoomPopupToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, 
+               fadeOutToast 0.4s ease-out 3.5s forwards;
+
+    .toast-icon {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+}
+
+/* --- ZOOM ANIMATION KEYFRAMES --- */
+@keyframes zoomPopup {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.7); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+@keyframes zoomPopupToast {
+    0% { 
+        opacity: 0; 
+        transform: translateX(-50%) scale(0.7); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1); 
+    }
+}
+
+@keyframes fadeOutToast {
+    from { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1); 
+    }
+    to { 
+        opacity: 0; 
+        transform: translateX(-50%) scale(0.8); 
+        visibility: hidden;
+    }
 }
 
 /* Responsive Adjustments */
-@media (max-width: 992px) {
+@media (max-width: 792px) {
     .reg-section {
+        padding: 60px 0;
         .reg-container {
             flex-direction: column;
             text-align: center;
             gap: 50px;
         }
-        .reg-content { width: 100%; }
-        .mobile-frame { flex: 0 0 auto; width: 280px; }
+        .reg-content { 
+          width: 100%; 
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        /* Auto height for mobile frame to avoid clipping */
+        .mobile-frame { flex: 0 0 auto; width: 280px; height: auto; }
         
         .reg-form {
+            width: 100%;
+            max-width: 400px;
             text-align: left;
-            /* Button maintains 'align-self: center' from above, so it stays centered */
         }
     }
 }
