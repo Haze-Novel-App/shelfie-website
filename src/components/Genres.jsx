@@ -88,7 +88,7 @@ const Genres = () => {
       <div className="genres-slider">
         <div className="genres-track">
           {scrollingData.map((genre, index) => (
-            <div className="genre-item" key={index}>
+            <div className="genre-item" key={`${genre.title}-${index}`}>
               <div className="icon-wrapper">
                 <img src={genre.icon} alt={genre.title} className="genre-icon-img" />
               </div>

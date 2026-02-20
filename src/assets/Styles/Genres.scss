@@ -1,14 +1,12 @@
-
-
 // :root {
 //   /* Updated Palette */
 //   --orange-vibrant: #ff6b00;      
 //   --orange-deep: #cc4400;        
-  
+
 //   /* CHANGED: A distinct soft orange tint instead of warm white */
 // //   --bg-soft-orange: #fff5ec;       
 //   --bg-soft-orange:  #fdf9f0;       
-  
+
 //   --text-dark: #1a1a1a;          
 //   --text-muted: #8c7368;          
 //   --icon-inactive: #4a4a4a;       
@@ -35,7 +33,7 @@
 //         padding: 20px 0;
 //         /* Infinite scrolling animation */
 //         animation: scroll-infinite 45s linear infinite;
-        
+
 //         &:hover {
 //             animation-play-state: paused;
 //         }
@@ -75,7 +73,7 @@
 //             h4 {
 //                 color: var(--orange-deep);
 //             }
-            
+
 //             .genre-desc {
 //                 color: var(--orange-vibrant); 
 //             }
@@ -111,7 +109,7 @@
 //     .genres-section {
 //         /* Reduced padding for mobile */
 //         padding: 10px 0; 
-        
+
 //         .genres-track {
 //             gap: 40px; /* Tighter gap */
 //         }
@@ -121,7 +119,7 @@
 
 //             .icon-wrapper {
 //                 margin-bottom: 12px;
-                
+
 //                 .genre-icon-img {
 //                     /* Smaller icons for mobile */
 //                     width: 50px;
@@ -153,7 +151,7 @@
 :root {
   --orange-vibrant: #ff6b00;
   --orange-deep: #cc4400;
-  --brand-purple: #341539; 
+  --brand-purple: #341539;
   --bg-soft-orange: #fdf9f0; // This is the section background
 }
 
@@ -168,7 +166,10 @@
     align-items: center;
     gap: 30px;
     padding: 30px 0;
-    animation: scroll-infinite 45s linear infinite;
+    /* Hardware acceleration and optimization */
+    will-change: transform;
+    transform: translateZ(0);
+    animation: scroll-infinite 25s linear infinite;
 
     &:hover {
       animation-play-state: paused;
@@ -182,18 +183,22 @@
     padding: 25px 15px;
     cursor: pointer;
     border-radius: 24px;
-    
+
     /* REMOVED white bg - made it transparent to show section color */
-    background: transparent; 
-    
+    background: transparent;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 0.4s ease;
+    /* Performance hint */
+    backface-visibility: hidden;
+    transform: translateZ(0);
 
     .icon-wrapper {
       margin-bottom: 15px;
+
       .genre-icon-img {
         width: 55px;
         height: 55px;
@@ -221,20 +226,27 @@
     // ORANGE THEME
     &:nth-child(odd) {
       /* Clearly visible colored border */
-      border: 2.5px solid var(--orange-deep); 
-      
-      h4, .genre-desc { color: var(--orange-deep); }
-      
+      border: 2.5px solid var(--orange-deep);
+
+      h4,
+      .genre-desc {
+        color: var(--orange-deep);
+      }
+
       /* Inactive icon tint */
-      .genre-icon-img { 
-        filter: sepia(1) saturate(5) hue-rotate(-15deg) brightness(0.8); 
+      .genre-icon-img {
+        filter: sepia(1) saturate(5) hue-rotate(-15deg) brightness(0.8);
       }
 
       &:hover {
         background: rgba(204, 68, 0, 0.05); // Very light orange glow
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(204, 68, 0, 0.15);
-        .genre-icon-img { filter: none; transform: scale(1.1); }
+
+        .genre-icon-img {
+          filter: none;
+          transform: scale(1.1);
+        }
       }
     }
 
@@ -242,27 +254,39 @@
     &:nth-child(even) {
       /* Clearly visible colored border */
       border: 2.5px solid var(--brand-purple);
-      
-      h4, .genre-desc { color: var(--brand-purple); }
-      
+
+      h4,
+      .genre-desc {
+        color: var(--brand-purple);
+      }
+
       /* Inactive icon tint */
-      .genre-icon-img { 
-        filter: sepia(1) saturate(2) hue-rotate(240deg) brightness(0.5); 
+      .genre-icon-img {
+        filter: sepia(1) saturate(2) hue-rotate(240deg) brightness(0.5);
       }
 
       &:hover {
         background: rgba(52, 21, 57, 0.05); // Very light purple glow
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(52, 21, 57, 0.15);
-        .genre-icon-img { filter: none; transform: scale(1.1); }
+
+        .genre-icon-img {
+          filter: none;
+          transform: scale(1.1);
+        }
       }
     }
   }
 }
 
 @keyframes scroll-infinite {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 15px)); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 15px));
+  }
 }
 
 /* Mobile Fixes */
@@ -271,9 +295,18 @@
     min-width: 130px;
     padding: 15px 10px;
     border-width: 2px; // Thinner border on mobile
-    
-    h4 { font-size: 1.1rem; }
-    .genre-desc { font-size: 0.75rem; }
-    .icon-wrapper .genre-icon-img { width: 40px; height: 40px; }
+
+    h4 {
+      font-size: 1.1rem;
+    }
+
+    .genre-desc {
+      font-size: 0.75rem;
+    }
+
+    .icon-wrapper .genre-icon-img {
+      width: 40px;
+      height: 40px;
+    }
   }
 }

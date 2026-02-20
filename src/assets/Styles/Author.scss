@@ -1,13 +1,9 @@
-
-
-
-
 // :root {
 //   /* PURPLE PALETTE for Authors */
 //   --purple-accent: #341539;         /* Main Dark Purple */
 //   --purple-tint-bg: #f5f3ff;        /* Very light purple for cards */
 //   --purple-shadow: rgba(52, 21, 57, 0.15);
-  
+
 //   --text-primary: #1a1a1a;
 //   --text-secondary: #555555;
 //   --bg-white: #fdf9f0; /* Matches your background color */
@@ -61,7 +57,7 @@
 
 //         .author-description {
 //             margin-bottom: 40px;
-            
+
 //             .highlight-text {
 //                 font-family: 'Abel', sans-serif;
 //                 font-size: 1.25rem; 
@@ -137,7 +133,7 @@
 
 //         .badge-link {
 //             transition: transform 0.2s ease;
-            
+
 //             img {
 //                 height: 48px;
 //                 width: auto;
@@ -155,7 +151,7 @@
 //     .author-image {
 //         display: flex;
 //         justify-content: center;
-        
+
 //         img {
 //             max-width: 380px; 
 //             width: 100%;
@@ -175,11 +171,11 @@
 // @media (max-width: 992px) {
 //     .author-section {
 //         padding: 60px 0;
-        
+
 //         .author-grid {
 //             grid-template-columns: 1fr;
 //             gap: 0; 
-            
+
 //             .author-image { 
 //                 display: none; 
 //             }
@@ -189,7 +185,7 @@
 //                 width: 100%;
 //                 max-width: 600px; 
 //                 margin: 0 auto;
-                
+
 //                 .section-title { font-size: 3.5rem; }
 
 //                 .section-subtitle {
@@ -265,7 +261,7 @@
 //             .author-download-badges {
 //                 flex-direction: column; /* Stack badges vertically to save width */
 //                 gap: 10px;
-                
+
 //                 .badge-link img {
 //                     height: 40px; /* Make badges slightly smaller */
 //                 }
@@ -291,15 +287,15 @@
 
 
 :root {
-  --purple-accent: #341539;        
-  --text-primary: #1a1a1a;
-  --text-secondary: #555555;
-  --bg-white: #fdf9f0; 
+    --purple-accent: #341539;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --bg-white: #fdf9f0;
 }
 
 .author-section {
     padding: 100px 0;
-    background-color: var(--bg-white); 
+    background-color: var(--bg-white);
     display: flex;
     justify-content: center;
     width: 100%;
@@ -309,7 +305,7 @@
     .container {
         /* FIXED: Added margin: 0 auto to align exactly like ReaderSection */
         width: 90%;
-        max-width: 1300px; 
+        max-width: 1300px;
         margin: 0 auto;
     }
 
@@ -317,7 +313,7 @@
         display: grid;
         /* Matches the Reader Section ratio, but reversed since Text is first */
         grid-template-columns: 1.2fr 1fr;
-        gap: 80px; 
+        gap: 80px;
         align-items: center;
     }
 
@@ -327,9 +323,9 @@
         /* MAIN TITLE */
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 5rem; 
+            font-size: 5rem;
             line-height: 0.9;
-            margin: 0 0 40px 0; 
+            margin: 0 0 40px 0;
             color: var(--purple-accent);
             text-transform: uppercase;
             letter-spacing: -1px;
@@ -339,10 +335,10 @@
 
         .author-description {
             margin-bottom: 40px;
-            
+
             .highlight-text {
                 font-family: 'Abel', sans-serif;
-                font-size: 1.45rem; 
+                font-size: 1.45rem;
                 font-weight: 700;
                 color: var(--text-primary);
                 margin-bottom: 15px;
@@ -350,7 +346,8 @@
 
             p {
                 font-family: 'Abel', sans-serif;
-                font-size: 1.15rem; /* Matched to Reader body font size */
+                font-size: 1.15rem;
+                /* Matched to Reader body font size */
                 font-weight: 600;
                 line-height: 1.7;
                 color: var(--text-secondary);
@@ -366,7 +363,7 @@
             margin-bottom: 45px;
 
             .benefit-card {
-                background: var(--purple-accent); 
+                background: var(--purple-accent);
                 padding: 25px;
                 border-radius: 18px;
                 transition: all 0.3s ease;
@@ -376,28 +373,34 @@
                     font-family: 'Bebas Neue', sans-serif;
                     font-size: 1.6rem;
                     margin-bottom: 10px;
-                    color: #fff; 
+                    color: #fff;
                     letter-spacing: 0.5px;
-                    transition: color 0.3s ease; 
+                    transition: color 0.3s ease;
                 }
+
                 p {
                     font-family: 'Abel', sans-serif;
                     font-size: 1.05rem;
                     font-weight: 600;
-                    color: #fff; 
+                    color: #fff;
                     line-height: 1.5;
                     margin: 0;
-                    transition: color 0.3s ease; 
+                    transition: color 0.3s ease;
                 }
 
                 &:hover {
-                    background: #ffffff; 
+                    background: #ffffff;
                     box-shadow: 0 10px 30px rgba(52, 21, 57, 0.15);
                     transform: translateY(-5px);
                     border-color: var(--purple-accent);
 
-                    h4 { color: var(--purple-accent); }
-                    p { color: var(--text-secondary); }
+                    h4 {
+                        color: var(--purple-accent);
+                    }
+
+                    p {
+                        color: var(--text-secondary);
+                    }
                 }
             }
         }
@@ -411,13 +414,17 @@
 
             .badge-link {
                 transition: transform 0.2s ease;
+
                 img {
                     height: 48px;
                     width: auto;
                     display: block;
                     max-width: 100%;
                 }
-                &:hover { transform: translateY(-4px); }
+
+                &:hover {
+                    transform: translateY(-4px);
+                }
             }
         }
     }
@@ -426,33 +433,39 @@
     .author-image {
         display: flex;
         justify-content: center;
-        
+
         img {
-            max-width: 380px; 
+            max-width: 380px;
             width: 100%;
             height: auto;
-            border-radius: 20px; 
+            border-radius: 20px;
             /* Negative X offset so shadow drops to the LEFT, mirroring the Reader image */
-            box-shadow: -25px 25px 0px rgba(52, 21, 57, 0.1); 
+            box-shadow: -25px 25px 0px rgba(52, 21, 57, 0.1);
             transition: transform 0.5s ease;
 
-            &:hover { transform: scale(1.02); }
+            &:hover {
+                transform: scale(1.02);
+            }
         }
     }
 }
 
 /* === RESPONSIVE (TABLET & LARGE PHONES) === */
-@media (max-width: 800px) { /* Matched breakpoint to ReaderSection */
+@media (max-width: 800px) {
+
+    /* Matched breakpoint to ReaderSection */
     .author-section {
         padding: 60px 0;
-        
+
         .author-grid {
             grid-template-columns: 1fr;
-            gap: 50px; 
-            
-            .author-image { 
-                display: flex; /* FIXED: Prevents image from disappearing */
-                order: -1; /* Forces image to stack on top of text */
+            gap: 50px;
+
+            .author-image {
+                display: flex;
+                /* FIXED: Prevents image from disappearing */
+                order: -1;
+                /* Forces image to stack on top of text */
 
                 img {
                     max-width: 300px;
@@ -460,35 +473,40 @@
                 }
             }
 
-            .author-text { 
-                text-align: center;
+            .author-text {
+                text-align: left;
                 width: 100%;
-                max-width: 600px; 
+                max-width: 600px;
                 margin: 0 auto;
-                
-                .section-title { font-size: 3.5rem; }
+
+                .section-title {
+                    font-size: 3.5rem;
+                }
 
                 .author-description {
                     text-align: left;
                     padding: 0 10px;
                     margin-bottom: 30px;
-                    
-                    .highlight-text { text-align: center; }
+
+                    .highlight-text {
+                        text-align: left;
+                    }
                 }
 
                 .author-benefits {
-                    grid-template-columns: 1fr; /* Stacks the purple cards vertically */
+                    grid-template-columns: 1fr;
+                    /* Stacks the purple cards vertically */
                     gap: 15px;
                     padding: 0 10px;
                     margin-bottom: 35px;
 
-                    .benefit-card { 
-                        text-align: center; 
+                    .benefit-card {
+                        text-align: left;
                     }
                 }
 
                 .author-download-badges {
-                    justify-content: center;
+                    justify-content: flex-start;
                     margin-top: 40px;
                 }
             }
@@ -497,7 +515,9 @@
 }
 
 /* === ULTRA SMALL SCREENS (Phones below 400px) === */
-@media (max-width: 400px) { /* Matched breakpoint to ReaderSection */
+@media (max-width: 400px) {
+
+    /* Matched breakpoint to ReaderSection */
     .author-section {
         .author-grid {
             gap: 30px;
@@ -514,15 +534,23 @@
 
                 .author-benefits .benefit-card {
                     padding: 20px;
-                    h4 { font-size: 1.4rem; }
-                    p { font-size: 1rem; }
+
+                    h4 {
+                        font-size: 1.4rem;
+                    }
+
+                    p {
+                        font-size: 1rem;
+                    }
                 }
 
                 .author-download-badges {
-                    flex-direction: column; 
+                    flex-direction: column;
                     gap: 12px;
-                    
-                    .badge-link img { height: 44px; }
+
+                    .badge-link img {
+                        height: 44px;
+                    }
                 }
             }
         }
