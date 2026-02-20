@@ -225,7 +225,7 @@ const AuthorRegistration = () => {
       setCurrentImgIndex((prevIndex) =>
         prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [carouselImages.length]);
 

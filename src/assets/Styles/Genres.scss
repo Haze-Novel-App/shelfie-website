@@ -169,7 +169,7 @@
     /* Hardware acceleration and optimization */
     will-change: transform;
     transform: translateZ(0);
-    animation: scroll-infinite 25s linear infinite;
+    animation: scroll-infinite 6s linear infinite;
 
     &:hover {
       animation-play-state: paused;
