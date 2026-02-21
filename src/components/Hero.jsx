@@ -1,7 +1,5 @@
 
 
-
-
 import React, { useState, useEffect } from 'react';
 import horrorBook from '../assets/imgs/bookCover/romantic.png';
 import mystery1 from '../assets/imgs/bookCover/mystery1.png';
@@ -24,7 +22,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
-    }, 2500);
+    }, 2800);
     return () => clearInterval(interval);
   }, []);
 

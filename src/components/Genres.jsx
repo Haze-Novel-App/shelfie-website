@@ -1,6 +1,7 @@
 
 
 
+
 // import React from 'react';
 // import horror from '../assets/imgs/generes/horror.png';
 // import fantasy from '../assets/imgs/generes/dragon.png';
@@ -10,9 +11,6 @@
 // import drama from '../assets/imgs/generes/drama.png';
 // import historical from '../assets/imgs/generes/historical.png';
 // import mystery from '../assets/imgs/generes/Mystery.png';
-// // import mystery from '../assets/imgs/generes/mystery.png';
-
-
 
 // const Genres = () => {
 //   const genreData = [
@@ -26,7 +24,7 @@
 //     { title: 'Horror', icon: horror, desc: 'Thrills & Chills' }
 //   ];
 
-//   // Duplicate the data to create the infinite loop effect
+//   // Duplicating the data creates the loop illusion
 //   const scrollingData = [...genreData, ...genreData];
 
 //   return (
@@ -34,12 +32,14 @@
 //       <div className="genres-slider">
 //         <div className="genres-track">
 //           {scrollingData.map((genre, index) => (
-//             <div className="genre-item" key={index}>
+//             <div className="genre-item" key={`${genre.title}-${index}`}>
 //               <div className="icon-wrapper">
 //                 <img src={genre.icon} alt={genre.title} className="genre-icon-img" />
 //               </div>
-//               <h4>{genre.title}</h4>
-//               <p className="genre-desc">{genre.desc}</p>
+//               <div className="text-wrapper">
+//                 <h4>{genre.title}</h4>
+//                 <p className="genre-desc">{genre.desc}</p>
+//               </div>
 //             </div>
 //           ))}
 //         </div>
@@ -58,6 +58,10 @@
 
 
 
+
+
+
+
 import React from 'react';
 import horror from '../assets/imgs/generes/horror.png';
 import fantasy from '../assets/imgs/generes/dragon.png';
@@ -67,7 +71,6 @@ import selfhelp from '../assets/imgs/generes/book.png';
 import drama from '../assets/imgs/generes/drama.png';
 import historical from '../assets/imgs/generes/historical.png';
 import mystery from '../assets/imgs/generes/Mystery.png';
-// import mystery from '../assets/imgs/generes/mystery.png';
 
 const Genres = () => {
   const genreData = [

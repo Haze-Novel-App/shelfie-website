@@ -106,8 +106,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
-    padding: 0 4%;
+    // height: 120px;
+    padding: 10px 4%;
     // background-color: #fdfaf3;
     background-color: #fdf9f0;
     position: relative;
@@ -124,7 +124,7 @@
 
         .logo-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 4.2rem;
+            font-size: 2.2rem;
             color: #341539;
             line-height: 0.8;
             margin: 0;
@@ -133,11 +133,11 @@
 
         .logo-slogan {
             font-family: 'Able', sans-serif;
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             font-weight: 500;
             color: #341539;
             // text-transform: uppercase;
-            margin-top: 4px;
+            margin-top: 3px;
         }
     }
 
@@ -198,12 +198,12 @@
 // Mobile scaling
 @media (max-width: 768px) {
     .main-header {
-        height: 100px;
-        padding: 0 5%;
+        // height: 100px;
+        padding: 10px 5%;
 
         .logo-container {
             .logo-title {
-                font-size: 3.2rem; // Smaller logo for mobile
+                font-size: 2.2rem; // Smaller logo for mobile
             }
 
             // .logo-slogan {
@@ -237,6 +237,7 @@
 @media (max-width: 380px) {
     .main-header {
         // .logo-container removed as it was empty
+        padding: 8px 5%;
 
         .header-actions {
 
@@ -250,5 +251,10 @@
         .logo-container .logo-title {
             font-size: 1.6rem;
         }
+
+        .logo-container .logo-slogan {
+                // display: none; // Hide slogan on mobile
+                font-size: 0.7rem;
+            }
     }
 }
