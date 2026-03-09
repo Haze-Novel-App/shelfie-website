@@ -73,7 +73,7 @@ const Header = () => {
       });
     }
   };
-  
+
 
   return (
     <header className="main-header">
@@ -101,7 +101,7 @@ const Header = () => {
           className="btn-author"
           onClick={(e) => handleScroll(e, 'register')}
         >
-          <span className="text-desktop">Get started as author</span>
+          <span className="text-desktop">Start writing today</span>
           <span className="text-mobile">Author</span>
         </button>
       </div>
